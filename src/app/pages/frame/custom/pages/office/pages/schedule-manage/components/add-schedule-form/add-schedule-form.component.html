@@ -1,0 +1,77 @@
+<form (ngSubmit)="onSubmit()" #addScheduleForm="ngForm" class="form-horizontal">
+	<div class="form-group">
+		<label class="col-sm-3 control-label text-muted">日程标题：</label>
+		<div class="col-sm-8">
+			<input type="text" class="form-control" name="title" id="title"
+			       required
+			       [(ngModel)]="schedule.title"
+			       #title="ngModel"
+			>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label text-muted">日程地址：</label>
+		<div class="col-sm-8">
+			<input type="text" class="form-control" name="addr" id="addr"
+			       required
+			       [(ngModel)]="schedule.addr"
+			       #addr="ngModel"
+			>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label text-muted">日程内容：</label>
+		<div class="col-sm-8">
+			<input type="text" class="form-control" name="content" id="content"
+			       required
+			       [(ngModel)]="schedule.content"
+			       #content="ngModel"
+			>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label text-muted">开始日期：</label>
+		<div class="col-sm-8">
+			<input type="date" class="form-control" name="startTime" id="startTime"
+			       required
+			       [(ngModel)]="schedule.startTime"
+			       #startTime="ngModel"
+			>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label text-muted">结束日期：</label>
+		<div class="col-sm-8">
+			<input type="date" class="form-control" name="endTime" id="endTime"
+			       required
+			       [(ngModel)]="schedule.endTime"
+			       #endTime="ngModel"
+			>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label text-muted">提醒日期：</label>
+		<div class="col-sm-8">
+			<input type="date" class="form-control" name="remindTime" id="remindTime"
+			       [(ngModel)]="schedule.remindTime"
+			       #remindTime="ngModel"
+			>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label text-muted">备注：</label>
+		<div class="col-sm-8">
+			<input type="text" class="form-control" name="info" id="info"
+			       [(ngModel)]="schedule.info"
+			       #info="ngModel"
+			>
+		</div>
+	</div>
+	<hr>
+	<div class="text-right">
+		<input type="button" [value]="cancleText" class="btn btn-default"
+		       (click)="cancleHandler();addScheduleForm.reset();">
+		<input type="button" class="btn btn-primary" [value]="confirmText"
+		       [disabled]="!addScheduleForm.form.valid" (click)="confirmHandler(schedule);addScheduleForm.reset();">
+	</div>
+</form>

@@ -1,0 +1,52 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					组织机构
+					<span class="pull-right">
+					<button class="btn btn-primary btn-xs" [disabled]="!selectedOrg" (click)="addOrg()">添加</button>
+					<button class="btn btn-warning btn-xs" [disabled]="!selectedOrg" (click)="modifyOrg()">编辑</button>
+					<button class="btn btn-danger btn-xs" [disabled]="!selectedOrg||!selectedOrg.c_parent_id" (click)="deleteOrg()">删除</button>
+				</span>
+				</div>
+				<div class="panel-body">
+					<org-tree (output)="treeClick($event)"></org-tree>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-9">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<span *ngIf="selectedOrg" class="label label-success">{{selectedOrg.c_name}}</span> 用户列表
+					<button type="button" class="btn btn-primary btn-xs pull-right" (click)="openAddUser()">添加用户</button>
+				</div>
+				<div class="panel-body">
+					<essence-ng2-table [option]="option" (ready)="ready()" #eTable></essence-ng2-table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<modal [animation]="animation" [keyboard]="keyboard" [backdrop]="backdrop" (onClose)="closed()" (onDismiss)="dismissed()"
+       (onOpen)="opened()" [cssClass]="cssClass" #modal >
+	<modal-header [show-close]="true">
+		<h4 class="modal-title">{{userFormTitle}}</h4>
+	</modal-header>
+	<modal-body>
+		<user-form [selectedOrg]="selectedOrg" (close)="closeForm(type)"></user-form>
+	</modal-body>
+	<!--<modal-footer [show-default-buttons]="false"></modal-footer>-->
+</modal>
+
+<modal [animation]="animation" [keyboard]="keyboard" [backdrop]="backdrop" (onClose)="closed()" (onDismiss)="dismissed()"
+	   [cssClass]="cssClass" #userDetailModal >
+	<modal-header [show-close]="true">
+		<h4 class="modal-title">用户详细信息</h4>
+	</modal-header>
+	<modal-body>
+		<user-detail></user-detail>
+	</modal-body>
+	<!--<modal-footer [show-default-buttons]="false"></modal-footer>-->
+</modal>

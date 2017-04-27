@@ -1,0 +1,28 @@
+<div class="container-fluid">
+	<essence-ng2-calendar [schedules]="schedules"
+	                      (onAddSchedule)="onAddSchedule($event)"
+	                      (onViewAllSchedule)="onViewAllSchedule($event)"
+	                      (onViewSchedule)="onViewSchedule($event)"
+	                      (onDeleteSchedule)="onDeleteSchedule($event)"
+	                      (dateChange)="onDateChange($event)">
+	</essence-ng2-calendar>
+</div>
+<modal #addScheduleModal>
+	<modal-header [show-close]="true">
+		<h4 class="modal-title">{{modalTitle}}</h4>
+	</modal-header>
+	<modal-body>
+		<add-schedule-form (cancle)="onCancle()" (confirm)="onConfirm($event)" [schedule]="schedule"></add-schedule-form>
+	</modal-body>
+</modal>
+<modal #schedulesDetailModal>
+	<modal-header [show-close]="true">
+		<h4 class="modal-title">所有日程详细信息</h4>
+	</modal-header>
+	<modal-body>
+		<schedules-detail-template [schedulesData]="curSchedulesDetailData"></schedules-detail-template>
+	</modal-body>
+	<modal-footer>
+		<button type="button" class="btn btn-primary" (click)="schedulesDetailModal.close()">关闭</button>
+	</modal-footer>
+</modal>

@@ -1,0 +1,24 @@
+<form (ngSubmit)="onSubmit()" #docTypeForm="ngForm" class="form-horizontal">
+	<div class="form-group">
+		<label class="col-sm-3 control-label text-muted">文档类型:</label>
+		<div class="col-sm-8">
+			<input type="text" class="form-control" name="c_info" id="c_info"
+			       required
+			       [(ngModel)]="docType.c_info"
+			       #c_info="ngModel"
+			>
+			<div [hidden]="c_info.valid || c_info.pristine"
+			     class="alert alert-danger">
+				类型不能为空
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="text-right">
+		<input type="button" [value]="cancleText" class="btn btn-default"
+		       (click)="cancleHandler();docTypeForm.reset();">
+		<input type="button" class="btn btn-primary" [value]="confirmText"
+		       [disabled]="!docTypeForm.form.valid" (click)="confirmHandler();docTypeForm.reset();">
+	</div>
+</form>
+

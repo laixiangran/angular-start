@@ -1,0 +1,45 @@
+<div class="loginPlat">
+	<img src="./assets/images/login/login-bg.jpg" class="img-responsive" alt="">
+	<div>
+		<div class="container">
+			<div class="containerDiv">
+				<h1 class="text-center">Angular2 Start</h1>
+				<div class="login-form-container">
+					<form #loginForm="ngForm"class="loginForm">
+						<div class="form-group username">
+							<input type="text" id="c_login_id" placeholder="输入用户名"
+							       required
+							       [(ngModel)]="access.c_login_id" name="c_login_id"
+							       #c_login_id="ngModel">
+							<div [hidden]="c_login_id.valid || c_login_id.pristine"
+							     class="alert alert-danger">
+								用户名是必需的
+							</div>
+						</div>
+						<div class="form-group password">
+							<input type="password" id="c_password" placeholder="输入密码"
+							       required
+							       [(ngModel)]="access.c_password" name="c_password"
+							       #c_password="ngModel">
+							<div [hidden]="c_password.valid || c_password.pristine"
+							     class="alert alert-danger">
+								密码是必需的
+							</div>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox"> 保持登录
+							</label>
+						</div>
+						<div class="form-group">
+							<button type="button" class="form-control loginBtn" (click)="login()" [disabled]="!loginForm.form.valid">
+								登录
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

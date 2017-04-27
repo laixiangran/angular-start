@@ -1,0 +1,81 @@
+<div class="essence-ng2-calendar">
+
+	<div *ngIf="isShowYearAndMonth" class="yearAndMonth-view">
+		<div class="yearAndMonth">
+			<div class="yearAndMonth-close" (click)="toggleYearAndMonth()" title="关闭">
+				<i class="fa fa-times-circle" aria-hidden="true"></i>
+			</div>
+			<div class="select-header">
+				<span *ngIf="isShowMonthView" (click)="showYearView(selectYear)">{{selectYear}}</span>
+				<span *ngIf="isShowYearView">{{selectYearText}}</span>
+				<span *ngIf="isShowYearView" [ngClass]="{disable: maxTenYear}" class="nextTenYear glyphicon glyphicon-chevron-down" (click)="nextTenYear()"></span>
+				<span *ngIf="isShowYearView" [ngClass]="{disable: minTenYear}" class="preTenYear glyphicon glyphicon-chevron-up" (click)="preTenYear()"></span>
+			</div>
+			<div class="select-content">
+				<ul *ngIf="isShowMonthView">
+					<li *ngFor="let month of monthData; let i = index;" [ngClass]="{select: selectMonth === i}" (click)="changeMonth(i)">
+						<span>{{month}}</span>
+					</li>
+				</ul>
+				<ul *ngIf="isShowYearView">
+					<li *ngFor="let year of yearData; let i = index;" [ngClass]="{select: selectYear === year, disable: isInTenYear(year)}" (click)="changeYear(year)">
+						<span>{{year}}</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="calendar-header">
+		<span class="today" (click)="backToday()">返回今天</span>
+		<div class="dateSelect">
+			<span class="preMonth" (click)="preMonth()"></span>
+			<span class="dateText" (click)="toggleYearAndMonth()">{{now | date: "yyyy年MM月"}}</span>
+			<span class="nextMonth" (click)="nextMonth()"></span>
+		</div>
+	</div>
+	<div class="calendar-content">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="dateHeader">
+						<span *ngFor="let week of weekData;" class="week">
+							{{week}}
+						</span>
+					</div>
+					<ul>
+						<li *ngFor="let monthData of calendarData.monthData;"
+						    [ngClass]="{disable: isNotSameMonth(monthData.year, monthData.month), currDay: isCurrDay(monthData.year, monthData.month, monthData.day)}">
+
+							<div *ngIf="!!initSchedules" class="handle">
+								<a href="javascript:void(0);" title="添加" (click)="addSchedule(monthData)">
+									<i class="fa fa-plus-circle" aria-hidden="true"></i>
+								</a>
+								<a href="javascript:void(0);" title="详情" (click)="viewAllSchedule(monthData)">
+									<i class="fa fa-list" aria-hidden="true"></i>
+								</a>
+							</div>
+
+							<p>{{monthData.day}}</p>
+
+							<ul>
+								<li *ngFor="let schedule of monthData.data;">
+									<a href="javascript:void(0);" class="text_con" [title]="schedule.title" (click)="viewSchedule(monthData, schedule)">
+										<i class="fa fa-star" aria-hidden="true"></i>
+										{{schedule.title}}
+									</a>
+									<a href="javascript:void(0);" class="del_con" title="删除" (click)="deleteSchedule(schedule)">
+										<i class="fa fa-trash"></i>
+									</a>
+									<a href="javascript:void(0);" class="text_dotted" [title]="schedule.title">
+										...
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,80 @@
+.theme-skin-three{
+    .typeHead{
+        padding:25px;
+        border-bottom: 2px solid #ccc;
+        .addBtn{
+            font-size:25px;
+            color: #00B7EE;
+            cursor: pointer;
+        }
+        .docType{
+            font-size: 18px;
+        }
+    }
+}
+.docListPanel{
+    .typeHeadTwo{
+        padding:24px;
+        border-bottom: 2px solid #eee;
+        .docType{
+            font-size: 18px;
+        }
+        .addDoc{
+            margin-left:8px;
+        }
+    }
+}
+.typeBody{
+    padding:10px 18px 10px 7px;
+    .typeBodyHead{
+        padding:20px 40px 10px 23px;
+        .type{
+            margin-left:27px;
+        }
+    }
+    ul{
+        padding:0;
+        margin:0;
+        li{
+            margin:0;
+            list-style: none;
+            padding:15px 10px 15px 20px;
+            cursor: pointer;
+            border:2px solid #fff;
+            &:hover{
+                border:2px solid #d6e9c6;
+                border-radius: 5px;
+            }
+            span{
+                font-size: 16px;
+                color:#777;
+                font-weight: 600;
+                vertical-align: middle;
+                &.del_icon{
+                    display: inline-block;
+                    margin-left:25px;
+                    &:hover{
+                        color:red;
+                    }
+                }
+            }
+            .tag{
+                display: inline-block;
+                width:30px;
+                height:30px;
+                line-height: 30px;
+                text-align: center;
+                background: #00B7EE;
+                color:#fff !important;
+            }
+            .typeDoc{
+                margin-left:23px;
+            }
+        }
+    }
+}
+.selected{
+    border:2px solid #d6e9c6 !important;
+    border-radius: 6px !important;
+}
+

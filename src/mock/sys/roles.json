@@ -1,0 +1,36 @@
+{
+  "info": "成功获取数据！",
+  "code": "ok",
+  "result": [
+	{
+	  "c_id": "1",
+	  "c_name": "角色1",
+	  "c_comment": "这是备注",
+	  "n_order": 1
+	},
+	{
+	  "c_id": "2",
+	  "c_name": "角色2",
+	  "c_comment": "这是备注",
+	  "n_order": 1
+	},
+	{
+	  "c_id": "3",
+	  "c_name": "角色3",
+	  "c_comment": "这是备注",
+	  "n_order": 1
+	},
+	{
+	  "c_id": "4",
+	  "c_name": "角色4",
+	  "c_comment": "这是备注",
+	  "n_order": 1
+	},
+	{
+	  "c_id": "5",
+	  "c_name": "角色5",
+	  "c_comment": "这是备注",
+	  "n_order": 1
+	}
+  ]
+}

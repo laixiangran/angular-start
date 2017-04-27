@@ -1,0 +1,84 @@
+body {
+    padding: 0;
+    margin: 0;
+    width:100%;
+    height:100%;
+}
+.loginPlat{
+    position:absolute;
+    top:0;left:0;
+    width:100%;
+    height:100%;
+
+}
+.loginPlat>img{
+    width:100%;
+    height:100%
+}
+.loginPlat>div{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+}
+.containerDiv{
+    margin:20% auto 0;
+    width:630px;
+}
+.containerDiv>h1{
+    color:#fff;
+}
+.login-form-container{
+    width:100%;
+    /*height:380px;*/
+    background: #fff;
+    border-radius: 8px;
+    margin-top:15px;
+}
+.loginForm{
+    width:510px;
+    margin:0 auto;
+    padding:50px 0 40px;
+}
+#c_login_id,#c_password{
+    width:100%;
+    height:65px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left:75px;
+    color:#333;
+}
+#c_login_id{
+    background: #f7fbfd url("/assets/images/login/user.png") no-repeat 20px 12px;
+}
+#c_password{
+    background: #f7fbfd url("/assets/images/login/password.png") no-repeat 20px 12px;
+}
+.username,.password{
+    position:relative;
+}
+.username{
+    margin-bottom: 30px;
+}
+.username:before ,.password:before{
+    content: "";
+    width:65px;
+    height:42px;
+    position:absolute;
+    top:14px;
+    border-right:1px solid #62a2e7;
+}
+.loginBtn{
+    width:248px;
+    height:68px;
+    text-align: center;
+    background: #fd9a0b;
+    color:#fff;
+    font-size: 20px;
+    border-radius: 13px;
+    margin: 0 auto;
+    border:none;
+    box-shadow: 0 0 4px 1px #fd9a0b;
+}

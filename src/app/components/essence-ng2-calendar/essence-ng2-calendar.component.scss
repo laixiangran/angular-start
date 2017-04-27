@@ -1,0 +1,346 @@
+$baseColor: #666666;
+$hoverColor: #00B7EE;
+$borderBaseColor: #DDDDDD;
+$todayColor: #DD464C;
+$disableColor: #BBBBBB;
+$closeBtnColor: #FFFFFF;
+$bgBaseColor: #FFFFFF;
+$modalBgColor: rgba(0, 0, 0, 0.5);
+
+@mixin trigon($borderWidth: 8px) {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: $borderWidth solid transparent;
+    border-bottom: $borderWidth solid transparent;
+}
+
+@mixin leftTrigon($borderWidth: 8px, $borderColor: #6F6F6F, $borderHoverColor: #000000) {
+    @include trigon($borderWidth);
+    margin-right: 2 * $borderWidth;
+    border-right: 2 * $borderWidth solid $borderColor;
+
+    &:hover {
+        border-right: 2 * $borderWidth solid $borderHoverColor;
+    }
+}
+
+@mixin rightTrigon($borderWidth: 8px, $borderColor: #6F6F6F, $borderHoverColor: #000000) {
+    @include trigon($borderWidth);
+    margin-left: 2 * $borderWidth;
+    border-left: 2 * $borderWidth solid $baseColor;
+
+    &:hover {
+        border-left: 2 * $borderWidth solid $borderHoverColor;
+    }
+}
+
+.essence-ng2-calendar {
+
+    position: relative;
+    background: $bgBaseColor;
+    padding: 10px;
+
+    ul, li {
+        list-style: none;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    .disable {
+        color: $disableColor;
+    }
+
+    .select {
+        color: $todayColor;
+    }
+
+    .yearAndMonth-view {
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: $modalBgColor;
+        z-index: 98;
+
+        .yearAndMonth {
+            position: absolute;
+            width: 400px;
+            border: 1px solid $borderBaseColor;
+            background: $bgBaseColor;
+            top: 48px;
+            left: 50%;
+            margin-left: -200px;
+            z-index: 99;
+            box-shadow: 0 0 10px 0 $borderBaseColor;
+            color: $baseColor;
+
+            .yearAndMonth-close {
+                position: absolute;
+                z-index: 100;
+                top: -18px;
+                right: -16px;
+                font-size: 20px;
+                cursor: pointer;
+                color: $closeBtnColor;
+            }
+
+            .select-header {
+
+                height: 40px;
+                line-height: 40px;
+                padding-left: 10px;
+                padding-right: 10px;
+
+                span {
+                    font-size: 20px;
+                    cursor: default;
+
+                    &:hover {
+                        color: $hoverColor;
+                    }
+
+                    &.preTenYear, &.nextTenYear {
+                        float: right;
+                        margin-left: 10px;
+                        margin-top: 0.5em;
+                    }
+
+                    &.disable:hover {
+                        color: $disableColor;
+                    }
+                }
+            }
+
+            .select-content {
+                ul {
+
+                    font-size: 18px;
+                    font-weight: bold;
+
+                    li {
+                        float: left;
+                        width: 99px;
+                        height: 100px;
+                        line-height: 100px;
+                        text-align: center;
+                        border-top: 1px solid $borderBaseColor;
+                        border-right: 1px solid $borderBaseColor;
+
+                        span {
+                            cursor: default;
+                        }
+
+                        &.disable:hover {
+                            color: $disableColor;
+                        }
+
+                        &.select:hover {
+                            color: $todayColor;
+                        }
+
+                        &:hover {
+                            color: $hoverColor;
+                        }
+
+                        &:nth-child(4n) {
+                            border-right: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .calendar-header {
+        text-align: center;
+        padding: 0 50px 0 0;
+        margin-bottom: 20px;
+
+        .today {
+            display: inline-block;
+            float: left;
+            line-height: 20px;
+            border: 1px solid $baseColor;
+            padding: 2px 10px;
+            cursor: pointer;
+
+            &:hover {
+                border: 1px solid $hoverColor;
+            }
+        }
+
+        .dateSelect {
+            display: inline-block;
+            color: $baseColor;
+
+            .dateText {
+                font-size: 20px;
+                font-weight: bold;
+                cursor: default;
+
+                &:hover {
+                    color: $hoverColor;
+                }
+            }
+
+            .preMonth {
+                @include leftTrigon(8px, $baseColor, $hoverColor);
+            }
+
+            .nextMonth {
+                @include rightTrigon(8px, $baseColor, $hoverColor);
+            }
+        }
+    }
+
+    .calendar-content {
+
+        .panel {
+            overflow: hidden;
+
+            .dateHeader {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+
+                .week {
+                    display: inline-block;
+                    float: left;
+                    font-size: 16px;
+                    font-weight: bold;
+                    width: 14.28%;
+                    height: 50px;
+                    line-height: 50px;
+                    text-align: center;
+                    border-left: 1px solid $borderBaseColor;
+                    color: $baseColor;
+
+                    &:nth-child(1) {
+                        border-left: none;
+                        margin-left: -1px;
+                    }
+                }
+            }
+
+            & > ul {
+                font-size: 18px;
+                font-weight: bold;
+                color: $baseColor;
+
+                & > li {
+                    position: relative;
+                    float: left;
+                    width: 14.28%;
+                    height: 120px;
+                    border-top: 1px solid $borderBaseColor;
+                    border-right: 1px solid $borderBaseColor;
+                    padding: 10px 0 0 10px;
+
+                    &:nth-child(7n) {
+                        border-right: none;
+                    }
+
+                    &.disable {
+                        &:hover {
+                            .handle {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    &.currDay {
+                        color: $todayColor;
+
+                        &:hover {
+                            color: $todayColor;
+                        }
+                    }
+
+                    &:hover {
+                        .handle {
+                            display: block;
+                        }
+                    }
+
+                    .handle {
+                        font-size: 16px;
+                        position: absolute;
+                        display: none;
+                        top: 2px;
+                        right: 2px;
+
+                        a {
+                            color: $baseColor;
+
+                            &:hover {
+                                color: $hoverColor;
+                            }
+                        }
+                    }
+
+                    a {
+                        &:link, &:active, &:visited {
+                            text-decoration: none;
+                        }
+                    }
+
+                    & > ul {
+                        font-size: 12px;
+                        height: 5.2em;
+
+                        & > li {
+                            overflow: hidden;
+                            zoom: 1;
+                            height: 1.3em;
+                            &:hover{
+                                .del_con{
+                                    display: inline-block;
+                                }
+                            }
+                            a {
+                                display: block;
+                                color: inherit;
+
+                                &:hover {
+                                    color: $hoverColor;
+                                }
+
+                                &.text_con {
+                                    float: left;
+                                    height: 1.3em;
+                                    margin-right: 1em;
+                                    overflow: hidden;
+
+                                    &:hover + .text_dotted {
+                                        color: $hoverColor;
+                                    }
+                                }
+                                &.del_con {
+                                    float: left;
+                                    display: none;
+                                    &:hover{
+                                        color:red;
+                                    }
+                                }
+                                &.text_dotted {
+                                    height: 1.31em;
+                                    float: right;
+                                    margin-top: -1.3em;
+                                    width: 1.1em;
+
+                                    &:hover + .text_con {
+                                        color: $hoverColor;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

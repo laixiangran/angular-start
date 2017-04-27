@@ -1,0 +1,32 @@
+{
+  "code": "ok",
+  "info": "查询成功",
+  "result": [
+	{
+	  "c_id": "01998",
+	  "c_name": "组织机构",
+	  "expanded": true,
+	  "c_parent_id": null,
+	  "n_order": 0,
+	  "c_comment": "IP分配",
+	  "children": [
+		{
+		  "c_id": "2323",
+		  "c_name": "办公室",
+		  "c_parent_id": "01998",
+		  "n_order": 0,
+		  "c_comment": "112111",
+		  "children": []
+		},
+		{
+		  "c_id": "1212",
+		  "c_name": "财务",
+		  "c_parent_id": "01998",
+		  "n_order": 0,
+		  "c_comment": "112111",
+		  "children": []
+		}
+	  ]
+	}
+  ]
+}

@@ -1,0 +1,69 @@
+<table class="table table-bordered essence-table">
+	<thead>
+	<tr class="bg-info">
+		<th *ngIf="config.columns.index.enabled" class="text-nowrap">序号</th>
+		<template ngFor let-column [ngForOf]="config.columns.items" let-columnIndex="index">
+			<th *ngIf="column.visible" [ngClass]="_getColumnStyle(column)" (click)="_sort(column)" [attr.width]="column.width" class="text-nowrap">
+				{{column.label}} <i class="fa hidden-print" *ngIf="column.order" [ngClass]="{'fa-sort text-muted': column.order === 'sort' || column.order === true, 'fa-sort-asc': column.order === 'asc', 'fa-sort-desc': column.order === 'desc'}"></i>
+			</th>
+		</template>
+	</tr>
+	</thead>
+	<tbody>
+	<template *ngIf="tableData" ngFor let-data [ngForOf]="tableData.pageInfo.items" let-dataIndex="index">
+		<tr>
+			<td *ngIf="config.columns.index.enabled" class="text-center">{{dataIndex+tableData.pageInfo.beginRecord}}</td>
+			<template ngFor let-column [ngForOf]="config.columns.items" let-columnIndex="index">
+				<td *ngIf="column.visible" [ngClass]="column.cls">
+					<span *ngIf="_isFunction(column.render) && column.render(data)">{{column.render(data)}}</span>
+					<span *ngIf="!_isFunction(column.render) || !column.render(data)">{{data[column.colName]}}</span>
+					<div *ngIf="!column.colName">
+						<template ngFor let-button [ngForOf]="column.render" let-buttonIndex="index">
+							<button *ngIf="!_isFunction(button.exist) || button.exist(data)" type="button" class="btn" [ngClass]="button.cls" (click)="button.event(data)">{{button.text}}</button>
+						</template>
+					</div>
+				</td>
+			</template>
+		</tr>
+	</template>
+	</tbody>
+	<tfoot class="hidden-print">
+		<tr>
+			<td *ngIf="config.columns.index.enabled"></td>
+			<template ngFor let-column [ngForOf]="config.columns.items" let-columnIndex="index">
+				<td *ngIf="column.visible">
+					<div *ngIf="column.filterProp.enabled">
+						<input type="text" class="form-control" (keyup)="_filter($event, column)" *ngIf="column.filterProp.type === 'string'" [placeholder]="column.label">
+						<select class="form-control" (change)="_filter($event, column)" *ngIf="column.filterProp.type === 'select'">
+							<option value="">全部</option>
+							<option *ngFor="let s of column.filterProp.data" [value]="s.value">{{s.text}}</option>
+						</select>
+						<input type="date" class="form-control" (change)="_filter($event, column)" *ngIf="column.filterProp.type === 'date'">
+					</div>
+				</td>
+			</template>
+		</tr>
+	</tfoot>
+</table>
+<div class="row" *ngIf="tableData">
+	<div class="col-sm-6">
+		显示 {{tableData.pageInfo.beginRecord}} 到 {{tableData.pageInfo.endRecord}} 条，共 {{tableData.pageInfo.totalRecords}} 条数据
+	</div>
+	<div class="col-sm-6 hidden-print">
+		<div class="btn-toolbar pull-right" role="toolbar" *ngIf="tableData.pageInfo.totalRecords > 0">
+			<div class="btn-group">
+				<button type="button" class="btn btn-sm btn-default" (click)="_prePage()" [disabled]="tableData.pageInfo.currentPageNum == 1"><i class="fa fa-chevron-left"></i></button>
+			</div>
+			<div class="btn-group">
+				<ng-container *ngFor="let b of _numberArray(tableData.pageInfo.totalPages)">
+					<button *ngIf="_generateForButton(b, tableData.pageInfo.currentPageNum, _numberArray(tableData.pageInfo.totalPages).length)" class="btn btn-sm btn-default" [disabled]="_generateForText(b, tableData.pageInfo.currentPageNum, _numberArray(tableData.pageInfo.totalPages).length)==='...'" [ngClass]="{active: b == tableData.pageInfo.currentPageNum}" (click)="_toPage(_generateForText(b, tableData.pageInfo.currentPageNum, _numberArray(tableData.pageInfo.totalPages).length)==='...'?-1:b)" >
+						{{_generateForText(b, tableData.pageInfo.currentPageNum, _numberArray(tableData.pageInfo.totalPages).length)}}
+					</button>
+				</ng-container>
+			</div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-sm btn-default" (click)="_nextPage()" [disabled]="tableData.pageInfo.currentPageNum == tableData.pageInfo.totalPages"><i class="fa fa-chevron-right"></i></button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,36 @@
+{
+  "code": "ok",
+  "info": "查询成功",
+  "result": [
+	{
+	  "c_id": "001",
+	  "c_name": "海淀村自备井1",
+	  "c_address": "海淀区信息路2号",
+	  "c_year_quota":3455
+	},
+	{
+	  "c_id": "002",
+	  "c_name": "海淀村自备井2",
+	  "c_address": "海淀区信息路2号",
+	  "c_year_quota":3455
+	},
+	{
+	  "c_id": "003",
+	  "c_name": "海淀村自备井3",
+	  "c_address": "海淀区信息路2号",
+	  "c_year_quota":3455
+	},
+	{
+	  "c_id": "004",
+	  "c_name": "海淀村自备井4",
+	  "c_address": "海淀区信息路2号",
+	  "c_year_quota":3455
+	},
+	{
+	  "c_id": "005",
+	  "c_name": "海淀村自备井5",
+	  "c_address": "海淀区信息路2号",
+	  "c_year_quota":3455
+	}
+  ]
+}

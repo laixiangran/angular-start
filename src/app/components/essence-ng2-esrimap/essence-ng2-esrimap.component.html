@@ -1,0 +1,14 @@
+<div id="essence-map" #essenceMap>
+	<div class="eMap" #map></div>
+	<div class="eScaleBox">
+		<div class="zoom-map full-map" title="全图" (click)="fullMap()">
+			<i class="fa fa-globe" aria-hidden="true"></i>
+		</div>
+		<div class="zoom-map zoom-in-map" [ngClass]="{'zoom-disable': isMax}" title="放大一级" (click)="zoomIn()">
+			<i class="fa fa-plus" aria-hidden="true"></i>
+		</div>
+		<div class="zoom-map zoom-out-map" [ngClass]="{'zoom-disable': isMin}" title="缩小一级" (click)="zoomOut()">
+			<i class="fa fa-minus" aria-hidden="true"></i>
+		</div>
+	</div>
+</div>

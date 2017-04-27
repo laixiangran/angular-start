@@ -1,0 +1,74 @@
+.frameNav {
+    padding: 0;
+    background-color: #0D9BD9;
+    a {
+        color: #FFFFFF;
+        padding: 10px 5px;
+    }
+    li {
+        padding: 0 10px;
+        background-color: transparent;
+        a, a:hover, a:focus {
+            background-color: transparent;
+        }
+        .dropdown-menu {
+            li {
+                &:hover {
+                    a {
+                        color: #FFFFFF;
+                    }
+                }
+                &.active {
+                    a {
+                        color: #FFFFFF;
+                    }
+                }
+                a {
+                    color: #000000;
+                }
+            }
+        }
+        &:hover {
+            background-color: #0E7AC0;
+            border-bottom: 2px solid #ffffff;
+            margin-bottom: -2px;
+        }
+        &.active {
+            background-color: #0E7AC2;
+            border-bottom: 2px solid #ffffff;
+            margin-bottom: -2px;
+        }
+    }
+    .navbar-header {
+        a.navbar-brand {
+            padding: 20px;
+            height: 62px;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+    }
+    .navbar-right {
+        a {
+            padding: 20px 10px;
+        }
+    }
+}
+
+.frame_main {
+    @media (min-width: 768px) and (max-width: 802px) {
+        margin-top: 262px;
+    }
+    @media (min-width: 802px) and (max-width: 910px) {
+        margin-top: 202px;
+    }
+    @media (min-width: 910px) and (max-width: 1366px) {
+        margin-top: 142px;
+    }
+    @media (max-width: 768px) {
+        margin-top: 82px;
+    }
+    @media (min-width: 1366px) {
+        margin-top: 82px;
+    }
+}

@@ -1,0 +1,59 @@
+<div class="panel panel-info detailPanel" *ngFor="let schedule of schedulesData">
+	<!--<div class="panel-body">
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-3 text-muted text-right">标题：</label>
+				<div class="col-sm-9">{{schedule.title}}</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 text-muted text-right">地址：</label>
+				<div class="col-sm-9">{{schedule.addr}}</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 text-muted text-right">内容：</label>
+				<div class="col-sm-9">{{schedule.content}}</div>
+			</div>
+			<div class="form-group" *ngIf="schedule.startTime">
+				<label class="col-sm-3 text-muted text-right">开始日期：</label>
+				<div class="col-sm-9">{{schedule.startTime | date:'yyyy-MM-dd'}}</div>
+			</div>
+			<div class="form-group" *ngIf="schedule.endTime">
+				<label class="col-sm-3 text-muted text-right">结束日期：</label>
+				<div class="col-sm-9">{{schedule.endTime | date:'yyyy-MM-dd'}}</div>
+			</div>
+			<div class="form-group" *ngIf="schedule.remindTime">
+				<label class="col-sm-3 text-muted text-right">提醒日期：</label>
+				<div class="col-sm-9">{{schedule.remindTime | date:'yyyy-MM-dd'}}</div>
+			</div>
+			<div class="form-group" *ngIf="schedule.info">
+				<label class="col-sm-3 text-muted text-right">备注：</label>
+				<div class="col-sm-9">{{schedule.info}}</div>
+			</div>
+		</form>
+	</div>-->
+	<h3>{{schedule.title}}</h3>
+	<div class="row addr">
+		<div class="col-md-9">
+			<span class="fa fa-map-marker text-info" title="提醒时间"></span>
+			<span class="text-muted address">{{schedule.addr}}</span>
+		</div>
+		<div class="col-md-3 text-right">
+			<span class="fa fa-bell text-warning"></span>
+			<span>{{schedule.remindTime | date:'yyyy-MM-dd'}}</span>
+		</div>
+	</div>
+	<div class="well well-sm">
+		{{schedule.content}}
+		<div class="info text-muted" *ngIf="schedule.info">备注：{{schedule.info}}</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 text-center">
+			<span class="fa fa-calendar-check-o text-success"></span>
+			<span>{{schedule.startTime | date:'yyyy-MM-dd'}}</span>
+		</div>
+		<div class="col-md-6 text-center">
+			<span class="fa fa-calendar-times-o text-danger"></span>
+			<span>{{schedule.endTime | date:'yyyy-MM-dd'}}</span>
+		</div>
+	</div>
+</div>
