@@ -2,35 +2,35 @@
 	<thead>
 	<tr class="bg-info">
 		<th *ngIf="config.columns.index.enabled" class="text-nowrap">序号</th>
-		<template ngFor let-column [ngForOf]="config.columns.items" let-columnIndex="index">
+		<ng-template ngFor let-column [ngForOf]="config.columns.items" let-columnIndex="index">
 			<th *ngIf="column.visible" [ngClass]="_getColumnStyle(column)" (click)="_sort(column)" [attr.width]="column.width" class="text-nowrap">
 				{{column.label}} <i class="fa hidden-print" *ngIf="column.order" [ngClass]="{'fa-sort text-muted': column.order === 'sort' || column.order === true, 'fa-sort-asc': column.order === 'asc', 'fa-sort-desc': column.order === 'desc'}"></i>
 			</th>
-		</template>
+		</ng-template>
 	</tr>
 	</thead>
 	<tbody>
-	<template *ngIf="tableData" ngFor let-data [ngForOf]="tableData.pageInfo.items" let-dataIndex="index">
+	<ng-template *ngIf="tableData" ngFor let-data [ngForOf]="tableData.pageInfo.items" let-dataIndex="index">
 		<tr>
 			<td *ngIf="config.columns.index.enabled" class="text-center">{{dataIndex+tableData.pageInfo.beginRecord}}</td>
-			<template ngFor let-column [ngForOf]="config.columns.items" let-columnIndex="index">
+			<ng-template ngFor let-column [ngForOf]="config.columns.items" let-columnIndex="index">
 				<td *ngIf="column.visible" [ngClass]="column.cls">
 					<span *ngIf="_isFunction(column.render) && column.render(data)">{{column.render(data)}}</span>
 					<span *ngIf="!_isFunction(column.render) || !column.render(data)">{{data[column.colName]}}</span>
 					<div *ngIf="!column.colName">
-						<template ngFor let-button [ngForOf]="column.render" let-buttonIndex="index">
+						<ng-template ngFor let-button [ngForOf]="column.render" let-buttonIndex="index">
 							<button *ngIf="!_isFunction(button.exist) || button.exist(data)" type="button" class="btn" [ngClass]="button.cls" (click)="button.event(data)">{{button.text}}</button>
-						</template>
+						</ng-template>
 					</div>
 				</td>
-			</template>
+			</ng-template>
 		</tr>
-	</template>
+	</ng-template>
 	</tbody>
 	<tfoot class="hidden-print">
 		<tr>
 			<td *ngIf="config.columns.index.enabled"></td>
-			<template ngFor let-column [ngForOf]="config.columns.items" let-columnIndex="index">
+			<ng-template ngFor let-column [ngForOf]="config.columns.items" let-columnIndex="index">
 				<td *ngIf="column.visible">
 					<div *ngIf="column.filterProp.enabled">
 						<input type="text" class="form-control" (keyup)="_filter($event, column)" *ngIf="column.filterProp.type === 'string'" [placeholder]="column.label">
@@ -41,7 +41,7 @@
 						<input type="date" class="form-control" (change)="_filter($event, column)" *ngIf="column.filterProp.type === 'date'">
 					</div>
 				</td>
-			</template>
+			</ng-template>
 		</tr>
 	</tfoot>
 </table>

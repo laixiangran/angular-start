@@ -1,6 +1,6 @@
 # angular-start
 
-This is an angular start project.
+This is an angular project.
 
 ## 本地环境
 
