@@ -6,13 +6,13 @@
       (onInitialized)="onInitialized(tree)"
       (onMoveNode)="onMoveNode($event)">
 
-	<template #treeNodeTemplate let-node>
+	<ng-template #treeNodeTemplate let-node>
 		<input [id]="node.data.c_id" *ngIf="selectable" [essence-ng2-checked]="node.data.c_checked" type="checkbox" (click)="checkResourceFn($event, node)">
 		<span title="{{node.data.c_comment}}">
 			<i class="{{node.data.c_icon}}"></i>
 			{{node.data.c_name}}
 		</span>
 		<span class="pull-right">{{childrenCount(node)}}</span>
-	</template>
-	<template #loadingTemplate>Loading, please hold....</template>
+	</ng-template>
+	<ng-template #loadingTemplate>Loading, please hold....</ng-template>
 </Tree>

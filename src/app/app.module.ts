@@ -8,8 +8,6 @@ import {FormsModule} from "@angular/forms";
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app.routes';
-import {EsriLoaderService} from "angular2-esri-loader";
-import {EssenceNg2EsriMapService} from "./components/essence-ng2-esrimap/essence-ng2-esrimap.service";
 import {DataService} from "./services/data.service";
 import {AuthService} from "./services/auth.service";
 import {AuthGuard} from "./services/auth-guard.service";
@@ -36,9 +34,7 @@ import {LoginService} from "./pages/login/login.service";
         AuthGuard,
         AuthService,
         DataService,
-        LoginService,
-        EsriLoaderService,
-        EssenceNg2EsriMapService
+        LoginService
     ],
     bootstrap: [AppComponent]
 })

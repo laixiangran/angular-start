@@ -4,13 +4,13 @@
 
 import {Component, EventEmitter, Output, Input} from "@angular/core";
 import {Notice} from "../../models/notice";
-import {EssenceNg2EditorComponent} from "../../../../../../../../../components/essence-ng2-editor/essence-ng2-editor.component";
 import {Sys} from "../../../../../../../../../utils/sys";
 import {User} from "../../../../../../../sys/models/user";
 import {ServerData} from "../../../../../../../sys/models/server-data";
 import {OrgService} from "../../../../../../../sys/pages/org/org.service";
 import {NoticeManageService} from "../../notice-manage.service";
 import {Org} from "../../../../../../../sys/models/org";
+import {EssenceNg2EditorComponent} from 'essence-ng2-editor';
 
 @Component({
     selector: 'message-form',

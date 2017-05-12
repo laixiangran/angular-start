@@ -204,6 +204,10 @@ refresh(){
 #### enabled
 - boolean
 是否显示列表序号，默认为true
+### option.columns.batch
+#### enabled
+- boolean
+是否进行批量操作
 #### option.columns.items.render
 当colName为null时，该列不映射任何字段，可以用做操作列等，对应render的值如下：
 ```typescript
@@ -261,3 +265,6 @@ ready: EventEmitter<any> = new EventEmitter<any>(false);
 
 - refresh()
 刷新列表数据
+
+- getSelectedItems()
+获取批量选中的条目

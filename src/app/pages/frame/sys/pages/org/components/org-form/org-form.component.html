@@ -44,7 +44,7 @@
 		<label for="c_attachment">附件</label>
 		<input type="file" class="form-control" id="c_attachment" multiple
 			   name="files"
-			   [essence-ng2-fileInput]="fileInputOpts"
+			   [essence-ng2-fileupload]="fileInputOpts"
 			   (ready)="fileInputReady($event)"
 			   (filebatchuploadsuccess)="filebatchuploadsuccess($event)">
 	</div>

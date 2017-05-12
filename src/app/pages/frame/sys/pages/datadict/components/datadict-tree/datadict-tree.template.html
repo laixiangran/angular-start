@@ -6,12 +6,12 @@
       (onInitialized)="onInitialized(tree)"
       (onMoveNode)="onMoveNode($event)">
 
-    <template #treeNodeTemplate let-node>
+    <ng-template #treeNodeTemplate let-node>
         <span title="{{node.data.c_info}}">
 			<i class="fa fa-datadict"></i>
 			{{node.data.c_name}}
 		</span>
         <span class="pull-right">{{childrenCount(node)}}</span>
-    </template>
-    <template #loadingTemplate>Loading, please hold....</template>
+    </ng-template>
+    <ng-template #loadingTemplate>Loading, please hold....</ng-template>
 </Tree>

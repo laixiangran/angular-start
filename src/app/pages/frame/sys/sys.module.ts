@@ -19,7 +19,6 @@ import {UserDetailComponent} from "./pages/org/components/user-detail/user-detai
 import {EssenceNg2TableModule} from "../../../components/essence-ng2-table/essence-ng2-table.module";
 import {OrgService} from "./pages/org/org.service";
 import {EssenceNg2CheckedModule} from "../../../directives/essence-ng2-checked/essence-ng2-checked.module";
-import {EssenceNg2FileInputModule} from "../../../directives/essence-ng2-fileInput/essence-ng2-fileInput.module";
 import {OrgComponent} from "./pages/org/org.component";
 import {OrgTreeComponent} from "./pages/org/components/org-tree/org-tree.component";
 import {UserFormComponent} from "./pages/org/components/user-form/user-form.component";
@@ -31,6 +30,7 @@ import {DatadictComponent} from "./pages/datadict/datadict.component";
 import {LogComponent} from "./pages/log/log.component";
 import {RoleService} from "./pages/role/role.service";
 import {ResourceService} from "./pages/resource/resource.service";
+import {EssenceNg2FileUploadModule} from 'essence-ng2-fileupload';
 
 @NgModule({
     imports:[
@@ -41,7 +41,7 @@ import {ResourceService} from "./pages/resource/resource.service";
         TreeModule,
         EssenceNg2CheckedModule,
         EssenceNg2TableModule,
-        EssenceNg2FileInputModule
+        EssenceNg2FileUploadModule
     ],
     declarations:[
         SysComponent,

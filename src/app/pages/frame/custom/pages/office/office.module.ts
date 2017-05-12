@@ -8,15 +8,15 @@ import {ScheduleManageComponent} from './pages/schedule-manage/schedule-manage.c
 import {DocTypeFormComponent} from './pages/document-manage/components/doc-type-form/doc-type-form.component';
 import {FormsModule} from "@angular/forms";
 import {AddScheduleFormComponent} from './pages/schedule-manage/components/add-schedule-form/add-schedule-form.component';
-import {EssenceNg2CalendarModule} from "../../../../../components/essence-ng2-calendar/essence-ng2-calendar.module";
 import {SchedulesDetailTemplateComponent} from './pages/schedule-manage/components/schedules-detail-template/schedules-detail-template.component';
 import {SysModule} from "../../../sys/sys.module";
 import {DocFormComponent} from './pages/document-manage/components/doc-form/doc-form.component';
-import {EssenceNg2FileInputModule} from "../../../../../directives/essence-ng2-fileInput/essence-ng2-fileInput.module";
 import {EssenceNg2TableModule} from "../../../../../components/essence-ng2-table/essence-ng2-table.module";
-import {EssenceNg2EditorModule} from "../../../../../components/essence-ng2-editor/essence-ng2-editor.module";
 import {NoticeManageComponent} from "./pages/notice-manage/notice-manage.component";
 import {MessageFormComponent} from "./pages/notice-manage/components/message-form/message-form.component";
+import {EssenceNg2CalendarModule} from 'essence-ng2-calendar';
+import {EssenceNg2EditorModule} from 'essence-ng2-editor';
+import {EssenceNg2FileUploadModule} from 'essence-ng2-fileupload';
 
 @NgModule({
     imports: [
@@ -26,7 +26,7 @@ import {MessageFormComponent} from "./pages/notice-manage/components/message-for
         OfficeRoutingModule,
         EssenceNg2CalendarModule,
         SysModule,
-        EssenceNg2FileInputModule,
+        EssenceNg2FileUploadModule,
         EssenceNg2TableModule,
         EssenceNg2EditorModule
     ],

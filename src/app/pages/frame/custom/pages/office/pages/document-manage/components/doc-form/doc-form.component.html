@@ -11,7 +11,7 @@
 		<label class="col-sm-3 control-label text-muted">选择文档:</label>
 		<div class="col-sm-8">
 			<input id="doc" type="file" class="file" name="files" multiple
-			       [essence-ng2-fileInput]="fileInputOpts"
+			       [essence-ng2-fileupload]="fileInputOpts"
 			       (ready)="fileInputReady($event)"
 			       (filebatchuploadsuccess)="filebatchuploadsuccess($event)">
 		</div>

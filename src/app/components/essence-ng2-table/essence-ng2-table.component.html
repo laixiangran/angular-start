@@ -1,8 +1,11 @@
 <table class="table table-bordered essence-table">
 	<thead>
 	<tr class="bg-info">
-		<th *ngIf="config.columns.index.enabled" class="text-nowrap">序号</th>
-		<ng-template ngFor let-column [ngForOf]="config.columns.items" let-columnIndex="index">
+		<td *ngIf="_config.columns.batch.enabled" class="text-center">
+			<input type="checkbox" [checked]="_batchAllCheckStatus" (change)="_checkboxAllChangeEvent($event)">
+		</td>
+		<th *ngIf="_config.columns.index.enabled" class="text-nowrap text-center">序号</th>
+		<ng-template ngFor let-column [ngForOf]="_config.columns.items" let-columnIndex="index">
 			<th *ngIf="column.visible" [ngClass]="_getColumnStyle(column)" (click)="_sort(column)" [attr.width]="column.width" class="text-nowrap">
 				{{column.label}} <i class="fa hidden-print" *ngIf="column.order" [ngClass]="{'fa-sort text-muted': column.order === 'sort' || column.order === true, 'fa-sort-asc': column.order === 'asc', 'fa-sort-desc': column.order === 'desc'}"></i>
 			</th>
@@ -10,10 +13,15 @@
 	</tr>
 	</thead>
 	<tbody>
-	<ng-template *ngIf="tableData" ngFor let-data [ngForOf]="tableData.pageInfo.items" let-dataIndex="index">
+	<ng-template *ngIf="_tableData" ngFor let-data [ngForOf]="_tableData.pageInfo.items" let-dataIndex="index">
 		<tr>
-			<td *ngIf="config.columns.index.enabled" class="text-center">{{dataIndex+tableData.pageInfo.beginRecord}}</td>
-			<ng-template ngFor let-column [ngForOf]="config.columns.items" let-columnIndex="index">
+			<td *ngIf="_config.columns.batch.enabled" class="text-center">
+				<input type="checkbox"
+				       [checked]="data.selected"
+				       (change)="_checkboxChangeEvent($event,data)">
+			</td>
+			<td *ngIf="_config.columns.index.enabled" class="text-center">{{dataIndex+_tableData.pageInfo.beginRecord}}</td>
+			<ng-template ngFor let-column [ngForOf]="_config.columns.items" let-columnIndex="index">
 				<td *ngIf="column.visible" [ngClass]="column.cls">
 					<span *ngIf="_isFunction(column.render) && column.render(data)">{{column.render(data)}}</span>
 					<span *ngIf="!_isFunction(column.render) || !column.render(data)">{{data[column.colName]}}</span>
@@ -29,8 +37,10 @@
 	</tbody>
 	<tfoot class="hidden-print">
 		<tr>
-			<td *ngIf="config.columns.index.enabled"></td>
-			<ng-template ngFor let-column [ngForOf]="config.columns.items" let-columnIndex="index">
+			<td *ngIf="_config.columns.batch.enabled" class="text-center">
+			</td>
+			<td *ngIf="_config.columns.index.enabled"></td>
+			<ng-template ngFor let-column [ngForOf]="_config.columns.items" let-columnIndex="index">
 				<td *ngIf="column.visible">
 					<div *ngIf="column.filterProp.enabled">
 						<input type="text" class="form-control" (keyup)="_filter($event, column)" *ngIf="column.filterProp.type === 'string'" [placeholder]="column.label">
@@ -45,24 +55,24 @@
 		</tr>
 	</tfoot>
 </table>
-<div class="row" *ngIf="tableData">
+<div class="row" *ngIf="_tableData">
 	<div class="col-sm-6">
-		显示 {{tableData.pageInfo.beginRecord}} 到 {{tableData.pageInfo.endRecord}} 条，共 {{tableData.pageInfo.totalRecords}} 条数据
+		显示 {{_tableData.pageInfo.beginRecord}} 到 {{_tableData.pageInfo.endRecord}} 条，共 {{_tableData.pageInfo.totalRecords}} 条数据
 	</div>
 	<div class="col-sm-6 hidden-print">
-		<div class="btn-toolbar pull-right" role="toolbar" *ngIf="tableData.pageInfo.totalRecords > 0">
+		<div class="btn-toolbar pull-right" role="toolbar" *ngIf="_tableData.pageInfo.totalRecords > 0">
 			<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-default" (click)="_prePage()" [disabled]="tableData.pageInfo.currentPageNum == 1"><i class="fa fa-chevron-left"></i></button>
+				<button type="button" class="btn btn-sm btn-default" (click)="_prePage()" [disabled]="_tableData.pageInfo.currentPageNum == 1"><i class="fa fa-chevron-left"></i></button>
 			</div>
 			<div class="btn-group">
-				<ng-container *ngFor="let b of _numberArray(tableData.pageInfo.totalPages)">
-					<button *ngIf="_generateForButton(b, tableData.pageInfo.currentPageNum, _numberArray(tableData.pageInfo.totalPages).length)" class="btn btn-sm btn-default" [disabled]="_generateForText(b, tableData.pageInfo.currentPageNum, _numberArray(tableData.pageInfo.totalPages).length)==='...'" [ngClass]="{active: b == tableData.pageInfo.currentPageNum}" (click)="_toPage(_generateForText(b, tableData.pageInfo.currentPageNum, _numberArray(tableData.pageInfo.totalPages).length)==='...'?-1:b)" >
-						{{_generateForText(b, tableData.pageInfo.currentPageNum, _numberArray(tableData.pageInfo.totalPages).length)}}
+				<ng-container *ngFor="let b of _numberArray(_tableData.pageInfo.totalPages)">
+					<button *ngIf="_generateForButton(b, _tableData.pageInfo.currentPageNum, _numberArray(_tableData.pageInfo.totalPages).length)" class="btn btn-sm btn-default" [disabled]="_generateForText(b, _tableData.pageInfo.currentPageNum, _numberArray(_tableData.pageInfo.totalPages).length)==='...'" [ngClass]="{active: b == _tableData.pageInfo.currentPageNum}" (click)="_toPage(_generateForText(b, _tableData.pageInfo.currentPageNum, _numberArray(_tableData.pageInfo.totalPages).length)==='...'?-1:b)" >
+						{{_generateForText(b, _tableData.pageInfo.currentPageNum, _numberArray(_tableData.pageInfo.totalPages).length)}}
 					</button>
 				</ng-container>
 			</div>
 			<div class="btn-group">
-				<button type="button" class="btn btn-sm btn-default" (click)="_nextPage()" [disabled]="tableData.pageInfo.currentPageNum == tableData.pageInfo.totalPages"><i class="fa fa-chevron-right"></i></button>
+				<button type="button" class="btn btn-sm btn-default" (click)="_nextPage()" [disabled]="_tableData.pageInfo.currentPageNum == _tableData.pageInfo.totalPages"><i class="fa fa-chevron-right"></i></button>
 			</div>
 		</div>
 	</div>

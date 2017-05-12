@@ -76,7 +76,7 @@
 			<label for="c_user_attachment">附件</label>
 			<input type="file" class="form-control" id="c_user_attachment"
 				   name="files"
-				   [essence-ng2-fileInput]="fileInputOpts"
+				   [essence-ng2-fileupload]="fileInputOpts"
 				   (ready)="ready($event)"
 				   (filebatchuploadcomplete)="filebatchuploadcomplete($event)"
 				   (filebatchuploaderror)="filebatchuploaderror($event)"
