@@ -15,6 +15,8 @@ import {FrameModule} from "./pages/frame/frame.module";
 import {LoginComponent} from "./pages/login/login.component";
 import {PageNotFoundComponent} from "./pages/404/page-not-found.component";
 import {LoginService} from "./pages/login/login.service";
+import { EDatePipe } from "./pipes/eDate.pipe";
+import { ETimePipe } from "./pipes/eTime.pipe";
 
 @NgModule({
     imports: [
@@ -28,7 +30,9 @@ import {LoginService} from "./pages/login/login.service";
     declarations: [
         AppComponent,
         LoginComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        EDatePipe,
+        ETimePipe
     ],
     providers: [
         AuthGuard,
