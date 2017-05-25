@@ -9,9 +9,7 @@ import {FormsModule} from "@angular/forms";
 import {FrameRoutingModule} from "./frame.routes";
 import {FrameComponent} from "./frame.component";
 import {CommonModule} from "@angular/common";
-import {SysModule} from "./sys/sys.module";
-import {CustomModule} from "./custom/custom.module";
-import {HomeComponent} from "./home/home.component";
+import {HomeComponent} from './pages/home/home.component';
 
 @NgModule({
     imports: [
@@ -19,9 +17,7 @@ import {HomeComponent} from "./home/home.component";
         FormsModule,
         HttpModule,
         JsonpModule,
-        FrameRoutingModule,
-        SysModule,
-        CustomModule
+        FrameRoutingModule
     ],
     declarations: [
         FrameComponent,

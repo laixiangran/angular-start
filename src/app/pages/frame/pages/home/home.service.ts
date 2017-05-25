@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
-
-import {DataService} from "../../../services/data.service";
-import {ServerData} from "../sys/models/server-data";
+import {DataService} from '../../../../services/data.service';
+import {ServerData} from '../../../../models/server-data.model';
 
 @Injectable()
 export class HomeService {

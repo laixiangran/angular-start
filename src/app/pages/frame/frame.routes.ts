@@ -6,7 +6,7 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {FrameComponent} from "./frame.component";
 import {AuthGuard} from "../../services/auth-guard.service";
-import {HomeComponent} from "./home/home.component";
+import {HomeComponent} from './pages/home/home.component';
 
 const frameRoutes: Routes = [
     {

@@ -2,21 +2,14 @@
  * Created by Hllinc on 2016-10-28 15:25.
  */
 import {Component} from "@angular/core";
-import {Md5} from "ts-md5/dist/md5";
-
-import {LoginService} from "./login.service";
-import {ServerData} from "../frame/sys/models/server-data";
-import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
-import {Sys} from "../../utils/sys";
-import {Access} from "../frame/sys/models/access";
 
 @Component({
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-    access: Access = new Access();
+    access: any = {};
 
     constructor (public router: Router) {}
 

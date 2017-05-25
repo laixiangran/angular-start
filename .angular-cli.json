@@ -5,14 +5,14 @@
 			"outDir": "dist",
 			"assets": [
 				"assets",
-				"favicon.ico"
+				"favicon.ico",
+				"proxy.config",
+				"proxy.jsp"
 			],
 			"index": "index.html",
 			"main": "main.ts",
 			"polyfills": "polyfills.ts",
-			"test": "test.ts",
 			"tsconfig": "tsconfig.json",
-			"prefix": "app",
 			"styles": [
 				"./index.css",
 				"../node_modules/font-awesome/css/font-awesome.min.css"
@@ -21,15 +21,11 @@
 			"environmentSource": "environments/environment.ts",
 			"environments": {
 				"dev": "environments/environment.ts",
+				"test": "environments/environment.test.ts",
 				"prod": "environments/environment.prod.ts"
 			}
 		}
 	],
-	"e2e": {
-		"protractor": {
-			"config": "./protractor.conf.js"
-		}
-	},
 	"lint": [
 		{
 			"files": "src/**/*.ts",
@@ -40,11 +36,6 @@
 			"project": "e2e/tsconfig.json"
 		}
 	],
-	"test": {
-		"karma": {
-			"config": "./karma.conf.js"
-		}
-	},
 	"defaults": {
 		"styleExt": "scss",
 		"component": {}

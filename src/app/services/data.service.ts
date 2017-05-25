@@ -4,8 +4,8 @@
 import {Injectable} from "@angular/core";
 import {Http, Response, Headers, RequestOptions} from "@angular/http";
 import {Observable} from "rxjs";
-import {ServerData} from "../pages/frame/sys/models/server-data";
 import {environment} from "../../environments/environment";
+import {ServerData} from '../models/server-data.model';
 
 @Injectable()
 export class DataService {

@@ -4,7 +4,6 @@
 import {Component, OnInit} from "@angular/core";
 import {AuthService} from "../../services/auth.service";
 import {Sys} from "../../utils/sys";
-import {ServerData} from "./sys/models/server-data";
 import {Router} from "@angular/router";
 import {LoginService} from "../login/login.service";
 

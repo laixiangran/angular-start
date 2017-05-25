@@ -7,9 +7,8 @@ import {Injectable} from '@angular/core';
 
 import {DataService} from "../../services/data.service";
 import {Observable} from "rxjs";
-import {ServerData} from "../frame/sys/models/server-data";
-import {Access} from "../frame/sys/models/access";
 import {Md5} from "ts-md5/dist/md5";
+import {ServerData} from '../../models/server-data.model';
 
 @Injectable()
 export class LoginService {
@@ -21,7 +20,7 @@ export class LoginService {
      * @param access
      * @returns {Observable<ServerData>}
      */
-    login (access: Access): Observable<ServerData> {
+    login (access: any): Observable<ServerData> {
         let param: Object = {
             c_login_id: access.c_login_id,
             c_password: Md5.hashStr(access.c_password)
