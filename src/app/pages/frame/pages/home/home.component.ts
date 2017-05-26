@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {HomeService} from "./home.service";
+import { Component, OnInit } from '@angular/core';
+import { HomeService } from "./home.service";
 
 @Component({
     templateUrl: './home.component.html',
@@ -9,8 +9,8 @@ import {HomeService} from "./home.service";
 
 export class HomeComponent implements OnInit {
 
-    constructor () {}
+    constructor() {}
 
-    ngOnInit () {}
+    ngOnInit() {}
 
 }

@@ -4,7 +4,7 @@
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"start": "gulp build:dev && ng serve -o",
+		"start": "gulp build:dev && ng serve --host 192.168.0.51 -o",
 		"build-test": "gulp build:test && ng build --prod --env=test --aot",
 		"build-prod": "gulp build:prod && ng build --prod --env=prod --aot"
 	},
@@ -54,6 +54,8 @@
 		"gulp": "^3.9.1",
 		"gulp-rename": "^1.2.2",
 		"install": "^0.8.2",
+		"tslint": "^5.0.0",
+		"tslint-eslint-rules": "^4.0.0",
 		"ts-node": "~2.0.0",
 		"typescript": "^2.2.0"
 	}
