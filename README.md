@@ -29,12 +29,14 @@ npm start
 
 ## 构建
 
+### 测试环境
+
 ```shell
-npm run build
+npm run build-test
 ```
 
-## 语法检测
+### 生产环境
 
 ```shell
-npm run lint
+npm run build-prod
 ```

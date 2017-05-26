@@ -4,13 +4,9 @@
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"ng": "ng",
-		"start": "gulp build:dev && npm run jit",
-		"jit": "ng serve -o",
-		"aot": "ng serve -o --aot",
+		"start": "gulp build:dev && ng serve -o",
 		"build-test": "gulp build:test && ng build --prod --env=test --aot",
-		"build-prod": "gulp build:prod && ng build --prod --env=prod --aot",
-		"lint": "tslint \"src/**/*.ts\""
+		"build-prod": "gulp build:prod && ng build --prod --env=prod --aot"
 	},
 	"dependencies": {
 		"@angular/common": "^4.0.0",
@@ -54,16 +50,10 @@
 		"@types/lodash": "^4.14.39",
 		"@types/node": "^6.0.42",
 		"@types/tether": "^1.1.27",
-		"clean": "^4.0.2",
-		"del": "^2.2.2",
 		"gulp": "^3.9.1",
-		"gulp-clean": "^0.3.2",
 		"gulp-rename": "^1.2.2",
 		"install": "^0.8.2",
-		"rename": "^1.0.4",
 		"ts-node": "~2.0.0",
-		"tslint": "^5.0.0",
-		"tslint-eslint-rules": "^4.0.0",
 		"typescript": "^2.2.0"
 	}
 }
