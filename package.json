@@ -4,7 +4,7 @@
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"start": "gulp build:dev && ng serve --host 192.168.0.51 -o",
+		"start": "gulp build:dev && ng serve -o",
 		"build-test": "gulp build:test && ng build --prod --env=test --aot",
 		"build-prod": "gulp build:prod && ng build --prod --env=prod --aot"
 	},
@@ -42,7 +42,7 @@
 		"zone.js": "^0.8.4"
 	},
 	"devDependencies": {
-		"@angular/cli": "1.0.0",
+		"@angular/cli": "^1.0.6",
 		"@angular/compiler-cli": "^4.0.0",
 		"@types/bootstrap": "^3.3.32",
 		"@types/bootstrap-fileinput": "^0.0.5",
@@ -54,9 +54,9 @@
 		"gulp": "^3.9.1",
 		"gulp-rename": "^1.2.2",
 		"install": "^0.8.2",
+		"ts-node": "~2.0.0",
 		"tslint": "^5.0.0",
 		"tslint-eslint-rules": "^4.0.0",
-		"ts-node": "~2.0.0",
 		"typescript": "^2.2.0"
 	}
 }
