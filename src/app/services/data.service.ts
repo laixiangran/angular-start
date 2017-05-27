@@ -10,7 +10,7 @@ import {ServerData} from '../models/server-data.model';
 @Injectable()
 export class DataService {
 
-    serverHost: string = environment.serverHost;
+    serverHost: string = environment.apiUrl;
 
     constructor (private http: Http) {}
 

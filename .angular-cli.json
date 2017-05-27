@@ -1,4 +1,8 @@
 {
+	"project": {
+		"name": "angular-start",
+		"ejected": false
+	},
 	"apps": [
 		{
 			"root": "src",
@@ -15,9 +19,28 @@
 			"tsconfig": "tsconfig.json",
 			"styles": [
 				"./index.css",
-				"../node_modules/font-awesome/css/font-awesome.min.css"
+				"../node_modules/font-awesome/css/font-awesome.min.css",
+				"../node_modules/bootstrap/dist/css/bootstrap.min.css",
+				"../node_modules/bootstrap-fileinput/css/fileinput.min.css",
+				"./assets/scripts/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css"
 			],
-			"scripts": [],
+			"scripts": [
+				"../node_modules/tether/dist/js/tether.js",
+				"../node_modules/jquery/dist/jquery.min.js",
+				"../node_modules/moment/min/moment.min.js",
+				"../node_modules/moment/min/moment-with-locales.min.js",
+				"./assets/scripts/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js",
+				"./assets/scripts/ueditor/ueditor.config.js",
+				"./assets/scripts/ueditor/ueditor.all.min.js",
+				"./assets/scripts/ueditor/lang/zh-cn/zh-cn.js",
+				"../node_modules/bootstrap-fileinput/js/plugins/piexif.min.js",
+				"../node_modules/bootstrap-fileinput/js/plugins/sortable.min.js",
+				"../node_modules/bootstrap-fileinput/js/plugins/purify.min.js",
+				"../node_modules/bootstrap-fileinput/js/fileinput.min.js",
+				"../node_modules/bootstrap-fileinput/themes/fa/theme.min.js",
+				"../node_modules/bootstrap-fileinput/js/locales/zh.js",
+				"../node_modules/bootstrap/dist/js/bootstrap.min.js"
+			],
 			"environmentSource": "environments/environment.ts",
 			"environments": {
 				"dev": "environments/environment.ts",
@@ -27,7 +50,6 @@
 		}
 	],
 	"defaults": {
-		"styleExt": "scss",
-		"component": {}
+		"styleExt": "scss"
 	}
 }

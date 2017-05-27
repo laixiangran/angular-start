@@ -40,3 +40,7 @@ npm run build-test
 ```shell
 npm run build-prod
 ```
+
+## 编译配置
+
+[.angular-cli](https://github.com/angular/angular-cli/wiki/angular-cli)
