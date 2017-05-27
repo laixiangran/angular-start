@@ -2,16 +2,16 @@
 	<img src="./assets/images/404/404-2.png" alt="" class="pic">
 	<div class="topPlat">
 		<img src="./assets/images/404/404-1.png" alt="" class="notFundPic">
-		<h1>哎呀。。您访问的页面不存在</h1>
-		<div class="title text-muted">您可能输错网址，或该网页已删除和移动，系统5秒后返回上一级</div>
+		<h1>哎呀！您访问的页面不存在了！</h1>
+		<div class="title text-muted">您可能输错网址，或该网页已删除和移动。</div>
 	</div>
 	<div class="bottomPlat">
 		<div class="returnContainer">
-			<button class="rtnBtn" (click)="rtnHome()">
+			<button class="rtnBtn" (click)="goHome()">
 				返回首页
 			</button>
 			<span class="fa fa-user text-muted contact"> 联系管理员</span>
-			<span class="fa fa-refresh text-muted refresh" (click)="refreshPage()"> 刷新页面</span>
+			<span class="fa fa-refresh text-muted refresh" (click)="refresh()"> 刷新页面</span>
 		</div>
 	</div>
 </div>
