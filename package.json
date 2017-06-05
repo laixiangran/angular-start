@@ -30,6 +30,7 @@
 		"essence-ng2-fileupload": "^1.0.0",
 		"essence-ng2-pagination": "^1.0.0",
 		"essence-ng2-print": "^1.0.5",
+		"essence-ng2-table": "^1.0.1",
 		"essence-ng2-viewer": "^4.0.4",
 		"font-awesome": "^4.7.0",
 		"ie-shim": "^0.1.0",
