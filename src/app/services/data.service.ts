@@ -17,15 +17,10 @@ export class DataService {
     /**
      * get请求
      * @param url 请求路径
-     * @param isDev 是否开发模式，默认false
      * @returns {Observable<ServerData>}
      */
-    getData (url: string, isDev: boolean = false): Observable<ServerData> {
-        let serverHost: string = this.serverHost;
-        if (isDev) {
-            serverHost = "/";
-        }
-        return this.http.get(serverHost + url)
+    getData (url: string): Observable<ServerData> {
+        return this.http.get(this.serverHost + url)
             .map(this.extractData)
             .catch(this.handleError);
     }
@@ -34,19 +29,12 @@ export class DataService {
      * post请求
      * @param url 请求路径
      * @param obj 请求body
-     * @param isDev 是否开发模式，默认false
      * @returns {Observable<ServerData>}
      */
-    postData (url: string, obj: any = null, isDev: boolean = false): Observable<ServerData> {
-        let serverHost: string = this.serverHost;
-        if (isDev) {
-            serverHost = "/";
-        }
-        let body = JSON.stringify(obj);
-        let headers = new Headers({'Content-Type': 'application/json'});
-        let options = new RequestOptions({headers: headers});
-
-        return this.http.post(serverHost + url, body, options)
+    postData (url: string, body: any = null): Observable<ServerData> {
+        let headers = new Headers({'Content-Type': 'application/json'}),
+            options = new RequestOptions({headers: headers});
+        return this.http.post(this.serverHost + url, body && JSON.stringify(body), options)
             .map(this.extractData)
             .catch(this.handleError);
     }
