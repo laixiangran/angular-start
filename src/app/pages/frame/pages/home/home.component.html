@@ -2,3 +2,22 @@
 	<h1>哇哦，恭喜！</h1>
 	<h2>你已经成功启动并登录angular-start项目，现在开启angular愉悦的开发之旅吧！</h2>
 </div>
+<h3>ng-template-outlet-example</h3>
+<ng-container *ngTemplateOutlet="eng; context: myContext"></ng-container>
+<hr>
+<ng-container *ngTemplateOutlet="svk; context: myContext"></ng-container>
+<hr>
+
+<ng-template #greet>
+	<div>Hello</div>
+</ng-template>
+
+<ng-template #eng let-name>
+	<div>Hello {{name}}!</div>
+</ng-template>
+
+<ng-template #svk let-person="localSk">
+	<div>Ahoj {{person}}!</div>
+</ng-template>
+
+<button (click)="changeView()">改变顺序</button>
