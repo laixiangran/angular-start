@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HomeService } from "./home.service";
 
 @Component({
@@ -7,10 +7,14 @@ import { HomeService } from "./home.service";
     providers: [HomeService]
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
-    constructor() {}
+    constructor() {
+	}
 
-    ngOnInit() {}
+	ngOnInit() {
+	}
 
+	ngOnDestroy() {
+	}
 }
