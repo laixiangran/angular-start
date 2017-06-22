@@ -10,6 +10,7 @@ import { FrameRoutingModule } from "./frame.routes";
 import { FrameComponent } from "./frame.component";
 import { CommonModule } from "@angular/common";
 import { HomeComponent } from './pages/home/home.component';
+import { EssenceNg2TableModule } from "essence-ng2-table";
 
 @NgModule({
     imports: [
@@ -17,7 +18,8 @@ import { HomeComponent } from './pages/home/home.component';
         FormsModule,
         HttpModule,
         JsonpModule,
-        FrameRoutingModule
+        FrameRoutingModule,
+        EssenceNg2TableModule
     ],
     declarations: [
         FrameComponent,
