@@ -2,6 +2,7 @@
  * Created by Hllinc on 2016-10-25 11:54.
  */
 import {Component, OnInit} from '@angular/core';
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
