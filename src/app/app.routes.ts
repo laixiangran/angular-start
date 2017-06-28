@@ -10,29 +10,29 @@ import { PageNotFoundComponent } from './pages/404/page-not-found.component';
 
 
 const appRoutes: Routes = [
-    {
-        path: '',
-        redirectTo: '/login',
-        pathMatch: 'full'
-    },
-    {
-        path: 'login',
-        canActivate: [AuthGuard],
-        component: LoginComponent
-    },
-    {
-        path: '**',
-        component: PageNotFoundComponent
-    }
+	{
+		path: '',
+		redirectTo: '/login',
+		pathMatch: 'full'
+	},
+	{
+		path: 'login',
+		canActivate: [AuthGuard],
+		component: LoginComponent
+	},
+	{
+		path: '**',
+		component: PageNotFoundComponent
+	}
 ];
 
 @NgModule({
-    imports: [
-        RouterModule.forRoot(appRoutes)
-    ],
-    exports: [
-        RouterModule
-    ]
+	imports: [
+		RouterModule.forRoot(appRoutes)
+	],
+	exports: [
+		RouterModule
+	]
 })
 
 export class AppRoutingModule {

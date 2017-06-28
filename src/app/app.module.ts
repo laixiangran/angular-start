@@ -19,28 +19,28 @@ import { EDatePipe } from './pipes/eDate.pipe';
 import { ETimePipe } from './pipes/eTime.pipe';
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        FormsModule,
-        HttpModule,
-        JsonpModule,
-        FrameModule,
-        AppRoutingModule
-    ],
-    declarations: [
-        AppComponent,
-        LoginComponent,
-        PageNotFoundComponent,
-        EDatePipe,
-        ETimePipe
-    ],
-    providers: [
-        AuthGuard,
-        AuthService,
-        DataService,
-        LoginService
-    ],
-    bootstrap: [AppComponent]
+	imports: [
+		BrowserModule,
+		FormsModule,
+		HttpModule,
+		JsonpModule,
+		FrameModule,
+		AppRoutingModule
+	],
+	declarations: [
+		AppComponent,
+		LoginComponent,
+		PageNotFoundComponent,
+		EDatePipe,
+		ETimePipe
+	],
+	providers: [
+		AuthGuard,
+		AuthService,
+		DataService,
+		LoginService
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule {
 }
