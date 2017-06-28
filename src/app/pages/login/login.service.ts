@@ -6,7 +6,6 @@
 import { Injectable } from '@angular/core';
 
 import { DataService } from '../../services/data.service';
-import { Md5 } from 'ts-md5/dist/md5';
 import { ServerData } from '../../models/server-data.model';
 import { Observable } from 'rxjs/Observable';
 
@@ -23,7 +22,7 @@ export class LoginService {
 	login(access: any): Observable<ServerData> {
 		const param: Object = {
 			c_login_id: access.c_login_id,
-			c_password: Md5.hashStr(access.c_password)
+			c_password: access.c_password
 		};
 		return this.dataService.postData('access/login.do', param);
 	}

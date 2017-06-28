@@ -1,8 +1,7 @@
 {
 	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
 	"project": {
-		"name": "angular-start",
-		"ejected": false
+		"name": "angular-start"
 	},
 	"apps": [
 		{
@@ -17,7 +16,8 @@
 			"polyfills": "polyfills.ts",
 			"tsconfig": "tsconfig.app.json",
 			"styles": [
-				"./index.css"
+				"styles.css",
+				"../node_modules/bootstrap/dist/css/bootstrap.min.css"
 			],
 			"scripts": [],
 			"environmentSource": "environments/environment.ts",
@@ -34,6 +34,7 @@
 		}
 	],
 	"defaults": {
-		"styleExt": "scss"
+		"styleExt": "scss",
+		"component": {}
 	}
 }
