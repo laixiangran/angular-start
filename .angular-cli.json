@@ -23,14 +23,14 @@
 				"../node_modules/font-awesome/css/font-awesome.min.css",
 				"../node_modules/bootstrap/dist/css/bootstrap.min.css",
 				"../node_modules/bootstrap-fileinput/css/fileinput.min.css",
-				"./assets/scripts/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css"
+				"../node_modules/essence-ng2-datetimepicker/dist/assets/css/bootstrap-datetimepicker.min.css"
 			],
 			"scripts": [
 				"../node_modules/tether/dist/js/tether.js",
 				"../node_modules/jquery/dist/jquery.min.js",
 				"../node_modules/moment/min/moment.min.js",
 				"../node_modules/moment/min/moment-with-locales.min.js",
-				"./assets/scripts/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js",
+				"../node_modules/essence-ng2-datetimepicker/dist/assets/js/bootstrap-datetimepicker.min.js",
 				"../node_modules/bootstrap-fileinput/js/plugins/piexif.min.js",
 				"../node_modules/bootstrap-fileinput/js/plugins/sortable.min.js",
 				"../node_modules/bootstrap-fileinput/js/plugins/purify.min.js",
