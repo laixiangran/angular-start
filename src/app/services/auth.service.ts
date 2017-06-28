@@ -1,12 +1,11 @@
 /**
  * Created by Hllinc on 2016-10-28 15:15.
  */
-import {Injectable} from "@angular/core";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Subscriber } from 'rxjs/Subscriber';
 
-import {Observable, Subscriber} from "rxjs";
-import {DataService} from "./data.service";
-import {Sys} from "../utils/sys";
-import {ServerData} from '../models/server-data.model';
+import { DataService } from './data.service';
 
 @Injectable()
 export class AuthService {
@@ -23,7 +22,7 @@ export class AuthService {
     // 登录前的路径
     redirectUrl: string = null;
 
-    constructor (private dataService: DataService) {}
+    constructor(private dataService: DataService) {}
 
     /**
      * 初始化变量
@@ -31,7 +30,7 @@ export class AuthService {
      * @param user
      * @returns {Observable<boolean>}
      */
-    initParams (redirectUrl?: string, user?: any): Observable<boolean> {
+    initParams(redirectUrl?: string, user?: any): Observable<boolean> {
         return new Observable<boolean>((subscriber: Subscriber<any>) => {
             if (user) {
                 this.isLoggedIn = true;

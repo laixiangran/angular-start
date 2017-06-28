@@ -1,12 +1,12 @@
 /**
  * Created by Hllinc on 2016-10-28 18:02.
  */
-import {NgModule}  from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-import {FrameComponent} from "./frame.component";
-import {AuthGuard} from "../../services/auth-guard.service";
-import {HomeComponent} from './pages/home/home.component';
+import { FrameComponent } from './frame.component';
+import { AuthGuard } from '../../services/auth-guard.service';
+import { HomeComponent } from './pages/home/home.component';
 
 const frameRoutes: Routes = [
     {
@@ -36,4 +36,5 @@ const frameRoutes: Routes = [
     ]
 })
 
-export class FrameRoutingModule {}
+export class FrameRoutingModule {
+}

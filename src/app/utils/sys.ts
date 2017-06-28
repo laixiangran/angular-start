@@ -4,30 +4,35 @@
 
 export class Sys {
 
-    constructor () {}
+    constructor() {}
 
-    public static dateFormat (value: any, fmt: string) { //author: meizz
-        let date: Date = new Date(value);
-        let o = {
-            'M+': date.getMonth() + 1, //月份
-            'd+': date.getDate(), //日
-            'h+': date.getHours(), //小时
-            'm+': date.getMinutes(), //分
-            's+': date.getSeconds(), //秒
-            'q+': Math.floor((date.getMonth() + 3) / 3), //季度
-            'S': date.getMilliseconds() //毫秒
+    public static dateFormat(value: any, fmt: string) { // author: meizz
+        const date: Date = new Date(value);
+        const o = {
+            'M+': date.getMonth() + 1, // 月份
+            'd+': date.getDate(), // 日
+            'h+': date.getHours(), // 小时
+            'm+': date.getMinutes(), // 分
+            's+': date.getSeconds(), // 秒
+            'q+': Math.floor((date.getMonth() + 3) / 3), // 季度
+            'S': date.getMilliseconds() // 毫秒
         };
-        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
-        for (let k in o)
-            if (new RegExp('(' + k + ')').test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)));
+        if (/(y+)/.test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+        }
+        for (const k in o) {
+            if (new RegExp('(' + k + ')').test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)));
+            }
+        }
         return fmt;
     }
 
-    public static sysAlert (content: string, title?: string): void {
-        if (title == undefined) {
+    public static sysAlert(content: string, title?: string): void {
+        if (title === undefined) {
             title = '系统提示';
         }
-        let win = jQuery('<div class=\'modal fade\' role=\'dialog\' aria-labelledby=\'myModalLabel\' aria-hidden=\'true\'>'
+        const win = jQuery('<div class=\'modal fade\' role=\'dialog\' aria-labelledby=\'myModalLabel\' aria-hidden=\'true\'>'
             + '<div class=\'modal-dialog\'>'
             + '<div class=\'modal-content\'>'
             + '<div class=\'modal-header\'>'
@@ -49,8 +54,8 @@ export class Sys {
         });
     }
 
-    public static sysConfirm (content: string, callback: Function, cancelCallback?: Function): void {
-        let win = jQuery('<div class=\'modal fade\' role=\'dialog\' aria-labelledby=\'myModalLabel\' aria-hidden=\'true\'>'
+    public static sysConfirm(content: string, callback: Function, cancelCallback?: Function): void {
+        const win = jQuery('<div class=\'modal fade\' role=\'dialog\' aria-labelledby=\'myModalLabel\' aria-hidden=\'true\'>'
             + '<div class=\'modal-dialog\'>'
             + '<div class=\'modal-content\'>'
             + '<div class=\'modal-header\'>'
@@ -73,14 +78,14 @@ export class Sys {
             win['modal']('hide');
         });
         win.on('hidden.bs.modal', function (e) {
-            if (cancelCallback && typeof cancelCallback == 'function') {
+            if (cancelCallback && typeof cancelCallback === 'function') {
                 cancelCallback();
             }
             win.remove();
         });
     }
 
-    public static sysDialog (option: any): Object {
+    public static sysDialog(option: any): Object {
         option = {
             title: option.title ? option.title : '窗口',
             titleIcon: 'glyphicon glyphicon-hand-right',
@@ -95,7 +100,7 @@ export class Sys {
                 : null
         };
         // 模态框窗体
-        let win = jQuery('<div class=\'modal fade\' role=\'dialog\' aria-labelledby=\'myModalLabel\' aria-hidden=\'false\'>' +
+        const win = jQuery('<div class=\'modal fade\' role=\'dialog\' aria-labelledby=\'myModalLabel\' aria-hidden=\'false\'>' +
             '<div class=\'modal-dialog ' + option.sizeClass + '\' style=\'width:' +
             option.width +
             ';\'>' +
@@ -120,8 +125,9 @@ export class Sys {
         win.appendTo('body');
         // 窗口关闭触发事件
         win.on('hidden.bs.modal', function (e) {
-            if (option.closeFunction)
+            if (option.closeFunction) {
                 option.closeFunction();
+            }
             win.remove();
         });
         win.on('shown.bs.modal', function (e) {
@@ -138,7 +144,7 @@ export class Sys {
         });
         if (option.buttons != null) {
             for (let i = 0; i < option.buttons.length; i++) {
-                let btn = jQuery('<button type=\'button\' class=\'btn '
+                const btn = jQuery('<button type=\'button\' class=\'btn '
                     + option.buttons[i].className + '\'>'
                     + option.buttons[i].text + '</button>');
                 btn.appendTo(win.find('.modal-footer'));

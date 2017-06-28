@@ -9,7 +9,7 @@ export class Util {
      * @returns {Object}
      */
     public static simpleExtend (target: Object, source: Object): Object {
-        for (let p in source) {
+        for (const p in source) {
             if (source.hasOwnProperty(p)) {
                 target[p] = source[p];
             }
@@ -24,13 +24,13 @@ export class Util {
      * @returns {Object}
      */
     public static deepExtend (target: Object, source: Object) {
-        for (let p in source) {
+        for (const p in source) {
             if (source.hasOwnProperty(p)) {
-                let copy: any = source[p];
+                const copy: any = source[p];
                 if (target === copy) { // Array
                     continue;
                 }
-                if (typeof copy === "object") {
+                if (typeof copy === 'object') {
                     target[p] = this.deepExtend(target[p] || {}, copy);
                 } else {
                     target[p] = copy;

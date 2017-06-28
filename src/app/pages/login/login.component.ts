@@ -1,8 +1,8 @@
 /**
  * Created by Hllinc on 2016-10-28 15:25.
  */
-import {Component} from "@angular/core";
-import {Router} from "@angular/router";
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     templateUrl: './login.component.html',
@@ -11,9 +11,9 @@ import {Router} from "@angular/router";
 export class LoginComponent {
     access: any = {};
 
-    constructor (public router: Router) {}
+    constructor(public router: Router) {}
 
-    login (): void {
+    login(): void {
 
         // 跳到主页
         this.router.navigate(['frame/home']);

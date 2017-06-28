@@ -1,11 +1,11 @@
 /**
  * Created by Hllinc on 2016-10-28 16:04.
  */
-import { Component, OnInit } from "@angular/core";
-import { AuthService } from "../../services/auth.service";
-import { Sys } from "../../utils/sys";
-import { Router } from "@angular/router";
-import { LoginService } from "../login/login.service";
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Sys } from '../../utils/sys';
+import { Router } from '@angular/router';
+import { LoginService } from '../login/login.service';
 
 @Component({
     templateUrl: './frame.component.html',

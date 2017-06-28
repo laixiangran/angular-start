@@ -1,7 +1,6 @@
 /**
  * Created by Hllinc on 2016-10-25 11:53.
  */
-import './polyfills';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {environment} from './environments/environment';
 import {enableProdMode} from '@angular/core';
