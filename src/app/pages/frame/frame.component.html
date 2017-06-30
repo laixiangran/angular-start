@@ -12,42 +12,6 @@
 				Angular Start
 			</a>
 		</div>
-
-		<!-- 初始化菜单 -->
-		<div *ngIf="authService.currResources" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<!--<ul class="nav navbar-nav">-->
-				<!--<li routerLinkActive="active" *ngFor="let resource of authService.currResources" [ngClass]="{dropdown: resource.children.length > 0}">-->
-					<!--<a *ngIf="resource.children.length <= 0" [routerLink]="resource.c_url" class="text-center">-->
-						<!--<span [class]="resource.c_icon"></span>-->
-						<!--<div>{{resource.c_name}}</div>-->
-					<!--</a>-->
-					<!--<a *ngIf="resource.children.length > 0" href="javascript:void(0);" class="dropdown-toggle text-center" data-toggle="dropdown">-->
-						<!--<span [class]="resource.c_icon"></span>-->
-						<!--<div>-->
-							<!--{{resource.c_name}}-->
-							<!--<span class="caret"></span>-->
-						<!--</div>-->
-					<!--</a>-->
-					<!--<ul *ngIf="resource.children.length > 0" class="dropdown-menu" role="menu">-->
-						<!--<li routerLinkActive="active" *ngFor="let child_resource of resource.children">-->
-							<!--<a [routerLink]="child_resource.c_url">-->
-								<!--<span [class]="child_resource.c_icon"></span>-->
-								<!--{{child_resource.c_name}}-->
-							<!--</a>-->
-						<!--</li>-->
-					<!--</ul>-->
-				<!--</li>-->
-			<!--</ul>-->
-			<ul class="nav navbar-nav navbar-right">
-				<li routerLinkActive="active"><a routerLink="/frame/custom/office/noticeManage"><i class="fa fa-bell"></i> 通知 <span class="label label-warning">1</span></a></li>
-				<li routerLinkActive="active" *ngIf="authService.user"><a routerLink="/frame/custom/userInfo"><i class="fa fa-user"></i> {{authService.user.c_name}}</a></li>
-				<li>
-					<a href="javascript:void(0);" (click)="logout()" title="退出系统">
-						<span class="glyphicon glyphicon-off"></span>
-					</a>
-				</li>
-			</ul>
-		</div><!-- /.navbar-collapse -->
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<li>

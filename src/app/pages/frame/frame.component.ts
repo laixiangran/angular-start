@@ -14,11 +14,14 @@ export class FrameComponent implements OnInit {
 
 	constructor(public loginService: LoginService,
 				public router: Router,
-				public authService: AuthService) {}
+				public authService: AuthService) {
+	}
 
-	ngOnInit() {}
+	ngOnInit() {
+	}
 
 	logout() {
 		this.authService.initParams();
+		this.router.navigate(['login']);
 	}
 }

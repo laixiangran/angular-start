@@ -14,7 +14,7 @@
 			"index": "index.html",
 			"main": "main.ts",
 			"polyfills": "polyfills.ts",
-			"tsconfig": "tsconfig.app.json",
+			"tsconfig": "tsconfig.json",
 			"styles": [
 				"styles.css",
 				"../node_modules/bootstrap/dist/css/bootstrap.min.css"
