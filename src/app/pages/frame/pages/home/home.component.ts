@@ -17,4 +17,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 	ngOnDestroy() {
 	}
+
+	onReady(evt: any) {
+		console.log(evt);
+	}
 }
