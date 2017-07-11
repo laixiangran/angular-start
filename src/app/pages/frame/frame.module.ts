@@ -10,8 +10,6 @@ import { FrameRoutingModule } from './frame.routes';
 import { FrameComponent } from './frame.component';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './pages/home/home.component';
-import { NormalDemoComponent } from '../../components/normal-demo/normal-demo.component';
-import { ContentDemoComponent } from '../../components/content-demo/content-demo.component';
 
 @NgModule({
 	imports: [
@@ -23,9 +21,7 @@ import { ContentDemoComponent } from '../../components/content-demo/content-demo
 	],
 	declarations: [
 		FrameComponent,
-		HomeComponent,
-		NormalDemoComponent,
-		ContentDemoComponent
+		HomeComponent
 	]
 })
 
