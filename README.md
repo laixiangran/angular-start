@@ -24,6 +24,12 @@ npm install
 npm start
 ```
 
+## index.html
+
+在本应用中，将环境分成开发环境（dev），测试环境（test），生产环境（prod）三种，因此会有三种environment文件和index-xxx.html（xxx指代dev或者test或者prod）。
+
+index.html是根据编译时的环境由index-xxx.html生成的。
+
 ## 构建
 
 ### 测试环境
