@@ -10,6 +10,7 @@ import { FrameRoutingModule } from './frame.routes';
 import { FrameComponent } from './frame.component';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './pages/home/home.component';
+import { ButtonModule, InputTextModule, RatingModule } from 'primeng/primeng';
 
 @NgModule({
 	imports: [
@@ -17,7 +18,10 @@ import { HomeComponent } from './pages/home/home.component';
 		FormsModule,
 		HttpModule,
 		JsonpModule,
-		FrameRoutingModule
+		FrameRoutingModule,
+		InputTextModule,
+		ButtonModule,
+		RatingModule
 	],
 	declarations: [
 		FrameComponent,

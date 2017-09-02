@@ -16,8 +16,11 @@
 			"polyfills": "polyfills.ts",
 			"tsconfig": "tsconfig.json",
 			"styles": [
-				"styles.css",
-				"../node_modules/bootstrap/dist/css/bootstrap.min.css"
+				"styles.scss",
+				"../node_modules/bootstrap/dist/css/bootstrap.min.css",
+				"../node_modules/font-awesome/css/font-awesome.min.css",
+				"../node_modules/primeng/resources/themes/bootstrap/theme.css",
+				"../node_modules/primeng/resources/primeng.min.css"
 			],
 			"scripts": [],
 			"environmentSource": "environments/environment.ts",

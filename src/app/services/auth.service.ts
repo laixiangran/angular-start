@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscriber } from 'rxjs/Subscriber';
 
-import { DataService } from './data.service';
+import { RequestService } from './request.service';
 
 @Injectable()
 export class AuthService {
@@ -22,7 +22,7 @@ export class AuthService {
 	// 登录前的路径
 	redirectUrl: string = null;
 
-	constructor(private dataService: DataService) {}
+	constructor(private rs: RequestService) {}
 
 	/**
 	 * 初始化变量

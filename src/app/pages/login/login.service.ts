@@ -5,14 +5,14 @@
 
 import { Injectable } from '@angular/core';
 
-import { DataService } from '../../services/data.service';
+import { RequestService } from '../../services/request.service';
 import { ServerData } from '../../models/server-data.model';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class LoginService {
 
-	constructor(private dataService: DataService) {}
+	constructor(private rs: RequestService) {}
 
 	/**
 	 * 登录
@@ -24,7 +24,7 @@ export class LoginService {
 			c_login_id: access.c_login_id,
 			c_password: access.c_password
 		};
-		return this.dataService.postData('access/login.do', param);
+		return this.rs.post('access/login.do', param);
 	}
 
 	/**
@@ -32,7 +32,7 @@ export class LoginService {
 	 * @returns {Observable<ServerData>}
 	 */
 	logout(): Observable<ServerData> {
-		return this.dataService.postData('access/logout.do');
+		return this.rs.post('access/logout.do');
 	}
 
 	/**
@@ -40,6 +40,6 @@ export class LoginService {
 	 * @returns {Observable<ServerData>}
 	 */
 	isLogin(roleType?: string): Observable<ServerData> {
-		return this.dataService.getData('access/isLogin.do?roleType=' + roleType);
+		return this.rs.get('access/isLogin.do?roleType=' + roleType);
 	}
 }

@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
-import { DataService } from './services/data.service';
+import { RequestService } from './services/request.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { FrameModule } from './pages/frame/frame.module';
@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './pages/404/page-not-found.component';
 import { LoginService } from './pages/login/login.service';
 import { EDatePipe } from './pipes/eDate.pipe';
 import { ETimePipe } from './pipes/eTime.pipe';
+import { InputTextModule } from 'primeng/primeng';
 
 @NgModule({
 	imports: [
@@ -25,7 +26,8 @@ import { ETimePipe } from './pipes/eTime.pipe';
 		HttpModule,
 		JsonpModule,
 		FrameModule,
-		AppRoutingModule
+		AppRoutingModule,
+		InputTextModule
 	],
 	declarations: [
 		AppComponent,
@@ -37,7 +39,7 @@ import { ETimePipe } from './pipes/eTime.pipe';
 	providers: [
 		AuthGuard,
 		AuthService,
-		DataService,
+		RequestService,
 		LoginService
 	],
 	bootstrap: [AppComponent]

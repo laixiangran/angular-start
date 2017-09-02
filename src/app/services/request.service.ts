@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class DataService {
+export class RequestService {
 
 	serverHost: string = environment.apiUrl;
 
@@ -21,7 +21,7 @@ export class DataService {
 	 * @param url 请求路径
 	 * @returns {Observable<ServerData>}
 	 */
-	getData(url: string): Observable<ServerData> {
+	get(url: string): Observable<ServerData> {
 		return this.http.get(this.serverHost + url)
 			.map(this.extractData)
 			.catch(this.handleError);
@@ -33,7 +33,7 @@ export class DataService {
 	 * @param obj 请求body
 	 * @returns {Observable<ServerData>}
 	 */
-	postData(url: string, body: any = null): Observable<ServerData> {
+	post(url: string, body: any = null): Observable<ServerData> {
 		const headers = new Headers({'Content-Type': 'application/json'}),
 			options = new RequestOptions({headers: headers});
 		return this.http.post(this.serverHost + url, body && JSON.stringify(body), options)
