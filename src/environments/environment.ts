@@ -6,5 +6,6 @@
 
 export const environment = {
 	production: false, // 是否是生产环境，true为生产环境
-	apiUrl: '/' // 请求主路径
+	apiUrl: '/drainage/', // 请求主路径
+	tokenName: 'START_URMS_LOGIN_TOKEN' // 令牌名称
 };

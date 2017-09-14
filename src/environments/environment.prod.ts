@@ -6,5 +6,6 @@
 
 export const environment = {
 	production: true,
-	apiUrl: '/'
+	apiUrl: 'http://192.168.0.8/drainage/',
+	tokenName: 'START_URMS_LOGIN_TOKEN'
 };
