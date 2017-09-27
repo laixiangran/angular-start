@@ -1,5 +1,7 @@
 /**
- * Created by Hllinc on 2016-10-28 15:15.
+ * Created by laixiangran on 2017/8/29.
+ * homepage：http://www.laixiangran.cn.
+ * 当前用户信息服务
  */
 import { Injectable } from '@angular/core';
 

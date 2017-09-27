@@ -1,9 +1,3 @@
-/**
- * Created by laixiangran on 2017/4/3.
- * homepage：http://www.laixiangran.cn
- * 将秒数格式化为hh:mm:ss
- */
-
 import { PipeTransform, Pipe } from '@angular/core';
 
 @Pipe({

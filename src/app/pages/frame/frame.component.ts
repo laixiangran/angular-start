@@ -1,6 +1,3 @@
-/**
- * Created by Hllinc on 2016-10-28 16:04.
- */
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';

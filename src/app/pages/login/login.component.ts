@@ -1,6 +1,3 @@
-/**
- * Created by Hllinc on 2016-10-28 15:25.
- */
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';

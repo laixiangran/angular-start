@@ -1,6 +1,7 @@
-///<reference path="../../../node_modules/rxjs/Observable.d.ts"/>
 /**
- * Created by Hllinc on 2016-11-01 15:29.
+ * Created by laixiangran on 2017/8/29.
+ * homepage：http://www.laixiangran.cn.
+ * 请求服务
  */
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';

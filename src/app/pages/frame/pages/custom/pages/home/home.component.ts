@@ -8,7 +8,6 @@ import { EssenceNg2EsriMapComponent } from 'essence-ng2-esrimap';
 	styleUrls: ['./home.component.scss'],
 	providers: [HomeService]
 })
-
 export class HomeComponent implements OnInit {
 
 	esriMap: EssenceNg2EsriMapComponent;

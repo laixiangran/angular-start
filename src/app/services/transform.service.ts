@@ -4,7 +4,6 @@
  * Transform coordinate between earth(WGS-84) and mars in china(GCJ-02).
  * earth(WGS-84) 与 china(GCJ-02)互转
  */
-
 import { Injectable } from '@angular/core';
 
 interface Location {

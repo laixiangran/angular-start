@@ -1,8 +1,3 @@
-/**
- * Created by laixiangran on 2016/7/2
- * homepage：http://www.laixiangran.cn
- */
-
 import { PipeTransform, Pipe } from '@angular/core';
 
 @Pipe({

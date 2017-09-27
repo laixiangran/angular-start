@@ -3,7 +3,6 @@
  * homepage：http://www.laixiangran.cn.
  * 开发环境配置
  */
-
 export const environment = {
 	dev: true, // 是否是开发环境，true为开发环境
 	domain: '/drainage', // 请求的域名

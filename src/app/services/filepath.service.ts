@@ -3,7 +3,6 @@
  * homepage：http://www.laixiangran.cn.
  * 文件路径操作服务
  */
-
 import { Injectable } from '@angular/core';
 
 @Injectable()

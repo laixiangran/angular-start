@@ -1,5 +1,7 @@
 /**
- * Created by Hllinc on 2016-10-28 15:04.
+ * Created by laixiangran on 2017/8/29.
+ * homepage：http://www.laixiangran.cn.
+ * 路由拦截服务
  */
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild, Resolve } from '@angular/router';

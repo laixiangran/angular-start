@@ -1,14 +1,10 @@
-/**
- * Created by Hllinc on 2016-10-28 12:52.
- */
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
 	templateUrl: './page-not-found.component.html',
 	styleUrls: ['./page-not-found.component.scss']
 })
-
 export class PageNotFoundComponent {
 
 	constructor(public router: Router) {

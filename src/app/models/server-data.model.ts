@@ -1,5 +1,7 @@
 /**
- * Created by Hllinc on 2016-11-01 19:05.
+ * Created by laixiangran on 2017/8/29.
+ * homepage：http://www.laixiangran.cn.
+ * 后台返回结果对象
  */
 export class ServerData {
 	/**

@@ -1,14 +1,27 @@
-/**
- * Created by Hllinc on 2016-10-28 18:02.
- */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FrameComponent } from './frame.component';
+import { AuthGuard } from '../../services/auth-guard.service';
 
 const frameRoutes: Routes = [
 	{
-		path: 'frame',
-		redirectTo: '/frame/custom/home',
-		pathMatch: 'full'
+		path: '',
+		component: FrameComponent,
+		canActivateChild: [AuthGuard],
+		resolve: {
+			currUserResources: AuthGuard
+		},
+		children: [
+			{
+				path: 'custom',
+				loadChildren: './pages/custom/custom.module#CustomModule',
+			},
+			{
+				path: '',
+				redirectTo: 'custom',
+				pathMatch: 'full',
+			}
+		]
 	}
 ];
 

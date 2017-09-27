@@ -1,6 +1,3 @@
-/**
- * Created by Hllinc on 2016-10-28 13:42.
- */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -10,6 +7,10 @@ import { PageNotFoundComponent } from './pages/404/page-not-found.component';
 
 
 const appRoutes: Routes = [
+	{
+		path: 'frame',
+		loadChildren: 'app/pages/frame/frame.module#FrameModule'
+	},
 	{
 		path: '',
 		redirectTo: '/login',

@@ -1,6 +1,3 @@
-/**
- * Created by Hllinc on 2016-10-25 11:56.
- */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, JsonpModule } from '@angular/http';
@@ -10,7 +7,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
-import { FrameModule } from './pages/frame/frame.module';
 import { LoginComponent } from './pages/login/login.component';
 import { PageNotFoundComponent } from './pages/404/page-not-found.component';
 import { LoginService } from './pages/login/login.service';
@@ -28,7 +24,6 @@ import { Router } from '@angular/router';
 		FormsModule,
 		HttpModule,
 		JsonpModule,
-		FrameModule,
 		BrowserAnimationsModule,
 		AppRoutingModule
 	],
