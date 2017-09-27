@@ -51,6 +51,6 @@ import { Router } from '@angular/router';
 })
 export class AppModule {
 	constructor(router: Router) {
-		// console.log('Routes: ', JSON.stringify(router.config, undefined, 4));
+		console.log('Routes: ', JSON.stringify(router.config, undefined, 4));
 	}
 }
