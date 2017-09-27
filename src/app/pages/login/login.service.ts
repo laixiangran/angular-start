@@ -5,41 +5,19 @@
 
 import { Injectable } from '@angular/core';
 
-import { RequestService } from '../../services/request.service';
-import { ServerData } from '../../models/server-data.model';
 import { Observable } from 'rxjs/Observable';
+import { RequestService } from '../../services/request.service';
 
 @Injectable()
 export class LoginService {
 
-	constructor(private rs: RequestService) {}
+	constructor(private requestService: RequestService) {}
 
-	/**
-	 * 登录
-	 * @param access
-	 * @returns {Observable<ServerData>}
-	 */
-	login(access: any): Observable<ServerData> {
-		const param: Object = {
-			c_login_id: access.c_login_id,
-			c_password: access.c_password
-		};
-		return this.rs.post('access/login.do', param);
+	login(access: any): Observable<any> {
+		return this.requestService.post('/LoginAction/Login', access);
 	}
 
-	/**
-	 * 登出
-	 * @returns {Observable<ServerData>}
-	 */
-	logout(): Observable<ServerData> {
-		return this.rs.post('access/logout.do');
-	}
-
-	/**
-	 * 验证是否登录
-	 * @returns {Observable<ServerData>}
-	 */
-	isLogin(roleType?: string): Observable<ServerData> {
-		return this.rs.get('access/isLogin.do?roleType=' + roleType);
+	logout(): Observable<any> {
+		return this.requestService.post('/LoginAction/Logout');
 	}
 }

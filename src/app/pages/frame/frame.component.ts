@@ -5,23 +5,35 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { LoginService } from '../login/login.service';
+import { environment } from '../../../environments/environment';
+import { ConfirmationService } from 'primeng/primeng';
 
 @Component({
 	templateUrl: './frame.component.html',
-	styleUrls: ['./frame.component.scss']
+	styleUrls: ['./frame.component.scss'],
+	providers: [ConfirmationService]
 })
 export class FrameComponent implements OnInit {
 
 	constructor(public loginService: LoginService,
 				public router: Router,
-				public authService: AuthService) {
-	}
+				public confirmationService: ConfirmationService,
+				public authService: AuthService) {}
 
-	ngOnInit() {
-	}
+	ngOnInit() {}
 
 	logout() {
-		this.authService.initParams();
-		this.router.navigate(['login']);
+		this.confirmationService.confirm({
+			header: '系统提示',
+			message: '是否退出系统？',
+			accept: () => {
+				this.loginService.logout().subscribe(() => {});
+				localStorage.removeItem(environment.tokenName);
+				this.router.navigate(['/login']);
+			},
+			reject: () => {
+				console.log('取消退出！');
+			}
+		});
 	}
 }

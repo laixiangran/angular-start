@@ -3,6 +3,9 @@
  */
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from './login.service';
+import { environment } from '../../../environments/environment';
+import { Md5 } from 'ts-md5/dist/md5';
 
 @Component({
 	templateUrl: './login.component.html',
@@ -11,30 +14,28 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 	access: any = {};
 
-	constructor(public router: Router) {}
+	constructor(public loginService: LoginService,
+				public router: Router) {}
 
 	login(): void {
-
-		// 跳到主页
-		this.router.navigate(['frame/home']);
-
-		// this.loginService.login(this.access).subscribe((data: ServerData) => {
-		//     if (data.code === 'ok') {
-		//         this.authService.initParams(this.authService.redirectUrl, data.result).subscribe((data: boolean) => {
-		//             if (data) {
-		//                 if (this.authService.redirectUrl && this.authService.redirectUrl.indexOf('login') < 0) {
-		//                     this.router.navigate([this.authService.redirectUrl]); // 跳转到登录前的页面
-		//                 } else {
-		//                     // 跳到主页
-		//                     this.router.navigate(['frame/home']);
-		//                 }
-		//             } else {
-		//                 this.router.navigate(['/login']);
-		//             }
-		//         });
-		//     } else {
-		//         Sys.sysAlert(data.info, '温馨提示');
-		//     }
-		// });
+		const access: any = {
+			username: this.access.username,
+			password: Md5.hashStr(this.access.password),
+			remeberme: this.access.status
+		};
+		this.loginService.login(access).subscribe((serverData: any) => {
+			if (serverData.status === 1 || serverData.status === -1 || serverData.status === 200) {
+				localStorage.setItem(environment.tokenName, serverData.token);
+				this.router.navigate(['/frame/custom/home']);
+			} else if (serverData.status === -3) {
+				console.error('用户不存在，请重试！', '温馨提示');
+			} else if (serverData.status === -4) {
+				console.error('密码错误，请重试！', '温馨提示');
+			} else if (serverData.status === -5) {
+				console.error('没有权限登录，请联系管理员！', '温馨提示');
+			} else if (serverData.status === -6) {
+				console.error('账户受保护，请联系管理员！', '温馨提示');
+			}
+		});
 	}
 }

@@ -17,7 +17,7 @@ export class PageNotFoundComponent {
 
 	// 返回首页
 	goHome() {
-		this.router.navigate(['frame/home']);
+		this.router.navigate(['/frame/custom/home']);
 	}
 
 	// 刷新页面

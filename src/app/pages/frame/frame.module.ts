@@ -5,12 +5,13 @@
 import { NgModule } from '@angular/core';
 import { JsonpModule, HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { ConfirmDialogModule } from 'primeng/primeng';
 
 import { FrameRoutingModule } from './frame.routes';
 import { FrameComponent } from './frame.component';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './pages/home/home.component';
-import { ButtonModule, InputTextModule, RatingModule } from 'primeng/primeng';
+import { CustomModule } from './pages/custom/custom.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
 	imports: [
@@ -18,14 +19,13 @@ import { ButtonModule, InputTextModule, RatingModule } from 'primeng/primeng';
 		FormsModule,
 		HttpModule,
 		JsonpModule,
+		BrowserAnimationsModule,
 		FrameRoutingModule,
-		InputTextModule,
-		ButtonModule,
-		RatingModule
+		CustomModule,
+		ConfirmDialogModule
 	],
 	declarations: [
-		FrameComponent,
-		HomeComponent
+		FrameComponent
 	]
 })
 

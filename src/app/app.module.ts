@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
-import { RequestService } from './services/request.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { FrameModule } from './pages/frame/frame.module';
@@ -17,7 +16,11 @@ import { PageNotFoundComponent } from './pages/404/page-not-found.component';
 import { LoginService } from './pages/login/login.service';
 import { EDatePipe } from './pipes/eDate.pipe';
 import { ETimePipe } from './pipes/eTime.pipe';
-import { InputTextModule } from 'primeng/primeng';
+import { RequestService } from './services/request.service';
+import { DateTimeService } from './services/datetime.service';
+import { FilePathService } from './services/filepath.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Router } from '@angular/router';
 
 @NgModule({
 	imports: [
@@ -26,8 +29,8 @@ import { InputTextModule } from 'primeng/primeng';
 		HttpModule,
 		JsonpModule,
 		FrameModule,
-		AppRoutingModule,
-		InputTextModule
+		BrowserAnimationsModule,
+		AppRoutingModule
 	],
 	declarations: [
 		AppComponent,
@@ -40,9 +43,14 @@ import { InputTextModule } from 'primeng/primeng';
 		AuthGuard,
 		AuthService,
 		RequestService,
-		LoginService
+		LoginService,
+		DateTimeService,
+		FilePathService
 	],
 	bootstrap: [AppComponent]
 })
 export class AppModule {
+	constructor(router: Router) {
+		// console.log('Routes: ', JSON.stringify(router.config, undefined, 4));
+	}
 }
