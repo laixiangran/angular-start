@@ -8,12 +8,17 @@
 			<input type="text" class="search" placeholder="关键字搜索" autocomplete="off">
 		</span>
 		<ul class="nav navbar-nav navbar-right">
-			<li class="scanCode" (click)="scanCode()"><span>app下载</span></li>
+			<li class="help scanCode" (click)="scanCode()">
+				<span class="fa fa-cloud-download"></span>
+				<span>app下载</span>
+			</li>
 			<li class="help">
 				<span class="Eicons start-tongzhi"></span>
 				<span class="notice">6</span>
 			</li>
-			<li class="help"><span class="Eicons start-bangzhu"></span></li>
+			<li class="help">
+				<span class="Eicons start-bangzhu"></span>
+			</li>
 			<li class="dropdown">
 				<span class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 				      aria-expanded="false">
@@ -61,13 +66,21 @@
 </div>
 <p-confirmDialog [acceptLabel]="'确定'" [rejectLabel]="'取消'"></p-confirmDialog>
 <modal [backdrop]="false" #scanCodeModal>
-	<modal-header [show-close]="true"><h4>app扫码下载</h4></modal-header>
+	<modal-header [show-close]="true">
+		<h4>
+			<span class="fa fa-cloud-download"></span>&nbsp;app下载
+		</h4>
+	</modal-header>
 	<modal-body>
-		<div class="text-center">
-			<qr-code [value]="appDownloadUrl" [size]="200"></qr-code>
-		</div>
-		<div class="text-right">
-			<button type="button" class="btn btn-default" (click)="scanCodeModal.close()">关闭</button>
+		<div class="appDownloadArea text-center">
+			<img src="./assets/images/frame/downloadInfo.png" height="250" width="250"/>
+			<qr-code [value]="appDownloadUrl" [size]="250"></qr-code>
 		</div>
 	</modal-body>
+	<modal-footer>
+		<div class="text-right">
+			<a [href]="appDownloadUrl" class="btn btn-success" target="_blank">直接下载</a>
+			<button type="button" class="btn btn-default" (click)="scanCodeModal.close()">取消</button>
+		</div>
+	</modal-footer>
 </modal>

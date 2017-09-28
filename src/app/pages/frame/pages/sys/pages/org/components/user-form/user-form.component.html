@@ -1,0 +1,77 @@
+<div class="container-fluid">
+	<form #userForm="ngForm">
+		<div class="form-group">
+			<label for="access_login_id">登陆名</label>
+			<input type="text" class="form-control" id="access_login_id"
+				   required
+				   [(ngModel)]="user.name" name="access_login_id"
+				   #access_login_id="ngModel">
+			<div [hidden]="access_login_id.valid || access_login_id.pristine"
+				 class="alert alert-danger">
+				登陆名是必需的
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="c_name">姓名</label>
+			<input type="text" class="form-control" id="c_name"
+				   required
+				   [(ngModel)]="user.realName" name="c_name"
+				   #c_name="ngModel">
+			<div [hidden]="c_name.valid || c_name.pristine"
+				 class="alert alert-danger">
+				姓名是必需的
+			</div>
+		</div>
+		<div class="form-group" *ngIf="showOrg">
+			<label>所属机构</label>
+			<div class="label" [ngClass]="{'label-danger':!selectedOrg,'label-success':selectedOrg}">
+				{{(selectedOrg ? selectedOrg.data.text : "未选择")}}
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="c_sex">性别</label>
+			<select class="form-control" id="c_sex"
+					required
+					[(ngModel)]="user.sex" name="c_sex"
+					#c_sex="ngModel">
+				<option value="0">男</option>
+				<option value="1">女</option>
+			</select>
+			<div [hidden]="c_sex.valid || c_sex.pristine" class="alert alert-danger">
+				性别是必需的
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="d_birthday">出生年月</label>
+			<input type="date" class="form-control" id="d_birthday"
+				   [(ngModel)]="user.birthday" name="d_birthday"
+				   #d_birthday="ngModel">
+		</div>
+		<div class="form-group">
+			<label for="c_email">邮箱</label>
+			<input type="email" class="form-control" id="c_email"
+				   [(ngModel)]="user.email" name="c_email"
+				   #c_email="ngModel">
+		</div>
+		<div class="form-group">
+			<label for="c_addr">地址</label>
+			<input type="text" class="form-control" id="c_addr"
+				   [(ngModel)]="user.addr" name="c_addr"
+				   #c_telphone="ngModel">
+		</div>
+		<div class="form-group">
+			<label for="c_telphone">电话</label>
+			<input type="text" class="form-control" id="c_telphone"
+				   [(ngModel)]="user.tel" name="c_telphone"
+				   #c_telphone="ngModel">
+		</div>
+		<hr>
+		<div class="text-right">
+			<button type="button" class="btn btn-default" (click)="cancel();userForm.reset()">取消</button>
+			<button type="button" class="btn btn-primary" (click)="onSubmit();userForm.reset()"
+					[disabled]="!userForm.form.valid">保存
+			</button>
+		</div>
+	</form>
+</div>

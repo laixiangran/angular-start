@@ -1,0 +1,33 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					资源列表
+					<!--<input #filter (keyup)="filterNodes(filter.value, tree)" placeholder="过滤资源"/>-->
+					<span class="pull-right">
+					<button type="button" class="btn btn-primary btn-xs" [disabled]="!selectedResource"
+							(click)="addResource()">添加</button>
+					<button type="button" class="btn btn-danger btn-xs"
+							[disabled]="!selectedResource||!selectedResource.data.parentId"
+							(click)="deleteResource()">删除</button>
+				</span>
+				</div>
+				<div class="panel-body">
+					<resource-tree (selectResource)="selectResource($event)"></resource-tree>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4" *ngIf="selectedResource">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					资源属性
+				</div>
+				<div class="panel-body">
+					<resource-form [resource]="selectedResource"></resource-form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

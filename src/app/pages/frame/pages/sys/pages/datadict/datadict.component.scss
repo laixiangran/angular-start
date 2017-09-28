@@ -1,0 +1,58 @@
+
+table {
+    border: 1px solid #BCE8F1;
+    border-radius: 10px;
+    thead {
+        tr {
+            th {
+                padding: 0 0 0 20px;
+            }
+            background: #D9EDF7;
+            button {
+                float: right;
+                margin: 14px 10px 0 0;;
+            }
+        }
+    }
+    tbody {
+        background: #FFFFFF;
+        tr {
+            height: 60px;
+            td {
+
+                padding: 0 0 0 20px;
+                vertical-align: middle;
+            }
+            cursor: pointer;
+            border-bottom: 1px solid #DDDDDD;
+        }
+        .active {
+            background: #ccc;
+        }
+        tr :hover button{
+            display: block;
+        }
+        button {
+            display: none;
+            float: right;
+            margin: 14px 10px 0 0;
+        }
+    }
+    span {
+        display: inline-block;
+        height: 60px;
+        line-height: 60px;
+        width: 70%;
+    }
+    .active {
+        background: #ccc;   
+    }
+
+}
+.panel {
+    text-align: right;
+    span {
+        float: left;
+        margin-top:4px;
+    }
+}

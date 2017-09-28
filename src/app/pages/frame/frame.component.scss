@@ -200,3 +200,15 @@
         overflow-y: auto;
     }
 }
+
+.appDownloadArea {
+    margin: 0 auto;
+    padding: 30px 0;
+    width: 580px;
+    border: 10px solid #000000;
+    border-radius: 15px;
+
+    .appDownloadBtn {
+        margin-top: 10px;
+    }
+}

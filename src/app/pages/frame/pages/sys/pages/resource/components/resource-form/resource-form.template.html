@@ -1,0 +1,63 @@
+<form (ngSubmit)="onSubmit()" #resourceForm="ngForm">
+	<div class="form-group">
+		<label for="type">资源类型</label>
+		<select name="type" id="type" class="form-control"
+				required [(ngModel)]="resource.data.type">
+			<option value="menu">菜单</option>
+			<option value="url">路径</option>
+			<option value="element">元素</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="name">统一编号</label>
+		<input type="text" class="form-control" id="sn"
+			   required
+			   [(ngModel)]="resource.data.sn" name="sn"
+			   #sn="ngModel">
+		<div [hidden]="sn.valid || sn.pristine"
+			 class="alert alert-danger">
+			统一编号不能为空
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name">资源名称</label>
+		<input type="text" class="form-control" id="name"
+			   required
+			   [(ngModel)]="resource.data.name" name="name"
+			   #name="ngModel">
+		<div [hidden]="name.valid || name.pristine"
+			 class="alert alert-danger">
+			资源名称不能为空
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="icon">资源图标</label>
+		<input type="text" class="form-control" id="icon"
+			   [(ngModel)]="resource.data.icon" name="icon"
+			   #icon="ngModel">
+	</div>
+	<div class="form-group">
+		<label for="url">资源路由</label>
+		<input type="text" class="form-control" id="url"
+			   required
+			   [(ngModel)]="resource.data.url" name="url"
+			   #url="ngModel">
+		<div [hidden]="url.valid || url.pristine"
+			 class="alert alert-danger">
+			Url is required
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="describe">资源备注</label>
+		<textarea name="describe" id="describe" class="form-control"
+				  [(ngModel)]="resource.data.describe"
+				  #describe="ngModel"></textarea>
+		<div [hidden]="describe.valid || describe.pristine"
+			 class="alert alert-danger">
+			describe is required
+		</div>
+	</div>
+	<div class="text-right">
+		<button type="submit" class="btn btn-primary" [disabled]="!resourceForm.form.valid">保存</button>
+	</div>
+</form>

@@ -1,0 +1,61 @@
+<form (ngSubmit)="onSubmit()" #orgForm="ngForm">
+	<div class="form-group">
+		<label for="c_name">名称</label>
+		<input type="text" class="form-control" id="c_name"
+			   required
+			   [(ngModel)]="selectedOrg.data.name" name="c_name"
+			   #c_name="ngModel">
+		<div [hidden]="c_name.valid || c_name.pristine"
+			 class="alert alert-danger">
+			名称不能为空
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="c_tel">联系电话</label>
+		<input type="text" class="form-control" id="c_tel"
+			   [(ngModel)]="selectedOrg.data.tel" name="c_tel"
+			   #c_qualification="ngModel">
+	</div>
+
+	<div class="form-group">
+		<label for="c_addr">单位地址</label>
+		<input type="text" class="form-control" id="c_addr"
+			   [(ngModel)]="selectedOrg.data.address" name="c_addr"
+			   #c_addr="ngModel">
+	</div>
+	<div class="form-group">
+		<label for="c_district">所属行政区</label>
+		<input type="text" class="form-control" id="c_district"
+			   [(ngModel)]="selectedOrg.data.district" name="c_district"
+			   #c_qualification="ngModel">
+	</div>
+	<div class="form-group">
+		<label for="c_email">邮箱</label>
+		<input type="email" class="form-control" id="c_email"
+			   [(ngModel)]="selectedOrg.data.email" name="c_email"
+			   #c_email="ngModel">
+	</div>
+	<div class="form-group">
+		<label for="c_org_type">单位类型</label>
+		<select class="form-control" id="c_org_type"
+				required
+				[(ngModel)]="selectedOrg.data.type" name="c_org_type"
+				#c_org_type="ngModel">
+			<option *ngFor="let ot of orgType" [value]="ot.id">{{ot.value}}</option>
+		</select>
+		<div [hidden]="c_org_type.valid || c_org_type.pristine" class="alert alert-danger">
+			单位类型是必需的
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="c_principal">负责人</label>
+		<input type="text" class="form-control" id="c_principal"
+			   [(ngModel)]="selectedOrg.data.principal" name="c_principal"
+			   #c_certificate_no="ngModel">
+	</div>
+	<hr>
+	<div class="text-right">
+		<button type="button" class="btn btn-default" (click)="closeForm()">取消</button>
+		<button type="submit" class="btn btn-primary" [disabled]="!orgForm.form.valid">保存</button>
+	</div>
+</form>
