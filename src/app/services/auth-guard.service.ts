@@ -8,11 +8,15 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanAc
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
 import { AuthService } from './auth.service';
+import { ServerData } from '../models/server-data.model';
+import { LoginService } from '../pages/login/login.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild, Resolve<any> {
 
-	constructor(private router: Router, public authService: AuthService) {}
+	constructor(public router: Router,
+				public loginService: LoginService,
+				public authService: AuthService) {}
 
 	// ActivatedRouteSnapshot包含了即将被激活的路由，而RouterStateSnapshot包含了该应用即将到达的状态
 	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
@@ -44,11 +48,40 @@ export class AuthGuard implements CanActivate, CanActivateChild, Resolve<any> {
 			if (this.authService.currUserResources) {
 				resolve(this.authService.currUserResources);
 			} else {
-				/**
-				 * 获取当前用户的权限（实际项目写真实请求路径）
-				 */
-				this.authService.currUserResources = [];
-				resolve(this.authService.currUserResources);
+				// 当前用户资源
+				this.loginService.getUserResources().subscribe(
+					(serverData: ServerData) => {
+						if (serverData.code === 'ok') {
+							this.authService.currUserResources = serverData.result;
+							resolve(this.authService.currUserResources);
+						} else {
+							console.error(serverData.info);
+							reject();
+						}
+					},
+					(error) => {
+						console.error(error);
+						reject();
+					}
+				);
+
+				// 获取当前登录用户的信息
+				this.loginService.getUserInfo().subscribe((serverData: ServerData) => {
+					if (serverData.code === 'ok') {
+						this.authService.user = {
+							id: serverData.result.pk,
+							realName: serverData.result.info.realnm,
+							tel: serverData.result.info.tel,
+							email: serverData.result.info.email
+						};
+						resolve(this.authService.user);
+					}
+				});
+
+				// 当前用户菜单
+				this.loginService.getUserMenus().subscribe((serverData: any) => {
+					this.authService.currUserMenus = serverData.children;
+				});
 			}
 		});
 	}

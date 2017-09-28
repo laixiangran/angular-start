@@ -1,6 +1,6 @@
 /**
  * Created by laixiangran on 2017/8/29.
- * homepage：http://www.laixiangran.cn.
+ * homepage:http://www.laixiangran.cn.
  */
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { environment } from './environments/environment';

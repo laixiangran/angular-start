@@ -5,6 +5,7 @@
  */
 export const environment = {
 	dev: false,
+	title: 'Angular Start',
 	domain: 'http://192.168.0.8/drainage',
 	mockDomain: '',
 	tokenName: 'START_URMS_LOGIN_TOKEN',

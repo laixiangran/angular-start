@@ -11,13 +11,15 @@ import { ConfirmationService } from 'primeng/primeng';
 	providers: [ConfirmationService]
 })
 export class FrameComponent implements OnInit {
+	title: string = environment.title;
 
 	constructor(public loginService: LoginService,
 				public router: Router,
 				public confirmationService: ConfirmationService,
 				public authService: AuthService) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+	}
 
 	logout() {
 		this.confirmationService.confirm({

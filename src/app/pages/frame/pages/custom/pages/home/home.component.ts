@@ -16,6 +16,12 @@ export class HomeComponent implements OnInit {
 	geoUrl: string = environment.geoUrl; // 几何服务路径
 	gisApiUrl: string = environment.gisApiUrl; // arcgis javascript API路径
 	esriCSSUrl: string = environment.esriCSSUrl; // arcgis javascript API路径
+	initExtent: any = {
+		xmin: 34.62890274822709,
+		ymin: 9.404300374910264,
+		xmax: 174.3749964982271,
+		ymax: 62.138675374910264
+	};
 
 	constructor() {
 	}

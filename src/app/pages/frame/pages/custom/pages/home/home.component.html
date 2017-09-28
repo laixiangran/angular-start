@@ -1,11 +1,11 @@
 <div class="container-fluid">
-	<h1>哇哦，恭喜！</h1>
 	<h2>你已经成功启动并登录angular-start项目，现在开启angular愉悦的开发之旅吧！</h2>
-	<div style="height: 600px; width: 600px;">
+	<div style="height: 600px;">
 		<essence-ng2-esrimap
 				[gisApiUrl]="gisApiUrl"
 				[geoUrl]="geoUrl"
 				[esriCSSUrl]="esriCSSUrl"
+				[initExtent]="initExtent"
 				[mapUrl]="mapUrl"
 				[mapType]="mapType"
 				(mapReady)="onMapReady($event)"

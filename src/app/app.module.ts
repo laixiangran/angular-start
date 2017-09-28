@@ -16,7 +16,6 @@ import { RequestService } from './services/request.service';
 import { DateTimeService } from './services/datetime.service';
 import { FilePathService } from './services/filepath.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Router } from '@angular/router';
 
 @NgModule({
 	imports: [
@@ -45,7 +44,6 @@ import { Router } from '@angular/router';
 	bootstrap: [AppComponent]
 })
 export class AppModule {
-	constructor(router: Router) {
-		console.log('Routes: ', JSON.stringify(router.config, undefined, 4));
+	constructor() {
 	}
 }

@@ -36,6 +36,7 @@
     "essence-ng2-viewer": "^4.0.4",
     "intl": "^1.2.5",
     "ng2-bootstrap-modal": "^1.0.1",
+    "ng2-bs3-modal": "^0.11.0",
     "ng2-validation": "^4.2.0",
     "ngx-bootstrap": "^1.7.1",
     "primeng": "^4.1.3",

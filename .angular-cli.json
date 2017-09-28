@@ -19,8 +19,8 @@
 			"tsconfig": "tsconfig.json",
 			"styles": [
 				"styles.scss",
-				"assets/fonts/iconfont.css",
-				"assets/fonts/sysiconfont.css",
+				"assets/fonts/iconfont.scss",
+				"assets/fonts/sysiconfont.scss",
 				"../node_modules/font-awesome/css/font-awesome.min.css",
 				"../node_modules/primeng/resources/themes/bootstrap/theme.css",
 				"../node_modules/primeng/resources/primeng.min.css",

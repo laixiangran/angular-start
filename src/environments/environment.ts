@@ -5,6 +5,7 @@
  */
 export const environment = {
 	dev: true, // 是否是开发环境，true为开发环境
+	title: 'Angular Start', // 系统名称
 	domain: '/drainage', // 请求的域名
 	mockDomain: '/mockjsdata/3', // 模拟请求的域名
 	tokenName: 'START_URMS_LOGIN_TOKEN', // 令牌名称

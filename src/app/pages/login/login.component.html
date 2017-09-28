@@ -1,45 +1,38 @@
 <div class="loginPlat">
-	<img src="./assets/images/login/login-bg.jpg" class="img-responsive" alt="">
-	<div>
-		<div class="container">
-			<div class="containerDiv">
-				<h1 class="text-center">Angular Start</h1>
-				<div class="login-form-container">
-					<form #loginForm="ngForm"class="loginForm">
-						<div class="form-group username">
-							<input id="username" placeholder="输入用户名"
-							       required
-							       [(ngModel)]="access.username" name="username"
-							       #username="ngModel">
-							<div [hidden]="username.valid || username.pristine"
-							     class="alert alert-danger">
-								用户名是必需的
-							</div>
-						</div>
-						<div class="form-group password">
-							<input type="password" id="password" placeholder="输入密码"
-							       required
-							       [(ngModel)]="access.password" name="password"
-							       #password="ngModel">
-							<div [hidden]="password.valid || password.pristine"
-							     class="alert alert-danger">
-								密码是必需的
-							</div>
-						</div>
-						<div class="checkbox">
-							<label>
-								<input type="checkbox"> 保持登录
-							</label>
-						</div>
-						<div class="form-group">
-							<button type="button" class="form-control loginBtn" (click)="login()" [disabled]="!loginForm.form.valid">
-								登录
-							</button>
-						</div>
-					</form>
+	<div class="container">
+		<div class="title"></div>
+		<div class="formBox">
+			<form #loginForm="ngForm" class="loginForm">
+				<div class="username">
+					<div><i class="Eicons start-yonghuming"></i></div>
+					<input type="text" id="c_login_id" placeholder="输入用户名"
+					       required
+					       [(ngModel)]="access.username" name="username"
+					       #username="ngModel">
 				</div>
-			</div>
+				<div class="clearfix mg5">
+					<p [hidden]="username.valid || username.pristine" class="tips">用户名是必需的</p>
+				</div>
+				<div class="password">
+					<div><i class="Eicons start-mima"></i></div>
+					<input type="password" id="c_password" placeholder="输入密码"
+					       required
+					       [(ngModel)]="access.password" name="password"
+					       #password="ngModel">
+				</div>
+				<div class="clearfix">
+					<p [hidden]="password.valid || password.pristine" class="tips">密码是必需的</p>
+				</div>
+				<div class="affirmbox">
+					<div id="affirm" [class.activeg]="isaffirm" (click)="selectaffirm()"></div>
+					<label for="affirm" (click)="selectaffirm()">记住我</label>
+				</div>
+				<button type="button" class="btn btn-lg btn-primary loginBtn" [disabled]="!loginForm.form.valid"
+				        (click)="login()">
+					登录
+				</button>
+				<p><a href="">遇到登录问题请联系管理员</a></p>
+			</form>
 		</div>
 	</div>
 </div>
-

@@ -10,6 +10,7 @@ import { Md5 } from 'ts-md5/dist/md5';
 })
 export class LoginComponent {
 	access: any = {};
+	isaffirm: boolean = false;
 
 	constructor(public loginService: LoginService,
 				public router: Router) {}
@@ -34,5 +35,9 @@ export class LoginComponent {
 				console.error('账户受保护，请联系管理员！', '温馨提示');
 			}
 		});
+	}
+
+	selectaffirm() {
+		this.isaffirm = !this.isaffirm;
 	}
 }
