@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
-import { environment } from '../../../environments/environment';
 import { Md5 } from 'ts-md5/dist/md5';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
 	templateUrl: './login.component.html',
@@ -13,6 +13,7 @@ export class LoginComponent {
 	isaffirm: boolean = false;
 
 	constructor(public loginService: LoginService,
+				private authService: AuthService,
 				public router: Router) {}
 
 	login(): void {
@@ -23,7 +24,7 @@ export class LoginComponent {
 		};
 		this.loginService.login(access).subscribe((serverData: any) => {
 			if (serverData.status === 1 || serverData.status === -1 || serverData.status === 200) {
-				localStorage.setItem(environment.tokenName, serverData.token);
+				this.authService.setToken(serverData.token);
 				this.router.navigate(['/frame/custom/home']);
 			} else if (serverData.status === -3) {
 				console.error('用户不存在，请重试！', '温馨提示');

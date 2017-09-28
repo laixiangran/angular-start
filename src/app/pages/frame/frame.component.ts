@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { LoginService } from '../login/login.service';
 import { environment } from '../../../environments/environment';
 import { ConfirmationService } from 'primeng/primeng';
+import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 @Component({
 	templateUrl: './frame.component.html',
@@ -12,6 +13,8 @@ import { ConfirmationService } from 'primeng/primeng';
 })
 export class FrameComponent implements OnInit {
 	title: string = environment.title;
+	appDownloadUrl: string = environment.appDownloadUrl;
+	@ViewChild('scanCodeModal') scanCodeModal: ModalComponent;
 
 	constructor(public loginService: LoginService,
 				public router: Router,
@@ -27,12 +30,16 @@ export class FrameComponent implements OnInit {
 			message: '是否退出系统？',
 			accept: () => {
 				this.loginService.logout().subscribe(() => {});
-				localStorage.removeItem(environment.tokenName);
+				this.authService.initParams();
 				this.router.navigate(['/login']);
 			},
 			reject: () => {
 				console.log('取消退出！');
 			}
 		});
+	}
+
+	scanCode() {
+		this.scanCodeModal.open('lg');
 	}
 }

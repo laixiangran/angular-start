@@ -7,17 +7,18 @@ const frameRoutes: Routes = [
 	{
 		path: '',
 		component: FrameComponent,
-		canActivate: [AuthGuard],
 		resolve: {
 			currUserResources: AuthGuard
 		},
 		children: [
 			{
 				path: 'custom',
+				canActivate: [AuthGuard],
 				loadChildren: './pages/custom/custom.module#CustomModule',
 			},
 			{
 				path: 'sys',
+				canActivate: [AuthGuard],
 				loadChildren: './pages/sys/sys.module#SysModule',
 			},
 			{

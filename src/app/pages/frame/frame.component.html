@@ -8,7 +8,7 @@
 			<input type="text" class="search" placeholder="关键字搜索" autocomplete="off">
 		</span>
 		<ul class="nav navbar-nav navbar-right">
-			<li class="scanCode"><span>app下载</span></li>
+			<li class="scanCode" (click)="scanCode()"><span>app下载</span></li>
 			<li class="help">
 				<span class="Eicons start-tongzhi"></span>
 				<span class="notice">6</span>
@@ -60,3 +60,14 @@
 	</div>
 </div>
 <p-confirmDialog [acceptLabel]="'确定'" [rejectLabel]="'取消'"></p-confirmDialog>
+<modal [backdrop]="false" #scanCodeModal>
+	<modal-header [show-close]="true"><h4>app扫码下载</h4></modal-header>
+	<modal-body>
+		<div class="text-center">
+			<qr-code [value]="appDownloadUrl" [size]="200"></qr-code>
+		</div>
+		<div class="text-right">
+			<button type="button" class="btn btn-default" (click)="scanCodeModal.close()">关闭</button>
+		</div>
+	</modal-body>
+</modal>

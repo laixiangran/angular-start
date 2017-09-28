@@ -26,19 +26,10 @@ input {
         top: 18%;
         left: 50%;
         transform: translateX(-50%);
-        -ms-transform: translateX(-50%); /* IE 9 */
-        -moz-transform: translateX(-50%); /* Firefox */
-        -webkit-transform: translateX(-50%); /* Safari Chrome */
-        -o-transform: translateX(-50%); /* opera */
-        .title {
-            background: url('../../../assets/images/login/title.png') no-repeat;
-            height: 47px;
-            width: 100%;
-        }
         .formBox {
             width: 490px;
             height: 449px;
-            background: #fff;
+            background: #FFFFFF;
             margin: 26px auto 0 auto;
             box-shadow: 5px 5px 18px rgba(0, 0, 0, 0.4);
             .loginForm {
@@ -51,10 +42,10 @@ input {
                         padding-left: 70px;
                         width: 100%;
                         height: 56px;
-                        border: 1px solid #d4e3f2;
+                        border: 1px solid #D4E3F2;
                         font-size: 16px;
-                        color: #0b75ff;
-                        background: #ecf5fe;
+                        color: #0B75FF;
+                        background: #ECF5FE;
                     }
                     div {
                         position: absolute;
@@ -66,7 +57,7 @@ input {
                             height: 56px;
                             line-height: 56px;
                             text-align: center;
-                            color: #0b75ff;
+                            color: #0B75FF;
                             font-size: 30px;
                         }
                         i:after {
@@ -76,11 +67,11 @@ input {
                             width: 1px;
                             height: 38px;
                             content: "";
-                            background: #fff;
+                            background: #FFFFFF;
                         }
                     }
                     input:focus {
-                        border: 1px solid #ffd92b;
+                        border: 1px solid #FFD92B;
                     }
                     span {
                         position: absolute;
@@ -89,7 +80,7 @@ input {
                 .clearfix {
                     height: 23px;
                     line-height: 23px;
-                    color: #f66495;
+                    color: #F66495;
                     p {
                         text-align: left;
                         margin: 0;
@@ -102,7 +93,7 @@ input {
                     margin-bottom: 42px;
                     label {
                         height: 20px;
-                        color: #666;
+                        color: #666666;
                         font-size: 16px;
                         cursor: pointer;
                     }
@@ -110,8 +101,8 @@ input {
                         margin-right: 10px;
                         width: 19px;
                         height: 18px;
-                        background: #fff;
-                        border: 1px solid #ccc;
+                        background: #FFFFFF;
+                        border: 1px solid #CCCCCC;
                         cursor: pointer;
                     }
                     .activeg {
@@ -123,8 +114,8 @@ input {
                     width: 100%;
                     height: 56px;
                     font-size: 22px;
-                    color: #fff;
-                    background: #016fff;
+                    color: #FFFFFF;
+                    background: #016FFF;
                     text-align: center;
                     border-radius: 0;
                 }
@@ -134,11 +125,11 @@ input {
                 }
                 a {
                     font-size: 16px;
-                    color: #666;
+                    color: #666666;
                     text-decoration: underline;
                 }
                 a:hover {
-                    color: #333;
+                    color: #333333;
                     text-decoration: none;
                 }
             }

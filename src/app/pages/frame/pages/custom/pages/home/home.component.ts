@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
 import { environment } from '../../../../../../../environments/environment';
 import { EssenceNg2EsriMapComponent } from 'essence-ng2-esrimap';
+import { AuthService } from '../../../../../../services/auth.service';
 
 @Component({
 	templateUrl: './home.component.html',
@@ -9,11 +10,9 @@ import { EssenceNg2EsriMapComponent } from 'essence-ng2-esrimap';
 	providers: [HomeService]
 })
 export class HomeComponent implements OnInit {
-
 	esriMap: EssenceNg2EsriMapComponent;
 	mapUrl: string[] = ['vec', 'cva'];
 	mapType: string = 'tdt';
-	geoUrl: string = environment.geoUrl; // 几何服务路径
 	gisApiUrl: string = environment.gisApiUrl; // arcgis javascript API路径
 	esriCSSUrl: string = environment.esriCSSUrl; // arcgis javascript API路径
 	initExtent: any = {
@@ -23,7 +22,7 @@ export class HomeComponent implements OnInit {
 		ymax: 62.138675374910264
 	};
 
-	constructor() {
+	constructor(public authService: AuthService) {
 	}
 
 	ngOnInit() {
