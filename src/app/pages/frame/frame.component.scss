@@ -45,29 +45,29 @@
             padding: 0 20px;
             cursor: pointer;
             &.help {
+                position: relative;
                 padding: 0 25px;
                 height: 66px;
-                .Eicons {
+                span:first-child {
                     color: #4493D8;
                     cursor: pointer;
-                    &.start-bangzhu {
-                        font-size: 35px;
-                    }
-                    &.start-tongzhi {
-                        font-size: 28px;
-                    }
+                    font-size: 28px;
+                }
+                &.scanCode {
+                    padding-top: 6px;
                 }
                 .notice {
+                    position: absolute;
+                    top: 5px;
+                    right: 15px;
                     display: inline-block;
                     background-color: #FE9D00;
-                    width: 32px;
-                    height: 22px;
-                    line-height: 22px;
-                    border-radius: 15px;
+                    width: 20px;
+                    height: 20px;
+                    line-height: 20px;
+                    border-radius: 20px;
                     text-align: center;
                     color: #FFFFFF;
-                    position: relative;
-                    top: -5px;
                 }
             }
             &.active {

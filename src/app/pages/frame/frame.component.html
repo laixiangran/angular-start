@@ -8,22 +8,21 @@
 			<input type="text" class="search" placeholder="关键字搜索" autocomplete="off">
 		</span>
 		<ul class="nav navbar-nav navbar-right">
-			<li class="help scanCode" (click)="scanCode()">
+			<li class="help scanCode" (click)="scanCode()" title="APP下载">
 				<span class="fa fa-cloud-download"></span>
-				<span>app下载</span>
 			</li>
-			<li class="help">
+			<li class="help" title="系统通知">
 				<span class="Eicons start-tongzhi"></span>
 				<span class="notice">6</span>
 			</li>
-			<li class="help">
+			<li class="help" title="系统帮助">
 				<span class="Eicons start-bangzhu"></span>
 			</li>
 			<li class="dropdown">
 				<span class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 				      aria-expanded="false">
 					<img src="./assets/images/home/user.png" alt="">
-					<span *ngIf="authService.user">{{authService.user.realName}}</span>
+					<span *ngIf="authService.user">{{authService.user.info.realName}}</span>
 					<span class="caret"></span>
 				</span>
 				<ul class="dropdown-menu">
