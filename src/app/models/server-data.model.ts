@@ -5,12 +5,17 @@
  */
 export class ServerData {
 	/**
-	 * @param info 返回的信息
-	 * @param code 返回的代码（"ok","error"）
-	 * @param result 返回的结果
+	 * 响应信息
 	 */
-	constructor(public info: string,
-				public code: string,
-				public result: any) {}
-}
+	info: string;
 
+	/**
+	 * 响应代码（"ok" 或者 "error"）
+	 */
+	code: string;
+
+	/**
+	 * 响应结果
+	 */
+	result: any;
+}
