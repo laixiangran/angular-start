@@ -35,7 +35,7 @@ export class LoginService {
 
 	/**
 	 * 获取当前用户菜单
-	 * @returns {Observable<ServerData>}
+	 * @returns {Observable<any>}
 	 */
 	getUserMenus(): Observable<any> {
 		return this.requestService.post('/SysResourceAction/getMyResourceListTree');

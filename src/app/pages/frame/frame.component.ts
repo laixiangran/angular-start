@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../login/login.service';
 import { environment } from '../../../environments/environment';
 import { ConfirmationService } from 'primeng/primeng';
@@ -18,10 +18,16 @@ export class FrameComponent implements OnInit {
 
 	constructor(public loginService: LoginService,
 				public router: Router,
+				public route: ActivatedRoute,
 				public confirmationService: ConfirmationService,
 				public authService: AuthService) {}
 
 	ngOnInit() {
+		this.route.data.subscribe((data: any) => {
+			if (data.currUserInfoLoaded) {
+				console.log('当前用户有关信息预加载完成！');
+			}
+		});
 	}
 
 	logout() {

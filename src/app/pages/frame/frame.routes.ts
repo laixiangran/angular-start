@@ -8,7 +8,7 @@ const frameRoutes: Routes = [
 		path: '',
 		component: FrameComponent,
 		resolve: {
-			currUserResources: AuthGuard
+			currUserInfoLoaded: AuthGuard
 		},
 		children: [
 			{

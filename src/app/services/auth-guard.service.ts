@@ -6,9 +6,10 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild, Resolve } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/zip';
+import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
 import { AuthService } from './auth.service';
-import { ServerData } from '../models/server-data.model';
 import { LoginService } from '../pages/login/login.service';
 
 @Injectable()
@@ -45,34 +46,17 @@ export class AuthGuard implements CanActivate, CanActivateChild, Resolve<any> {
 
 	resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<any> | boolean {
 		return new Promise((resolve, reject) => {
-			// 当前用户菜单
-			this.loginService.getUserMenus().subscribe((serverData: any) => {
-				this.authService.currUserMenus = serverData.children;
+			// 1. 当前用户菜单
+			// 2. 获取当前登录用户的信息
+			// 3. 当前用户资源
+			Observable.zip(this.loginService.getUserMenus(), this.loginService.getUserInfo(), this.loginService.getUserResources()).subscribe((data: any[]) => {
+				this.authService.currUserMenus = data[0].children;
+				this.authService.user = data[1].result;
+				this.authService.currUserResources = data[2].result;
+				resolve(true);
+			}, (error: any) => {
+				reject(false);
 			});
-
-			// 获取当前登录用户的信息
-			this.loginService.getUserInfo().subscribe((serverData: ServerData) => {
-				if (serverData.code === 'ok') {
-					this.authService.user = serverData.result;
-				}
-			});
-
-			// 当前用户资源
-			this.loginService.getUserResources().subscribe(
-				(serverData: ServerData) => {
-					if (serverData.code === 'ok') {
-						this.authService.currUserResources = serverData.result;
-						resolve(this.authService.currUserResources);
-					} else {
-						console.error(serverData.info);
-						reject();
-					}
-				},
-				(error: any) => {
-					console.error(error);
-					reject();
-				}
-			);
 		});
 	}
 }
