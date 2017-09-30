@@ -15,7 +15,7 @@ const customRoutes: Routes = [
 			{
 				path: '',
 				redirectTo: 'home',
-				pathMatch: 'full',
+				pathMatch: 'full'
 			}
 		]
 	}

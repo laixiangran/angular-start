@@ -8,18 +8,18 @@ import { PageNotFoundComponent } from './pages/404/page-not-found.component';
 
 const appRoutes: Routes = [
 	{
-		path: 'frame',
-		loadChildren: 'app/pages/frame/frame.module#FrameModule'
-	},
-	{
-		path: '',
-		redirectTo: '/login',
-		pathMatch: 'full'
-	},
-	{
 		path: 'login',
 		canActivate: [AuthGuard],
 		component: LoginComponent
+	},
+	{
+		path: 'frame',
+		loadChildren: './pages/frame/frame.module#FrameModule'
+	},
+	{
+		path: '',
+		redirectTo: 'frame',
+		pathMatch: 'full'
 	},
 	{
 		path: '**',

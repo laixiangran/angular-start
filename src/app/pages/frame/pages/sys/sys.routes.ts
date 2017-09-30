@@ -35,7 +35,7 @@ const sysRoutes: Routes = [
 			{
 				path: '',
 				redirectTo: 'org',
-				pathMatch: 'full',
+				pathMatch: 'full'
 			}
 		]
 	}

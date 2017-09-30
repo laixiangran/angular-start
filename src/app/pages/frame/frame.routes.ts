@@ -24,7 +24,7 @@ const frameRoutes: Routes = [
 			{
 				path: '',
 				redirectTo: 'custom',
-				pathMatch: 'full',
+				pathMatch: 'full'
 			}
 		]
 	}
