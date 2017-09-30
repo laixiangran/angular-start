@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "start": "gulp build:dev && ng serve -o --proxy-config proxy.config.json",
+    "restart": "gulp build:dev",
     "build-test": "gulp build:test && ng build --prod --env=test --aot",
     "build-prod": "gulp build:prod && ng build --prod --env=prod --aot",
     "lint": "ng lint"

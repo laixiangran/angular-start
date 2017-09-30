@@ -1,6 +1,3 @@
-/**
- * Created by Hllinc on 2016-10-30 18:05.
- */
 export class User {
 	constructor(public addr?: string,
 				public birthday?: any,

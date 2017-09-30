@@ -1,7 +1,3 @@
-/**
- * Created by Hllinc on 2016-12-02 0002 14:55.
- */
-
 export class AttachmentItem {
 	constructor(public c_name: string,
 				public c_url: string,

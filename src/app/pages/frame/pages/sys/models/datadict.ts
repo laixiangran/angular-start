@@ -1,6 +1,3 @@
-/**
- * Created by Hllinc on 2016-11-29 0029 17:02.
- */
 export class Datadict {
 	constructor(public id?: string,
 				public data: DatadictType = new DatadictType(),

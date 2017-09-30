@@ -1,7 +1,5 @@
-import {Attachment} from './attachment';
-/**
- * Created by Hllinc on 2016-11-07 17:26.
- */
+import { Attachment } from './attachment';
+
 export class Org {
 	constructor(public name: string,
 				public parentId: string,
@@ -19,14 +17,7 @@ export class Org {
 				public sex?: number,
 				public attachmentDetail?: Attachment,
 				public c_attachment?: string,
-				public data?: any,
-				// public c_addr?:string,
-				//
-				// public c_qualification?:string,
-				// public c_certificate_no?:string,
-				// public c_comment?: string,
+				public data?: any) {
 
-				// public c_id?:string
-	) {
 	}
 }

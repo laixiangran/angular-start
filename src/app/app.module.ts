@@ -45,7 +45,4 @@ import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
 	],
 	bootstrap: [AppComponent]
 })
-export class AppModule {
-	constructor() {
-	}
-}
+export class AppModule {}

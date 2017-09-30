@@ -9,9 +9,7 @@
 			"outDir": "dist",
 			"assets": [
 				"assets",
-				"favicon.ico",
-				"proxy.config",
-				"proxy.jsp"
+				"favicon.ico"
 			],
 			"index": "index.html",
 			"main": "main.ts",
