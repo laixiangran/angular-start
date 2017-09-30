@@ -32,24 +32,28 @@ export class LoginComponent {
 				this.confirmationService.confirm({
 					header: '系统提示',
 					message: '用户不存在，请重试！',
+					acceptVisible: true,
 					rejectVisible: false
 				});
 			} else if (serverData.status === -4) {
 				this.confirmationService.confirm({
 					header: '系统提示',
 					message: '密码错误，请重试！',
+					acceptVisible: true,
 					rejectVisible: false
 				});
 			} else if (serverData.status === -5) {
 				this.confirmationService.confirm({
 					header: '系统提示',
 					message: '没有权限登录，请联系管理员！',
+					acceptVisible: true,
 					rejectVisible: false
 				});
 			} else if (serverData.status === -6) {
 				this.confirmationService.confirm({
 					header: '系统提示',
 					message: '账户受保护，请联系管理员！',
+					acceptVisible: true,
 					rejectVisible: false
 				});
 			}

@@ -144,6 +144,7 @@ export class OrgTreeComponent implements OnInit {
 		this.confirmationService.confirm({
 			header: '系统提示',
 			message: `确定删除 【${this.selectedNode.data.text}】吗？`,
+			acceptVisible: true,
 			accept: () => {
 				const sub: Subscription = this.orgService.deleteSysUnit(this.selectedNode.data.id).subscribe((serverData: ServerData) => {
 					sub.unsubscribe();
@@ -153,6 +154,7 @@ export class OrgTreeComponent implements OnInit {
 					}
 				});
 			},
+			rejectVisible: true,
 			reject: () => {}
 		});
 	}

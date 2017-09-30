@@ -173,6 +173,7 @@ export class ResourceTreeComponent implements OnInit {
 		this.confirmationService.confirm({
 			header: '系统提示',
 			message: `确定删除 【${this.selectedNode.data.data.name}】吗？`,
+			acceptVisible: true,
 			accept: () => {
 				const pid: string = this.selectedNode.data.data.parentId;
 				const sub: Subscription = this.resourceService.deleteResource({id: this.selectedNode.data.id}).subscribe((serverData: ServerData) => {
@@ -183,6 +184,7 @@ export class ResourceTreeComponent implements OnInit {
 					}
 				});
 			},
+			rejectVisible: true,
 			reject: () => {}
 		});
 	}

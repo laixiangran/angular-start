@@ -71,6 +71,7 @@ export class RoleComponent implements OnInit {
 		this.confirmationService.confirm({
 			header: '系统提示',
 			message: `确定删除 【${role.rolenm}】角色吗？`,
+			acceptVisible: true,
 			accept: () => {
 				this.roleService.deleteRole(role).subscribe((serverData: ServerData) => {
 					if (serverData.code === 'ok') {
@@ -79,6 +80,7 @@ export class RoleComponent implements OnInit {
 					}
 				});
 			},
+			rejectVisible: true,
 			reject: () => {}
 		});
 	}

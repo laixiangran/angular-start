@@ -29,7 +29,6 @@ import { TreeModule } from 'angular-tree-component';
 import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { TreeDatadictFormComponent } from './pages/datadict/components/tree-datadict-form/tree-datadict-form.component';
 import { EssenceNg2CheckedModule } from 'essence-ng2-checked';
-import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
 
 @NgModule({
 	imports: [
@@ -39,8 +38,7 @@ import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
 		Ng2Bs3ModalModule,
 		TreeModule,
 		EssenceNg2CheckedModule,
-		EssenceNg2TableModule,
-		ConfirmDialogModule
+		EssenceNg2TableModule
 	],
 	declarations: [
 		SysComponent,
@@ -64,12 +62,7 @@ import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
 		ResourceService,
 		DatadictService,
 		AttachmentService,
-		OrgService,
-		ConfirmationService
-	],
-	exports: [
-		OrgTreeComponent,
-		DatadictTreeComponent
+		OrgService
 	]
 })
 

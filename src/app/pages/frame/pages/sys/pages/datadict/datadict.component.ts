@@ -58,6 +58,7 @@ export class DatadictComponent implements OnInit {
 		this.confirmationService.confirm({
 			header: '系统提示',
 			message: '是否删除该条数据？',
+			acceptVisible: true,
 			accept: () => {
 				const sub = this.dictionaryService.deleteDatadict(info.type).subscribe(
 					(serverData) => {
@@ -71,6 +72,7 @@ export class DatadictComponent implements OnInit {
 					}
 				)
 			},
+			rejectVisible: true,
 			reject: () => {}
 		});
 	}
@@ -149,6 +151,7 @@ export class DatadictComponent implements OnInit {
 		this.confirmationService.confirm({
 			header: '系统提示',
 			message: `确定删除 【${this.selectedDatadictValue.data.name}】？`,
+			acceptVisible: true,
 			accept: () => {
 				const obj: any = {};
 				obj.id = this.selectedDatadictValue.id;
@@ -163,6 +166,7 @@ export class DatadictComponent implements OnInit {
 						}
 					});
 			},
+			rejectVisible: true,
 			reject: () => {}
 		});
 	}

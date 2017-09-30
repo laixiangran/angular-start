@@ -259,6 +259,7 @@ export class OrgComponent implements OnInit {
 		this.confirmationService.confirm({
 			header: '系统提示',
 			message: `确定删除 【${user.realName}】用户吗？`,
+			acceptVisible: true,
 			accept: () => {
 				const sub: Subscription = this.orgService.deleteSysUser(user).subscribe(
 					(serverData: ServerData) => {
@@ -272,6 +273,7 @@ export class OrgComponent implements OnInit {
 						}
 					});
 			},
+			rejectVisible: true,
 			reject: () => {}
 		});
 	}
@@ -300,6 +302,7 @@ export class OrgComponent implements OnInit {
 				this.confirmationService.confirm({
 					header: '系统提示',
 					message: `密码重置成功！`,
+					acceptVisible: true,
 					accept: () => {}
 				});
 				this.passwordModal.close();

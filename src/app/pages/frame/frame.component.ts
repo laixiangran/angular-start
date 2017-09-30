@@ -35,6 +35,7 @@ export class FrameComponent implements OnInit {
 		this.confirmationService.confirm({
 			header: '系统提示',
 			message: '是否退出系统？',
+			acceptVisible: true,
 			accept: () => {
 				this.loginService.logout().subscribe((data: any) => {
 					if (data.status === 200) {
@@ -45,6 +46,7 @@ export class FrameComponent implements OnInit {
 					console.error(error);
 				});
 			},
+			rejectVisible: true,
 			reject: () => {
 				console.log('取消退出！');
 			}
