@@ -15,6 +15,7 @@ import { RequestService } from './services/request.service';
 import { DateTimeService } from './services/datetime.service';
 import { FilePathService } from './services/filepath.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
 
 @NgModule({
 	imports: [
@@ -23,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		HttpModule,
 		JsonpModule,
 		BrowserAnimationsModule,
-		AppRoutingModule
+		AppRoutingModule,
+		ConfirmDialogModule
 	],
 	declarations: [
 		AppComponent,
@@ -38,7 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		RequestService,
 		LoginService,
 		DateTimeService,
-		FilePathService
+		FilePathService,
+		ConfirmationService
 	],
 	bootstrap: [AppComponent]
 })

@@ -3,6 +3,7 @@ import { HomeService } from './home.service';
 import { environment } from '../../../../../../../environments/environment';
 import { EssenceNg2EsriMapComponent } from 'essence-ng2-esrimap';
 import { AuthService } from '../../../../../../services/auth.service';
+import { ConfirmationService } from 'primeng/primeng';
 
 @Component({
 	templateUrl: './home.component.html',
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit {
 		ymax: 62.138675374910264
 	};
 
-	constructor(public authService: AuthService) {
+	constructor(public authService: AuthService, public confirmationService: ConfirmationService) {
 	}
 
 	ngOnInit() {

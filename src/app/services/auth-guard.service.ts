@@ -47,7 +47,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, Resolve<any> {
 	resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<any> | boolean {
 		return new Promise((resolve, reject) => {
 			// 1. 当前用户菜单
-			// 2. 获取当前登录用户的信息
+			// 2. 当前用户信息
 			// 3. 当前用户资源
 			Observable.zip(this.loginService.getUserMenus(), this.loginService.getUserInfo(), this.loginService.getUserResources()).subscribe((data: any[]) => {
 				this.authService.currUserMenus = data[0].children;

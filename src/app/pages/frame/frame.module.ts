@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { JsonpModule, HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { ConfirmDialogModule } from 'primeng/primeng';
+import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
 import { FrameRoutingModule } from './frame.routes';
 import { FrameComponent } from './frame.component';
 import { CommonModule } from '@angular/common';
@@ -21,7 +21,8 @@ import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 	],
 	declarations: [
 		FrameComponent
-	]
+	],
+	providers: [ConfirmationService]
 })
 
 export class FrameModule {

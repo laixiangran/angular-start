@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { Md5 } from 'ts-md5/dist/md5';
 import { AuthService } from '../../services/auth.service';
+import { ConfirmationService } from 'primeng/primeng';
 
 @Component({
 	templateUrl: './login.component.html',
@@ -14,6 +15,7 @@ export class LoginComponent {
 
 	constructor(public loginService: LoginService,
 				private authService: AuthService,
+				public confirmationService: ConfirmationService,
 				public router: Router) {}
 
 	login(): void {
@@ -27,13 +29,29 @@ export class LoginComponent {
 				this.authService.setToken(serverData.token);
 				this.router.navigate(['/frame/custom/home']);
 			} else if (serverData.status === -3) {
-				console.error('用户不存在，请重试！', '温馨提示');
+				this.confirmationService.confirm({
+					header: '系统提示',
+					message: '用户不存在，请重试！',
+					rejectVisible: false
+				});
 			} else if (serverData.status === -4) {
-				console.error('密码错误，请重试！', '温馨提示');
+				this.confirmationService.confirm({
+					header: '系统提示',
+					message: '密码错误，请重试！',
+					rejectVisible: false
+				});
 			} else if (serverData.status === -5) {
-				console.error('没有权限登录，请联系管理员！', '温馨提示');
+				this.confirmationService.confirm({
+					header: '系统提示',
+					message: '没有权限登录，请联系管理员！',
+					rejectVisible: false
+				});
 			} else if (serverData.status === -6) {
-				console.error('账户受保护，请联系管理员！', '温馨提示');
+				this.confirmationService.confirm({
+					header: '系统提示',
+					message: '账户受保护，请联系管理员！',
+					rejectVisible: false
+				});
 			}
 		});
 	}

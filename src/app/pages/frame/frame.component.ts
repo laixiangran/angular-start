@@ -8,8 +8,7 @@ import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 @Component({
 	templateUrl: './frame.component.html',
-	styleUrls: ['./frame.component.scss'],
-	providers: [ConfirmationService]
+	styleUrls: ['./frame.component.scss']
 })
 export class FrameComponent implements OnInit {
 	title: string = environment.title;
@@ -26,6 +25,8 @@ export class FrameComponent implements OnInit {
 		this.route.data.subscribe((data: any) => {
 			if (data.currUserInfoLoaded) {
 				console.log('当前用户有关信息预加载完成！');
+			} else {
+				console.error('当前用户有关信息未预加载完成，请检查！');
 			}
 		});
 	}
@@ -35,9 +36,14 @@ export class FrameComponent implements OnInit {
 			header: '系统提示',
 			message: '是否退出系统？',
 			accept: () => {
-				this.loginService.logout().subscribe(() => {});
-				this.authService.initParams();
-				this.router.navigate(['/login']);
+				this.loginService.logout().subscribe((data: any) => {
+					if (data.status === 200) {
+						this.authService.initParams();
+						this.router.navigate(['/login']);
+					}
+				}, (error: any) => {
+					console.error(error);
+				});
 			},
 			reject: () => {
 				console.log('取消退出！');
