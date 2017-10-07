@@ -30,7 +30,7 @@ npm start
 
 ## 模拟请求
 
-使用[rap](http://rapapi.org/org/index.do)模拟请求
+使用 [rap](http://rapapi.org/org/index.do) 模拟请求
 
 ## 关于index.html
 
