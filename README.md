@@ -24,6 +24,10 @@ npm install
 npm start
 ```
 
+## 请求代理
+
+通过配置`ng serve`的`--proxy-config`进行请求代理 [参考这里](https://github.com/angular/angular-cli/blob/master/docs/documentation/stories/proxy.md)
+
 ## 模拟请求
 
 使用[rap](http://rapapi.org/org/index.do)模拟请求
