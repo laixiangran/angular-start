@@ -24,6 +24,10 @@ npm install
 npm start
 ```
 
+## 模拟请求
+
+使用[rap](http://rapapi.org/org/index.do)模拟请求
+
 ## index.html
 
 在本应用中，将环境分成开发环境（dev），测试环境（test），生产环境（prod）三种，因此会有三种environment文件和index-xxx.html（xxx指代dev或者test或者prod）。

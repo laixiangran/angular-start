@@ -17,11 +17,6 @@ const frameRoutes: Routes = [
 				loadChildren: './pages/custom/custom.module#CustomModule',
 			},
 			{
-				path: 'sys',
-				canActivate: [AuthGuard],
-				loadChildren: './pages/sys/sys.module#SysModule',
-			},
-			{
 				path: '',
 				redirectTo: 'custom',
 				pathMatch: 'full'

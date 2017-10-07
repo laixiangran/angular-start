@@ -1,16 +1,5 @@
 <div class="container-fluid">
 	<h2>
-		<span *ngIf="authService.currUserResources.indexOf('home-hy') > 0">欢迎管理员！</span>
-		你已经成功启动并登录angular-start项目，现在开启angular愉悦的开发之旅吧！</h2>
-	<div style="height: 600px;">
-		<essence-ng2-esrimap
-				[gisApiUrl]="gisApiUrl"
-				[esriCSSUrl]="esriCSSUrl"
-				[initExtent]="initExtent"
-				[mapUrl]="mapUrl"
-				[mapType]="mapType"
-				(mapReady)="onMapReady($event)"
-				(exentChange)="onExentChange($event)">
-		</essence-ng2-esrimap>
-	</div>
+		你已经成功启动并登录angular-start项目，现在开启angular愉悦的开发之旅吧！
+	</h2>
 </div>
