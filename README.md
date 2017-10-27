@@ -5,19 +5,22 @@ This is an angular project.
 ## 本地环境
 
 ```shell
-node -v
-
-npm -v
-```
 Node >= 6.x
 NPM >= 3.10.x
+```
 
 [下载node（npm已包含在node中）](https://nodejs.org/zh-cn/)
 
-## 安装及启动
+## 根据实际项目修改配置项
+
+- 修改`environments`文件夹下三个环境配置文件
+
+- 修改`package.json`中`scripts`下`build-test`及`build-prod`的`--base-href`值，该值用来修改`index.html`中`base`标签的`href`值
+
+## 安装及启动（开发环境）
 
 ```shell
-npm install -g @angular-cli@1.0.0
+npm install -g @angular-cli
 
 npm install
 
@@ -32,11 +35,6 @@ npm start
 
 使用 [rap](http://rapapi.org/org/index.do) 模拟请求
 
-## 关于index.html
-
-在本应用中，将环境分成开发环境（dev），测试环境（test），生产环境（prod）三种，因此会有三种environment文件和index-xxx.html（xxx指代dev或者test或者prod）。
-
-index.html是根据编译时的环境由index-xxx.html生成的。
 
 ## 构建
 

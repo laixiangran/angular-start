@@ -4,10 +4,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "gulp build:dev && ng serve -o --proxy-config proxy.config.json",
-    "restart": "gulp build:dev",
-    "build-test": "gulp build:test && ng build --prod --env=test --aot",
-    "build-prod": "gulp build:prod && ng build --prod --env=prod --aot",
+    "start": "ng serve -o --proxy-config proxy.config.json",
+    "build-test": "ng build --prod --env=test --base-href /projectStart/",
+    "build-prod": "ng build --prod --env=prod --base-href /projectStart/",
     "lint": "ng lint"
   },
   "dependencies": {
@@ -26,19 +25,17 @@
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "intl": "^1.2.5",
-    "primeng": "^4.1.3",
+    "primeng": "^4.3.0-rc.2",
     "rxjs": "^5.1.0",
     "ts-md5": "^1.2.0",
     "web-animations-js": "^2.2.5",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "^1.2.0",
+    "@angular/cli": "^1.4.7",
     "@angular/compiler-cli": "^4.0.0",
     "@angular/language-service": "^4.0.0",
     "@types/node": "^6.0.42",
-    "gulp": "^3.9.1",
-    "gulp-rename": "^1.2.2",
     "stylelint": "^7.12.0",
     "stylelint-scss": "^1.4.4",
     "codelyzer": "^3.0.1",
