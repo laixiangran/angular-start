@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+.ui-g {
+    .ui-button:not(.ui-button-text-only) {
+        padding-left: 1em !important;
+    }
+}
+

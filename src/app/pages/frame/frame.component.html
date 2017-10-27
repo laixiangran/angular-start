@@ -8,7 +8,7 @@
 			<input type="text" class="search" placeholder="关键字搜索" autocomplete="off">
 		</span>
 		<ul class="nav navbar-nav navbar-right">
-			<li class="help scanCode" (click)="scanCode()" title="APP下载">
+			<li class="help scanCode" (click)="toggleScanCode()" title="APP下载">
 				<span class="fa fa-cloud-download"></span>
 			</li>
 			<li class="help" title="系统通知">
@@ -18,17 +18,15 @@
 			<li class="help" title="系统帮助">
 				<span class="Eicons start-bangzhu"></span>
 			</li>
-			<li class="dropdown">
-				<span class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+			<li class="dropdown" (click)="tieredMenu.toggle($event)">
+				<span>
 					<img src="./assets/images/home/user.png">
 					<span>{{authService.user?.info?.realnm}}</span>
 					<span class="caret"></span>
 				</span>
-				<ul class="dropdown-menu">
-					<li><a (click)="logout()">退出登录</a></li>
-				</ul>
 			</li>
 		</ul>
+		<p-tieredMenu #tieredMenu [model]="items" [appendTo]="'body'" [popup]="true"></p-tieredMenu>
 	</div>
 </div>
 <div class="mainFrame">
@@ -49,7 +47,7 @@
 					<li *ngFor="let nav of item.children">
 						<div class="left"></div>
 						<div class="right" [routerLink]="nav.data.url"
-						     routerLinkActive="active">
+							 routerLinkActive="active">
 							<span [class]="nav.data.infos.icon"></span>
 							{{nav.text}}
 						</div>
@@ -62,22 +60,16 @@
 		<router-outlet></router-outlet>
 	</div>
 </div>
-<modal [backdrop]="false" #scanCodeModal>
-	<modal-header [show-close]="true">
-		<h4>
-			<span class="fa fa-cloud-download"></span>&nbsp;app下载
-		</h4>
-	</modal-header>
-	<modal-body>
-		<div class="appDownloadArea text-center">
-			<img src="./assets/images/frame/downloadInfo.png" height="250" width="250"/>
-			<qr-code [value]="appDownloadUrl" [size]="250"></qr-code>
-		</div>
-	</modal-body>
-	<modal-footer>
-		<div class="text-right">
-			<button type="button" class="btn btn-default" (click)="scanCodeModal.close()">取消</button>
-			<a [href]="appDownloadUrl" class="btn btn-success" target="_blank">直接下载</a>
-		</div>
-	</modal-footer>
-</modal>
+<p-dialog [(visible)]="scanCodeDialogDisplay" [width]="800" [modal]="true" [responsive]="true">
+	<p-header>
+		app下载
+	</p-header>
+	<div class="appDownloadArea text-center">
+		<img src="./assets/images/frame/downloadInfo.png" height="250" width="250"/>
+		<qr-code [value]="appDownloadUrl" [size]="250"></qr-code>
+	</div>
+	<p-footer>
+		<button pButton type="button" class="ui-button-success ui-button-text" [label]="'直接下载'" [icon]="'fa-check'" (click)="directDownload()"></button>
+		<button pButton type="button" class="ui-button-secondary ui-button-text" [label]="'取消'" [icon]="'fa-close'" (click)="toggleScanCode()"></button>
+	</p-footer>
+</p-dialog>

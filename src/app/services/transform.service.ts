@@ -1,19 +1,23 @@
 /**
  * Created by laixiangran on 2016/8/7.
  * homepage：http://www.laixiangran.cn
- * Transform coordinate between earth(WGS-84) and mars in china(GCJ-02).
- * earth(WGS-84) 与 china(GCJ-02)互转
  */
 import { Injectable } from '@angular/core';
 
+/**
+ * 坐标对象接口
+ */
 interface Location {
 	lat: number,
 	lng: number
 }
 
+/**
+ * @name TransformService
+ * @description earth(WGS-84) 与 china(GCJ-02)互转
+ */
 @Injectable()
 export class TransformService {
-
 	private earthR = 6378137.0;
 
 	constructor() {}
@@ -63,6 +67,12 @@ export class TransformService {
 		return d;
 	}
 
+	/**
+	 * WGS-84转GCJ-02
+	 * @param {number} wgsLat 纬度
+	 * @param {number} wgsLng 经度
+	 * @returns {{lat: number; lng: number}}
+	 */
 	wgs2gcj(wgsLat: number, wgsLng: number) {
 		if (this.outOfChina(wgsLat, wgsLng)) {
 			return {lat: wgsLat, lng: wgsLng};
@@ -71,6 +81,12 @@ export class TransformService {
 		return {lat: wgsLat + d.lat, lng: wgsLng + d.lng};
 	}
 
+	/**
+	 * GCJ-02转WGS-84
+	 * @param {number} gcjLat GCJ-02的纬度
+	 * @param {number} gcjLng GCJ-02的经度
+	 * @returns {{lat: number; lng: number}}
+	 */
 	gcj2wgs(gcjLat: number, gcjLng: number) {
 		if (this.outOfChina(gcjLat, gcjLng)) {
 			return {lat: gcjLat, lng: gcjLng};
@@ -102,23 +118,12 @@ export class TransformService {
 		return {lat: newLat, lng: newLng};
 	}
 
-	distance(latA: number, lngA: number, latB: number, lngB: number) {
-		const pi180 = Math.PI / 180,
-			arcLatA = latA * pi180,
-			arcLatB = latB * pi180,
-			x = Math.cos(arcLatA) * Math.cos(arcLatB) * Math.cos((lngA - lngB) * pi180),
-			y = Math.sin(arcLatA) * Math.sin(arcLatB);
-		let s = x + y;
-		if (s > 1) {
-			s = 1;
-		}
-		if (s < -1) {
-			s = -1;
-		}
-		const alpha = Math.acos(s), distance = alpha * this.earthR;
-		return distance;
-	}
-
+	/**
+	 * GCJ-02转百度坐标
+	 * @param {number} gcjLat GCJ-02的纬度
+	 * @param {number} gcjLng GCJ-02的经度
+	 * @returns {{lat: number; lng: number}}
+	 */
 	gcj2bd(gcjLat: number, gcjLng: number) {
 		if (this.outOfChina(gcjLat, gcjLng)) {
 			return {lat: gcjLat, lng: gcjLng};
@@ -134,6 +139,12 @@ export class TransformService {
 		return {lat: bdLat, lng: bdLng};
 	}
 
+	/**
+	 * 百度坐标转GCJ-02
+	 * @param {number} bdLat 百度的纬度
+	 * @param {number} bdLng 百度的经度
+	 * @returns {{lat: number; lng: number}}
+	 */
 	bd2gcj(bdLat: number, bdLng: number) {
 		if (this.outOfChina(bdLat, bdLng)) {
 			return {lat: bdLat, lng: bdLng};
@@ -149,13 +160,42 @@ export class TransformService {
 		return {lat: gcjLat, lng: gcjLng};
 	}
 
+	/**
+	 * WGS-84转百度坐标
+	 * @param {number} wgsLat 纬度
+	 * @param {number} wgsLng 经度
+	 * @returns {{lat: number; lng: number}}
+	 */
 	wgs2bd(wgsLat: number, wgsLng: number) {
 		const gcj = this.wgs2gcj(wgsLat, wgsLng);
 		return this.gcj2bd(gcj.lat, gcj.lng);
 	}
 
+	/**
+	 * 百度坐标转WGS-84
+	 * @param {number} bdLat 百度的纬度
+	 * @param {number} bdLng 百度的经度
+	 * @returns {{lat: number; lng: number}}
+	 */
 	bd2wgs(bdLat: number, bdLng: number) {
 		const gcj = this.bd2gcj(bdLat, bdLng);
 		return this.gcj2wgs(gcj.lat, gcj.lng);
+	}
+
+	distance(latA: number, lngA: number, latB: number, lngB: number) {
+		const pi180 = Math.PI / 180,
+			arcLatA = latA * pi180,
+			arcLatB = latB * pi180,
+			x = Math.cos(arcLatA) * Math.cos(arcLatB) * Math.cos((lngA - lngB) * pi180),
+			y = Math.sin(arcLatA) * Math.sin(arcLatB);
+		let s = x + y;
+		if (s > 1) {
+			s = 1;
+		}
+		if (s < -1) {
+			s = -1;
+		}
+		const alpha = Math.acos(s), distance = alpha * this.earthR;
+		return distance;
 	}
 }

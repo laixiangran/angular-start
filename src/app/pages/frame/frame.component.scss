@@ -13,15 +13,18 @@
         background-color: #2C85D3;
         //border-bottom: 1px solid #277BC6;
         border-bottom: 1px solid #2579C3;
-        cursor: pointer;
+        //cursor: pointer;
     }
     div.right {
         height: 66px;
         line-height: 66px;
-        margin-left: 300px;
         padding: 0 15px 0 40px;
         background-color: #FAFBFC;
         box-shadow: 0 0 4px #AAAAAA;
+        position:fixed;
+        top:0;
+        right:0;
+        left:300px;
         .searchContainer {
             position: relative;
             .searchIcon {

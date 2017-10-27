@@ -1,7 +1,6 @@
 /**
  * Created by laixiangran on 2017/8/29.
  * homepage：http://www.laixiangran.cn.
- * 请求服务
  */
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
@@ -13,6 +12,10 @@ import { Subscriber } from 'rxjs/Subscriber';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+/**
+ * @name RequestService
+ * @description 请求服务（post、get）
+ */
 @Injectable()
 export class RequestService {
 	private domain: string = environment.domain;

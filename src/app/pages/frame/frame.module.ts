@@ -4,7 +4,7 @@ import { FrameRoutingModule } from './frame.routes';
 import { FrameComponent } from './frame.component';
 import { CommonModule } from '@angular/common';
 import { QRCodeModule } from 'angular2-qrcode';
-import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
+import { ButtonModule, DialogModule, MenuModule, TieredMenuModule } from 'primeng/primeng';
 
 @NgModule({
 	imports: [
@@ -12,7 +12,9 @@ import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 		FormsModule,
 		FrameRoutingModule,
 		QRCodeModule,
-		Ng2Bs3ModalModule
+		DialogModule,
+		TieredMenuModule,
+		ButtonModule
 	],
 	declarations: [
 		FrameComponent

@@ -1,24 +1,28 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../login/login.service';
 import { environment } from '../../../environments/environment';
-import { ConfirmationService } from 'primeng/primeng';
-import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
+import { MessageService } from 'primeng/components/common/messageservice';
+import { ConfirmationService, MenuItem } from 'primeng/primeng';
 
 @Component({
 	templateUrl: './frame.component.html',
 	styleUrls: ['./frame.component.scss']
 })
-export class FrameComponent implements OnInit {
+export class FrameComponent implements OnInit, OnDestroy {
 	title: string = environment.title;
 	appDownloadUrl: string = environment.appDownloadUrl;
-	@ViewChild('scanCodeModal') scanCodeModal: ModalComponent;
+	scanCodeDialogDisplay: boolean = false;
+	items: MenuItem[];
 
 	constructor(public loginService: LoginService,
 				public router: Router,
 				public route: ActivatedRoute,
 				public confirmationService: ConfirmationService,
+				public messageService: MessageService,
+				public elemRef: ElementRef,
+				public renderer: Renderer2,
 				public authService: AuthService) {}
 
 	ngOnInit() {
@@ -29,31 +33,56 @@ export class FrameComponent implements OnInit {
 				console.error('当前用户有关信息未预加载完成，请检查！');
 			}
 		});
+
+		this.items = [
+			{
+				label: '退出登录',
+				icon: 'fa-sign-out',
+				command: () => {
+					this.logout();
+				}
+			}
+		];
+
+		this.renderer.addClass(this.elemRef.nativeElement.ownerDocument.body, 'frame-module');
+	}
+
+	ngOnDestroy() {
+		this.renderer.removeClass(this.elemRef.nativeElement.ownerDocument.body, 'frame-module');
 	}
 
 	logout() {
 		this.confirmationService.confirm({
 			header: '系统提示',
-			message: '是否退出系统？',
-			acceptVisible: true,
+			message: '确定退出系统？',
 			accept: () => {
 				this.loginService.logout().subscribe((data: any) => {
 					if (data.status === 200) {
 						this.authService.initParams();
+						this.messageService.clear();
 						this.router.navigate(['/login']);
 					}
 				}, (error: any) => {
-					console.error(error);
+					this.messageService.add({severity: 'error', summary: '系统消息', detail: '退出失败，请重试！'});
 				});
 			},
-			rejectVisible: true,
 			reject: () => {
-				console.log('取消退出！');
+				this.messageService.add({severity: 'info', summary: '系统消息', detail: '您已取消退出系统！'});
 			}
 		});
 	}
 
-	scanCode() {
-		this.scanCodeModal.open('lg');
+	/**
+	 * 二维码显示/隐藏
+	 */
+	toggleScanCode() {
+		this.scanCodeDialogDisplay = !this.scanCodeDialogDisplay;
+	}
+
+	/**
+	 * 直接下载APP
+	 */
+	directDownload() {
+		window.open(this.appDownloadUrl);
 	}
 }

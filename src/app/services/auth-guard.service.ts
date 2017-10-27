@@ -1,7 +1,6 @@
 /**
  * Created by laixiangran on 2017/8/29.
  * homepage：http://www.laixiangran.cn.
- * 路由拦截服务
  */
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild, Resolve } from '@angular/router';
@@ -12,24 +11,24 @@ import { environment } from '../../environments/environment';
 import { AuthService } from './auth.service';
 import { LoginService } from '../pages/login/login.service';
 
+/**
+ * @name AuthGuard
+ * @description 路由拦截服务（包括路由守卫、路由预加载）
+ */
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild, Resolve<any> {
-
 	constructor(public router: Router,
 				public loginService: LoginService,
 				public authService: AuthService) {}
 
-	// ActivatedRouteSnapshot包含了即将被激活的路由，而RouterStateSnapshot包含了该应用即将到达的状态
+	/**
+	 * 路由进入守卫
+	 * @param {ActivatedRouteSnapshot} route 即将被激活的路由
+	 * @param {RouterStateSnapshot} state 即将到达的状态
+	 * @returns {Observable<boolean> | boolean}
+	 */
 	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-		return this.checkLogin(state.url);
-	}
-
-	canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-		return this.canActivate(route, state);
-	}
-
-	checkLogin(url: string): boolean {
-		const isLoginUrl: boolean = url.indexOf('login') >= 0;
+		const isLoginUrl: boolean = state.url.indexOf('login') >= 0;
 		if (!localStorage.getItem(environment.tokenName)) {
 			if (!isLoginUrl) {
 				this.router.navigate(['/login']);
@@ -44,6 +43,22 @@ export class AuthGuard implements CanActivate, CanActivateChild, Resolve<any> {
 		return true;
 	}
 
+	/**
+	 * 路由进入守卫（包括子组件）
+	 * @param {ActivatedRouteSnapshot} route 即将被激活的路由
+	 * @param {RouterStateSnapshot} state 即将到达的状态
+	 * @returns {Observable<boolean> | boolean}
+	 */
+	canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
+		return this.canActivate(route, state);
+	}
+
+	/**
+	 * 路由预加载数据
+	 * @param {ActivatedRouteSnapshot} route 即将被激活的路由
+	 * @param {RouterStateSnapshot} state 即将到达的状态
+	 * @returns {Promise<any> | boolean}
+	 */
 	resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<any> | boolean {
 		return new Promise((resolve, reject) => {
 			// 1. 当前用户菜单

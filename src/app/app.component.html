@@ -1,4 +1,10 @@
 <div id="appMain">
 	<router-outlet></router-outlet>
 </div>
-<p-confirmDialog [acceptLabel]="'确定'" [rejectLabel]="'取消'"></p-confirmDialog>
+<p-confirmDialog [header]="'系统提示'" #pConfirm>
+	<p-footer>
+		<button *ngIf="pConfirm.acceptVisible" pButton type="button" [icon]="'fa-check'" [label]="'确认'" (click)="pConfirm.accept()"></button>
+		<button *ngIf="pConfirm.rejectVisible" pButton type="button" class="ui-button-secondary" [icon]="'fa-close'" [label]="'取消'" (click)="pConfirm.reject()"></button>
+	</p-footer>
+</p-confirmDialog>
+<p-growl></p-growl>

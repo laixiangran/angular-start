@@ -1,13 +1,15 @@
 /**
  * Created by laixiangran on 2017/8/29.
  * homepage：http://www.laixiangran.cn.
- * 文件路径操作服务
  */
 import { Injectable } from '@angular/core';
 
+/**
+ * @name FilePathService
+ * @description 文件路径操作服务
+ */
 @Injectable()
 export class FilePathService {
-
 	private allMimeType: any = {
 		'ez': 'application/andrew-inset',
 		'aw': 'application/applixware',
