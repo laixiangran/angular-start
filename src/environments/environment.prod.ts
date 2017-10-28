@@ -5,6 +5,7 @@
  */
 export const environment = {
 	dev: false,
+	hmr: false,
 	title: 'Angular Start',
 	domain: 'http://rapapi.org/mockjsdata/26879',
 	mockDomain: '',
