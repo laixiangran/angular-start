@@ -1,6 +1,8 @@
-<div id="appMain">
+<div>
 	<router-outlet></router-outlet>
 </div>
+
+<!-- 方便全局使用p-confirmDialog及p-growl -->
 <p-confirmDialog [header]="'系统提示'" #pConfirm>
 	<p-footer>
 		<button *ngIf="pConfirm.acceptVisible" pButton type="button" [icon]="'fa-check'" [label]="'确认'" (click)="pConfirm.accept()"></button>
