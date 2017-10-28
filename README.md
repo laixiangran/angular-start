@@ -1,6 +1,6 @@
 # angular-start
 
-基于angular-cli的Angular 4.x 起步项目，欢迎下载使用，持续维护中...
+基于[angular-cli](https://github.com/angular/angular-cli/wiki)的[Angular 4.x](https://angular.cn/)起步项目，欢迎下载使用，持续维护中...
 
 ## 全局环境
 
@@ -22,11 +22,11 @@ NPM >= 3.10.x
 本项目已启用[Hot Module Replacement（模块热更新）](https://github.com/angular/angular-cli/wiki/stories-configure-hmr)，帮助我们开发时更快的更新代码，然后查看页面效果。
 
 ```shell
-npm install -g @angular-cli
+npm install -g @angular-cli // 全局安装angular-cli
 
-npm install
+npm install // 安装依赖
 
-npm start
+npm start // 启动项目
 ```
 
 ## 请求代理
@@ -50,7 +50,3 @@ npm run build-test
 ```shell
 npm run build-prod
 ```
-
-## angular-cli配置
-
-[.angular-cli](https://github.com/angular/angular-cli/wiki/angular-cli)
