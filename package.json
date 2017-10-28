@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "start": "ng serve -o --proxy-config proxy.config.json",
-    "build-test": "ng build --prod --env=test --base-href /angularStart/",
-    "build-prod": "ng build --prod --env=prod --base-href /angularStart/",
+    "build-test": "ng build --prod --named-chunks --env=test --base-href /angularStart/",
+    "build-prod": "ng build --prod --named-chunks --env=prod --base-href /angularStart/",
     "lint": "ng lint"
   },
   "dependencies": {
