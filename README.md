@@ -2,7 +2,7 @@
 
 基于[angular-cli](https://github.com/angular/angular-cli/wiki)的[Angular](https://angular.cn/)起步项目，欢迎下载使用，持续维护中...
 
-该项目具有如下功能：
+## 实现功能
 
 - 通过`ng build`的`--base-href`属性来设置`index.html`的`base路径`，[参考这里](https://github.com/angular/angular-cli/wiki/build#base-tag-handling-in-indexhtml)
 
