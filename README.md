@@ -2,9 +2,6 @@
 
 基于[angular-cli](https://github.com/angular/angular-cli/wiki)的[Angular](https://angular.cn/)起步项目，欢迎下载使用，持续维护中...
 
-[![Dependency Status][david-badge]][david-badge-url]
-[![devDependency Status][david-dev-badge]][david-dev-badge-url]
-
 [![GitHub forks](https://img.shields.io/github/forks/laixiangran/angular-start.svg?style=social&label=Fork)](https://github.com/laixiangran/angular-start/fork)
 [![GitHub stars](https://img.shields.io/github/stars/laixiangran/angular-start.svg?style=social&label=Star)](https://github.com/laixiangran/angular-start)
 
