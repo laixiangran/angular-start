@@ -5,14 +5,6 @@
 [![Dependency Status][david-badge]][david-badge-url]
 [![devDependency Status][david-dev-badge]][david-dev-badge-url]
 
-[![npm](https://img.shields.io/npm/v/%40angular/cli.svg)][npm-badge-url]
-[![npm](https://img.shields.io/npm/v/%40angular/cli/next.svg)][npm-badge-url]
-[![npm](https://img.shields.io/npm/l/@angular/cli.svg)][npm-badge-url]
-[![npm](https://img.shields.io/npm/dm/@angular/cli.svg)][npm-badge-url]
-
-[![Join the chat at https://gitter.im/laixiangran/angular-start](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/laixiangran/angular-start?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Caretaker](https://img.shields.io/badge/caretaker-filipesilva-blue.svg)](https://github.com/filipesilva)
-
 [![GitHub forks](https://img.shields.io/github/forks/laixiangran/angular-start.svg?style=social&label=Fork)](https://github.com/laixiangran/angular-start/fork)
 [![GitHub stars](https://img.shields.io/github/stars/laixiangran/angular-start.svg?style=social&label=Star)](https://github.com/laixiangran/angular-start)
 
