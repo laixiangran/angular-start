@@ -3,7 +3,7 @@
  * homepage：http://www.laixiangran.cn.
  */
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { ServerData } from '../models/server-data.model';
@@ -21,7 +21,7 @@ export class RequestService {
 	private domain: string = environment.domain;
 	private mockDomain: string = environment.mockDomain;
 
-	constructor(private http: Http, public router: Router) {
+	constructor(private http: HttpClient, public router: Router) {
 	}
 
 	/**
@@ -32,19 +32,17 @@ export class RequestService {
 	 * @returns {Observable<ServerData>}
 	 */
 	post(url: string, body: any = null, isMock: boolean = false): Observable<ServerData> {
-		const headers = new Headers({
+		const headers = new HttpHeaders({
 				'Content-Type': 'application/json',
 				'URMS_LOGIN_TOKEN': localStorage.getItem(environment.tokenName) || ''
 			}),
-			options = new RequestOptions({headers: headers}),
+			options = {headers: headers},
 			requesUrl: string = (isMock ? this.mockDomain : this.domain) + url;
 		return new Observable<ServerData>((subscriber: Subscriber<any>) => {
-			this.http.post(requesUrl, body && JSON.stringify(body), options).map((res: Response) => {
-				return res.json();
-			}).subscribe((serverData: ServerData) => {
+			this.http.post(requesUrl, body && JSON.stringify(body), options).subscribe((serverData: ServerData) => {
 				subscriber.next(serverData);
 				subscriber.complete();
-			}, (error: Response) => {
+			}, (error: HttpErrorResponse) => {
 				this.handlerError('post', error, url, body, isMock, subscriber);
 			});
 		});
@@ -57,19 +55,17 @@ export class RequestService {
 	 * @returns {Observable<ServerData>}
 	 */
 	get(url: string, isMock: boolean = false): Observable<ServerData> {
-		const headers = new Headers({
+		const headers = new HttpHeaders({
 				'Content-Type': 'application/json',
 				'URMS_LOGIN_TOKEN': localStorage.getItem(environment.tokenName) || ''
 			}),
-			options = new RequestOptions({headers: headers}),
+			options = {headers: headers},
 			requesUrl: string = (isMock ? this.mockDomain : this.domain) + url;
 		return new Observable<ServerData>((subscriber: Subscriber<any>) => {
-			this.http.get(requesUrl, options).map((res: Response) => {
-				return res.json();
-			}).subscribe((serverData: ServerData) => {
+			this.http.get(requesUrl, options).subscribe((serverData: ServerData) => {
 				subscriber.next(serverData);
 				subscriber.complete();
-			}, (error: Response) => {
+			}, (error: HttpErrorResponse) => {
 				this.handlerError('get', error, url, null, isMock, subscriber);
 			});
 		});
@@ -78,13 +74,13 @@ export class RequestService {
 	/**
 	 * 请求出错之后的处理
 	 * @param {string} type 请求类型（post or get）
-	 * @param {Response} error 错误对象
+	 * @param {HttpErrorResponse} error 错误对象
 	 * @param {string} url 请求路径
 	 * @param {any} obj 请求body
 	 * @param {boolean} isMock 是否模拟请求
 	 * @param {Subscriber} subscriber 当前请求的订阅对象
 	 */
-	private handlerError(type: string, error: Response, url: string, obj?: any, isMock?: boolean, subscriber?: Subscriber<any>) {
+	private handlerError(type: string, error: HttpErrorResponse, url: string, obj?: any, isMock?: boolean, subscriber?: Subscriber<any>) {
 		if (error.status === 401) {
 			localStorage.removeItem(environment.tokenName);
 			this.router.navigate(['/login']);

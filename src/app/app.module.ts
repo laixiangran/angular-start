@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
 import { AuthService } from './services/auth.service';
@@ -23,7 +23,7 @@ import { EventsService } from './services/events.service';
 	imports: [
 		BrowserModule,
 		FormsModule,
-		HttpModule,
+		HttpClientModule,
 		BrowserAnimationsModule,
 		AppRoutingModule,
 		ConfirmDialogModule,
