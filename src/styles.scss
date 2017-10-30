@@ -1,8 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
+// 解决ui-g下ui-button的icon与文字重叠的问题
 .ui-g {
     .ui-button:not(.ui-button-text-only) {
         padding-left: 1em !important;
     }
 }
 
+// 占据全屏
+.fullView {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}

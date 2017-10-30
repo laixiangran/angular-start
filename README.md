@@ -2,6 +2,20 @@
 
 基于[angular-cli](https://github.com/angular/angular-cli/wiki)的[Angular](https://angular.cn/)起步项目，欢迎下载使用，持续维护中...
 
+[![Dependency Status][david-badge]][david-badge-url]
+[![devDependency Status][david-dev-badge]][david-dev-badge-url]
+
+[![npm](https://img.shields.io/npm/v/%40angular/cli.svg)][npm-badge-url]
+[![npm](https://img.shields.io/npm/v/%40angular/cli/next.svg)][npm-badge-url]
+[![npm](https://img.shields.io/npm/l/@angular/cli.svg)][npm-badge-url]
+[![npm](https://img.shields.io/npm/dm/@angular/cli.svg)][npm-badge-url]
+
+[![Join the chat at https://gitter.im/laixiangran/angular-start](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/laixiangran/angular-start?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Caretaker](https://img.shields.io/badge/caretaker-filipesilva-blue.svg)](https://github.com/filipesilva)
+
+[![GitHub forks](https://img.shields.io/github/forks/laixiangran/angular-start.svg?style=social&label=Fork)](https://github.com/laixiangran/angular-start/fork)
+[![GitHub stars](https://img.shields.io/github/stars/laixiangran/angular-start.svg?style=social&label=Star)](https://github.com/laixiangran/angular-start)
+
 ## 实现功能
 
 - 通过`ng build`的`--base-href`属性来设置`index.html`的`base路径`，[参考这里](https://github.com/angular/angular-cli/wiki/build#base-tag-handling-in-indexhtml)
