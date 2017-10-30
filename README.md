@@ -2,6 +2,8 @@
 
 基于[angular-cli](https://github.com/angular/angular-cli/wiki)的[Angular](https://angular.cn/)起步项目，欢迎下载使用，持续维护中...
 
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE)
+
 [![GitHub forks](https://img.shields.io/github/forks/laixiangran/angular-start.svg?style=social&label=Fork)](https://github.com/laixiangran/angular-start/fork)
 [![GitHub stars](https://img.shields.io/github/stars/laixiangran/angular-start.svg?style=social&label=Star)](https://github.com/laixiangran/angular-start)
 
@@ -67,7 +69,3 @@ npm run build-test
 ```shell
 npm run build-prod
 ```
-
-# License
-
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE)
