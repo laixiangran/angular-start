@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
-	templateUrl: './custom.component.html'
+	templateUrl: './custom.component.html',
+	styleUrls: ['./custom.component.scss']
 })
 export class CustomComponent implements OnInit, OnDestroy {
 

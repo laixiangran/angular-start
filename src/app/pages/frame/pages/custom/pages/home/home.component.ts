@@ -9,10 +9,8 @@ import { HomeService } from './home.service';
 export class HomeComponent implements OnInit {
 
 	constructor() {
-
 	}
 
 	ngOnInit() {
-
 	}
 }
