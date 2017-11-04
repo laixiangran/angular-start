@@ -4,7 +4,7 @@
  * 测试环境配置
  */
 export const environment = {
-	dev: false,
+	production: true,
 	hmr: false,
 	title: 'Angular Start',
 	domain: 'http://rapapi.org/mockjsdata/26879',

@@ -4,7 +4,7 @@
  * 开发环境配置
  */
 export const environment = {
-	dev: true, // 是否是开发环境，true为开发环境
+	production: false, // false为非开发环境
 	hmr: true, // 是否开启模块热更新（针对开发）
 	title: 'Angular Start', // 系统名称（请根据实际项目进行修改）
 	domain: '/mockjsdata/26879', // 请求的域名（请根据实际项目进行修改）

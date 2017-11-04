@@ -4,13 +4,11 @@
  */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 import { ServerData } from '../models/server-data.model';
 import { Observable } from 'rxjs/Observable';
 import { Subscriber } from 'rxjs/Subscriber';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 
 /**
  * @name RequestService
@@ -86,7 +84,7 @@ export class RequestService {
 			this.router.navigate(['/login']);
 		} else if (error.status === 404) {
 			if (!isMock) { // 只模拟一次
-				if (environment.dev) { // 开发环境
+				if (!environment.production) { // 开发环境
 					isMock = true;
 					if (type === 'post') {
 						this.post(url, obj, isMock).subscribe((data: ServerData) => {

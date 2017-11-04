@@ -3,13 +3,13 @@
  * homepage:http://www.laixiangran.cn.
  */
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { environment } from './environments/environment';
 import { enableProdMode } from '@angular/core';
-import { AppModule } from './app/app.module';
 import { hmrBootstrap } from './hmr';
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
 
-// 判断是否开发环境
-if (!environment.dev) {
+// 判断是否生产环境
+if (environment.production) {
 	enableProdMode();
 }
 

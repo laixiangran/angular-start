@@ -14,7 +14,7 @@ export class LoginComponent {
 	isaffirm: boolean = false;
 
 	constructor(public loginService: LoginService,
-				private authService: AuthService,
+				public authService: AuthService,
 				public messageService: MessageService,
 				public router: Router) {}
 

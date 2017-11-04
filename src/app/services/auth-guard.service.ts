@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild, Resolve } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/zip';
-import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
 import { AuthService } from './auth.service';
 import { LoginService } from '../pages/login/login.service';
@@ -69,7 +68,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, Resolve<any> {
 				this.authService.user = data[1].result;
 				this.authService.currUserResources = data[2].result;
 				resolve(true);
-			}, (error: any) => {
+			}, () => {
 				reject(false);
 			});
 		});
