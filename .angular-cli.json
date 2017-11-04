@@ -40,7 +40,7 @@
 	],
 	"lint": [
 		{
-			"project": "src/tsconfig.json"
+			"project": "src/tsconfig.app.json"
 		}
 	],
 	"defaults": {
