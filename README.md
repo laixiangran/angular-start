@@ -1,6 +1,6 @@
 # angular-start
 
-基于[angular-cli](https://github.com/angular/angular-cli/wiki)的[Angular4.x](https://angular.cn/)起步项目，欢迎下载使用，持续维护中...
+基于[angular-cli](https://github.com/angular/angular-cli/wiki)的[Angular5.x](https://angular.cn/)起步项目，欢迎下载使用，持续维护中...
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE)
 

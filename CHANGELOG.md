@@ -1,3 +1,7 @@
+# 3.0.0（2017-11-04）
+
+- 升级到Angular5.0.0
+
 # 2.0.0 (2017-10-28)
 
 - 通过`ng build`的`--base-href`属性来设置`index.html`的`base路径`，[参考这里](https://github.com/angular/angular-cli/wiki/build#base-tag-handling-in-indexhtml)
