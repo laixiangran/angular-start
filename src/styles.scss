@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-// 解决ui-g下ui-button的icon与文字重叠的问题
+// 瑙ｅ喅ui-g涓媢i-button鐨刬con涓庢枃瀛楅噸鍙犵殑闂
 .ui-g {
-    .ui-button:not(.ui-button-text-only) {
-        padding-left: 1em !important;
-    }
+	.ui-button:not(.ui-button-text-only) {
+		padding-left: 1em !important;
+	}
 }
 
-// 占据全屏
+// 鍗犳嵁鍏ㄥ睆
 .fullView {
 	position: absolute;
 	top: 0;
