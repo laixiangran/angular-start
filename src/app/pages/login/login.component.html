@@ -26,10 +26,7 @@
 					<div id="affirm" [class.activeg]="isaffirm" (click)="selectaffirm()"></div>
 					<label for="affirm" (click)="selectAffirm()">记住我</label>
 				</div>
-				<button type="button" class="btn btn-lg btn-primary loginBtn" [disabled]="!loginForm.form.valid"
-				        (click)="login()">
-					登录
-				</button>
+				<button type="button" class="btn btn-lg btn-primary loginBtn" (click)="login()">登录</button>
 				<p><a href="">遇到登录问题请联系管理员</a></p>
 			</form>
 		</div>
