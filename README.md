@@ -1,6 +1,6 @@
 # angular-start
 
-[Angular5.x](https://angular.cn/)起步项目，持续维护中...
+[Angular](https://angular.cn/)起步项目，目前更新到Angular5.x
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE)
 
