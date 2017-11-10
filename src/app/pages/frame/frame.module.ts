@@ -4,7 +4,7 @@ import { FrameRoutingModule } from './frame.routes';
 import { FrameComponent } from './frame.component';
 import { CommonModule } from '@angular/common';
 import { QRCodeModule } from 'angular2-qrcode';
-import { ButtonModule, DialogModule, MenuModule, TieredMenuModule } from 'primeng/primeng';
+import { ButtonModule, DialogModule, TieredMenuModule } from 'primeng/primeng';
 
 @NgModule({
 	imports: [
@@ -20,6 +20,5 @@ import { ButtonModule, DialogModule, MenuModule, TieredMenuModule } from 'primen
 		FrameComponent
 	]
 })
-
 export class FrameModule {
 }

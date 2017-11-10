@@ -7,6 +7,7 @@ import { HomeService } from './home.service';
 	providers: [HomeService]
 })
 export class HomeComponent implements OnInit {
+	welcomeMessage: string = 'Welcome to Angular World!';
 
 	constructor() {
 	}

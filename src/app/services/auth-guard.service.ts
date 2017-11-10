@@ -27,18 +27,18 @@ export class AuthGuard implements CanActivate, CanActivateChild, Resolve<any> {
 	 * @returns {Observable<boolean> | boolean}
 	 */
 	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-		const isLoginUrl: boolean = state.url.indexOf('login') >= 0;
-		if (!localStorage.getItem(environment.tokenName)) {
-			if (!isLoginUrl) {
-				this.router.navigate(['/login']);
-				return false;
-			}
-		} else {
-			if (isLoginUrl) {
-				this.router.navigate(['/frame/custom/home']);
-				return false;
-			}
-		}
+		// const isLoginUrl: boolean = state.url.indexOf('login') >= 0;
+		// if (!localStorage.getItem(environment.tokenName)) {
+		// 	if (!isLoginUrl) {
+		// 		this.router.navigate(['/login']);
+		// 		return false;
+		// 	}
+		// } else {
+		// 	if (isLoginUrl) {
+		// 		this.router.navigate(['/frame/custom/home']);
+		// 		return false;
+		// 	}
+		// }
 		return true;
 	}
 
