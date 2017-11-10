@@ -1,14 +1,18 @@
 import { AppPage } from './app.po';
 
 describe('angular-start App', () => {
-	let page: AppPage;
+	let appPage: AppPage;
 
-	beforeEach(() => {
-		page = new AppPage();
+	beforeAll(() => {
+		appPage = new AppPage();
+		appPage.navigateTo();
+	});
+
+	it('title should "Angular Start"', () => {
+		expect(appPage.getAppTitle()).toEqual('Angular Start');
 	});
 
 	it('should display welcome message', () => {
-		page.navigateTo();
-		expect(page.getParagraphText()).toEqual('你已经成功启动并登录angular-start项目，现在开启angular愉悦的开发之旅吧！');
+		expect(appPage.getWelcomeMessage()).toEqual('Welcome to Angular World!');
 	});
 });
