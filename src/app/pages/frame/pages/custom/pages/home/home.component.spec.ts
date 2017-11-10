@@ -14,7 +14,7 @@ describe('HomeComponent', () => {
 		const homeComponent = fixture.debugElement.componentInstance;
 		expect(homeComponent).toBeTruthy();
 	}));
-	it('"welcomeMessage" should "欢迎来到Angular的世界！"', async(() => {
+	it('"welcomeMessage" equal "欢迎来到Angular的世界！"', async(() => {
 		const fixture = TestBed.createComponent(HomeComponent);
 		const homeComponent = fixture.debugElement.componentInstance;
 		homeComponent.welcomeMessage = '欢迎来到Angular的世界！';

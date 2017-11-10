@@ -8,8 +8,8 @@
     "build-test": "ng build --prod --named-chunks --env=test --base-href /angularStart/",
     "build-prod": "ng build --prod --named-chunks --env=prod --base-href /angularStart/",
     "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e --hmr --proxy-config proxy.config.json"
+    "e2e": "ng e2e --hmr --proxy-config proxy.config.json",
+    "lint": "ng lint"
   },
   "dependencies": {
     "@angular/animations": "^5.0.0",
