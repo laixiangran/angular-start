@@ -57,7 +57,7 @@ export class LoginComponent {
 		});
 	}
 
-	selectaffirm() {
+	selectAffirm() {
 		this.isaffirm = !this.isaffirm;
 	}
 }

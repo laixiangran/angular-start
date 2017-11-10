@@ -23,7 +23,7 @@
 					<p [hidden]="password.valid || password.pristine" class="tips">密码是必需的</p>
 				</div>
 				<div class="affirmbox">
-					<div id="affirm" [class.activeg]="isaffirm" (click)="selectaffirm()"></div>
+					<div id="affirm" [class.activeg]="isaffirm" (click)="selectAffirm()"></div>
 					<label for="affirm" (click)="selectAffirm()">记住我</label>
 				</div>
 				<button type="button" class="btn btn-lg btn-primary loginBtn" (click)="login()">登录</button>
