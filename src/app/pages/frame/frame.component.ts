@@ -56,7 +56,8 @@ export class FrameComponent implements OnInit, OnDestroy {
 			header: '系统提示',
 			message: '确定退出系统？',
 			accept: () => {
-				this.loginService.logout().subscribe((data: any) => {
+				this.router.navigate(['/login']);
+				/*this.loginService.logout().subscribe((data: any) => {
 					if (data.status === 200) {
 						this.authService.initParams();
 						this.messageService.clear();
@@ -64,7 +65,7 @@ export class FrameComponent implements OnInit, OnDestroy {
 					}
 				}, (error: any) => {
 					this.messageService.add({severity: 'error', summary: '系统消息', detail: '退出失败，请重试！'});
-				});
+				});*/
 			},
 			reject: () => {
 				this.messageService.add({severity: 'info', summary: '系统消息', detail: '您已取消退出系统！'});

@@ -19,7 +19,8 @@ export class LoginComponent {
 				public router: Router) {}
 
 	login(): void {
-		const access: any = {
+		this.router.navigate(['/frame/custom/home']);
+		/*const access: any = {
 			username: this.access.username,
 			password: Md5.hashStr(this.access.password),
 			remeberme: this.access.status
@@ -54,7 +55,7 @@ export class LoginComponent {
 					detail: '账户受保护，请联系管理员！'
 				});
 			}
-		});
+		});*/
 	}
 
 	selectAffirm() {

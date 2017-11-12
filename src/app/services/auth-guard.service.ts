@@ -63,14 +63,15 @@ export class AuthGuard implements CanActivate, CanActivateChild, Resolve<any> {
 			// 1. 当前用户菜单
 			// 2. 当前用户信息
 			// 3. 当前用户资源
-			Observable.zip(this.loginService.getUserMenus(), this.loginService.getUserInfo(), this.loginService.getUserResources()).subscribe((data: any[]) => {
-				this.authService.currUserMenus = data[0].children;
-				this.authService.user = data[1].result;
-				this.authService.currUserResources = data[2].result;
-				resolve(true);
-			}, () => {
-				reject(false);
-			});
+			// Observable.zip(this.loginService.getUserMenus(), this.loginService.getUserInfo(), this.loginService.getUserResources()).subscribe((data: any[]) => {
+			// 	this.authService.currUserMenus = data[0].children;
+			// 	this.authService.user = data[1].result;
+			// 	this.authService.currUserResources = data[2].result;
+			// 	resolve(true);
+			// }, () => {
+			// 	reject(false);
+			// });
+			resolve(true);
 		});
 	}
 }
