@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import Viewer = Cesium.Viewer;
+import ViewerOptions = Cesium.ViewerOptions;
 
 @Component({
 	templateUrl: './cesium.component.html',
@@ -7,10 +9,9 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class CesiumComponent implements OnInit {
 	@ViewChild('cesiumContainer') cesiumContainerRef: ElementRef;
 	cesiumContainer: HTMLDivElement;
-	viewer: any;
+	viewer: Viewer;
 
 	constructor() {
-		window['CESIUM_BASE_URL'] = '/assets/scripts/cesium'; // 设置cesium的请求基础路径，默认是'/'
 	}
 
 	ngOnInit() {
@@ -22,9 +23,9 @@ export class CesiumComponent implements OnInit {
 	 * 初始化视图
 	 */
 	initViewer() {
-		this.viewer = new Cesium.Viewer(this.cesiumContainer, {
+		const options: ViewerOptions = {
 			fullscreenElement: this.cesiumContainer // 设置全屏的元素
-		});
+		};
+		this.viewer = new Cesium.Viewer(this.cesiumContainer, options);
 	}
-
 }

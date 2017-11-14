@@ -15,6 +15,7 @@ if (environment.production) {
 
 // 判断是否启用模块热更新
 const bootstrap = () => {
+	window['CESIUM_BASE_URL'] = '/assets/scripts/cesium'; // 设置cesium的请求基础路径，默认是'/'
 	return platformBrowserDynamic().bootstrapModule(AppModule);
 };
 if (environment.hmr) {
