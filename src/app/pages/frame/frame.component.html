@@ -33,24 +33,24 @@
 	<div class="side">
 		<ul class="list">
 			<li class="list-item" *ngFor="let item of authService.currUserMenus;let i = index;">
-				<div [routerLink]="item.data.url" routerLinkActive="active" class="container" [class.first]="i === 0">
+				<a [routerLink]="item.url" routerLinkActive="active" class="container" [class.first]="i === 0">
 					<div class="icon">
-						<span [class]="item.data.infos.icon"></span>
+						<span [class]="item.icon"></span>
 					</div>
 					<div class="title">
 						<a>
-							<span>{{item.text}}</span>
+							<span>{{item.label}}</span>
 						</a>
 					</div>
-				</div>
+				</a>
 				<ul *ngIf="item.children">
 					<li *ngFor="let nav of item.children">
 						<div class="left"></div>
-						<div class="right" [routerLink]="nav.data.url"
+						<a class="right" [routerLink]="nav.url"
 							 routerLinkActive="active">
-							<span [class]="nav.data.infos.icon"></span>
-							{{nav.text}}
-						</div>
+							<span [class]="nav.icon"></span>
+							{{nav.label}}
+						</a>
 					</li>
 				</ul>
 			</li>

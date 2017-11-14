@@ -107,7 +107,12 @@
                 font-size: 18px;
                 letter-spacing: 2px;
 
-                div.container {
+                a {
+                    display: block;
+                    text-decoration: none;
+                }
+
+                a.container {
                     width: 100%;
                     height: 70px;
                     line-height: 70px;
@@ -120,10 +125,8 @@
                         line-height: 69px;
                         text-align: center;
                         background-color: #4996D8;
-                        .Eicons {
-                            font-size: 26px;
-                            color: #FFFFFF;
-                        }
+                        font-size: 26px;
+                        color: #FFFFFF;
                     }
                     .title {
                         margin-left: 87px;

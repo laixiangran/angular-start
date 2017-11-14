@@ -15,7 +15,29 @@ export class AuthService {
 	currUserResources: string[] = null; // 当前用户资源
 	currUserMenus: any[] = null; // 当前用户菜单
 
-	constructor() {}
+	constructor() {
+		this.currUserMenus = [
+			{
+				url: '/frame/custom/home',
+				icon: 'fa fa-tachometer',
+				label: '工作台',
+				children: []
+			},
+			{
+				url: '/frame/custom/globe',
+				icon: 'fa fa-globe',
+				label: '三维框架',
+				children: [
+					{
+						url: '/frame/custom/globe/cesium',
+						icon: 'fa fa-globe',
+						label: 'Cesium',
+						children: []
+					}
+				]
+			}
+		];
+	}
 
 	/**
 	 * 保存令牌

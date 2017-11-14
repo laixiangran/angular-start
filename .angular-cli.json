@@ -9,7 +9,12 @@
 			"outDir": "dist",
 			"assets": [
 				"assets",
-				"favicon.ico"
+				"favicon.ico",
+				{
+					"glob": "**/*",
+					"input": "../node_modules/cesium/Build/Cesium",
+					"output": "./assets/scripts/cesium"
+				}
 			],
 			"index": "index.html",
 			"main": "main.ts",
@@ -27,10 +32,12 @@
 				"../node_modules/quill/dist/quill.core.css",
 				"../node_modules/quill/dist/quill.snow.css",
 				"../node_modules/primeng/resources/themes/bootstrap/theme.css",
-				"../node_modules/primeng/resources/primeng.min.css"
+				"../node_modules/primeng/resources/primeng.min.css",
+				"../node_modules/cesium/Build/Cesium/Widgets/widgets.css"
 			],
 			"scripts": [
-				"../node_modules/quill/dist/quill.js"
+				"../node_modules/quill/dist/quill.js",
+				"../node_modules/cesium/Build/Cesium/Cesium.js"
 			],
 			"environmentSource": "environments/environment.ts",
 			"environments": {

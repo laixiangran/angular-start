@@ -13,6 +13,10 @@ const customRoutes: Routes = [
 				component: HomeComponent
 			},
 			{
+				path: 'globe',
+				loadChildren: './pages/globe/globe.module#GlobeModule',
+			},
+			{
 				path: '',
 				redirectTo: 'home',
 				pathMatch: 'full'
