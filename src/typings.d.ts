@@ -1,4 +1,4 @@
-/// <reference path="./assets/types/cesium/index.d.ts" />
+/// <reference path="../node_modules/ngx-cesium/src/cesium.d.ts" />
 
 /* SystemJS module definition */
 declare var module: NodeModule;

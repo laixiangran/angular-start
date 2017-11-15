@@ -1,31 +1,29 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import Viewer = Cesium.Viewer;
+import { Component, OnInit } from '@angular/core';
 import ViewerOptions = Cesium.ViewerOptions;
+import Viewer = Cesium.Viewer;
 
 @Component({
 	templateUrl: './cesium.component.html',
 	styleUrls: ['./cesium.component.scss']
 })
 export class CesiumComponent implements OnInit {
-	@ViewChild('cesiumContainer') cesiumContainerRef: ElementRef;
-	cesiumContainer: HTMLDivElement;
+	viewerOptions: ViewerOptions;
 	viewer: Viewer;
 
 	constructor() {
+		this.viewerOptions = <ViewerOptions>{
+			scene3DOnly: true,
+			selectionIndicator: false,
+			baseLayerPicker: false
+		};
 	}
 
 	ngOnInit() {
-		this.cesiumContainer = this.cesiumContainerRef.nativeElement;
-		this.initViewer();
 	}
 
-	/**
-	 * 初始化视图
-	 */
-	initViewer() {
-		const options: ViewerOptions = {
-			fullscreenElement: this.cesiumContainer // 设置全屏的元素
-		};
-		this.viewer = new Cesium.Viewer(this.cesiumContainer, options);
+	onViewerReady($event: Viewer) {
+		this.viewer = $event;
+		console.log(this.viewer);
 	}
 }
+
