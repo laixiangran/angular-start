@@ -7,15 +7,14 @@ import Viewer = Cesium.Viewer;
 	styleUrls: ['./cesium.component.scss']
 })
 export class CesiumComponent implements OnInit {
-	viewerOptions: ViewerOptions;
+	viewerOptions: ViewerOptions = <ViewerOptions>{
+		scene3DOnly: true,
+		selectionIndicator: false,
+		baseLayerPicker: false
+	};
 	viewer: Viewer;
 
 	constructor() {
-		this.viewerOptions = <ViewerOptions>{
-			scene3DOnly: true,
-			selectionIndicator: false,
-			baseLayerPicker: false
-		};
 	}
 
 	ngOnInit() {
@@ -23,7 +22,6 @@ export class CesiumComponent implements OnInit {
 
 	onViewerReady($event: Viewer) {
 		this.viewer = $event;
-		console.log(this.viewer);
 	}
 }
 
