@@ -1,5 +1,5 @@
-// cesium
-/// <reference path="../node_modules/cesium-typings/index.d.ts" />
+// Typescript definition for Cesium
+/// <reference path="../node_modules/ngx-cesium/src/types/index.d.ts" />
 
 /* SystemJS module definition */
 declare var module: NodeModule;
