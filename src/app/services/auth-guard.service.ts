@@ -71,6 +71,29 @@ export class AuthGuard implements CanActivate, CanActivateChild, Resolve<any> {
 			// }, () => {
 			// 	reject(false);
 			// });
+
+			// 1. 当前用户菜单
+			this.authService.currUserMenus = [
+				{
+					url: '/frame/custom/home',
+					icon: 'fa fa-tachometer',
+					label: '工作台',
+					children: []
+				},
+				{
+					url: '/frame/custom/globe',
+					icon: 'fa fa-globe',
+					label: '三维平台',
+					children: [
+						{
+							url: '/frame/custom/globe/cesium',
+							icon: 'fa fa-globe',
+							label: 'Cesium',
+							children: []
+						}
+					]
+				}
+			];
 			resolve(true);
 		});
 	}

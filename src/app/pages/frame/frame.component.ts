@@ -44,28 +44,6 @@ export class FrameComponent implements OnInit, OnDestroy {
 			}
 		];
 
-		this.authService.currUserMenus = [
-			{
-				url: '/frame/custom/home',
-				icon: 'fa fa-tachometer',
-				label: '工作台',
-				children: []
-			},
-			{
-				url: '/frame/custom/globe',
-				icon: 'fa fa-globe',
-				label: '三维平台',
-				children: [
-					{
-						url: '/frame/custom/globe/cesium',
-						icon: 'fa fa-globe',
-						label: 'Cesium',
-						children: []
-					}
-				]
-			}
-		];
-
 		this.renderer.addClass(this.elemRef.nativeElement.ownerDocument.body, 'frame-module');
 	}
 
