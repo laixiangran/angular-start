@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { FrameRoutingModule } from './frame.routes';
 import { FrameComponent } from './frame.component';
 import { CommonModule } from '@angular/common';
-import { QRCodeModule } from 'angular2-qrcode';
 import { ButtonModule, DialogModule, TieredMenuModule } from 'primeng/primeng';
 
 @NgModule({
@@ -11,7 +10,6 @@ import { ButtonModule, DialogModule, TieredMenuModule } from 'primeng/primeng';
 		CommonModule,
 		FormsModule,
 		FrameRoutingModule,
-		QRCodeModule,
 		DialogModule,
 		TieredMenuModule,
 		ButtonModule

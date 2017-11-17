@@ -8,9 +8,6 @@
 			<input type="text" class="search" placeholder="关键字搜索" autocomplete="off">
 		</span>
 		<ul class="nav navbar-nav navbar-right">
-			<li class="help scanCode" (click)="toggleScanCode()" title="APP下载">
-				<span class="fa fa-cloud-download"></span>
-			</li>
 			<li class="help" title="系统通知">
 				<span class="Eicons start-tongzhi"></span>
 				<span class="notice">6</span>
@@ -60,16 +57,3 @@
 		<router-outlet></router-outlet>
 	</div>
 </div>
-<p-dialog [(visible)]="scanCodeDialogDisplay" [width]="800" [modal]="true">
-	<p-header>
-		app下载
-	</p-header>
-	<div class="appDownloadArea text-center">
-		<img src="./assets/images/frame/downloadInfo.png" height="250" width="250"/>
-		<qr-code [value]="appDownloadUrl" [size]="250"></qr-code>
-	</div>
-	<p-footer>
-		<button pButton type="button" class="ui-button-success ui-button-text" [label]="'直接下载'" [icon]="'fa-check'" (click)="directDownload()"></button>
-		<button pButton type="button" class="ui-button-secondary ui-button-text" [label]="'取消'" [icon]="'fa-close'" (click)="toggleScanCode()"></button>
-	</p-footer>
-</p-dialog>

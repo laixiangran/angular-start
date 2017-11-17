@@ -72,18 +72,4 @@ export class FrameComponent implements OnInit, OnDestroy {
 			}
 		});
 	}
-
-	/**
-	 * 二维码显示/隐藏
-	 */
-	toggleScanCode() {
-		this.scanCodeDialogDisplay = !this.scanCodeDialogDisplay;
-	}
-
-	/**
-	 * 直接下载APP
-	 */
-	directDownload() {
-		window.open(this.appDownloadUrl);
-	}
 }
