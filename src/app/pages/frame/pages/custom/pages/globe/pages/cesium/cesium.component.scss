@@ -1,0 +1,16 @@
+.cesium-container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+
+	.cesium-tools {
+		padding: 10px;
+		min-height: 100px;
+		background-color: rgba(0, 0, 0, 0.6);
+		color: #FFFFFF;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		z-index: 100;
+	}
+}
