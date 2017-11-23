@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { GlobeComponent } from './globe.component';
 import { CesiumComponent } from './pages/cesium/cesium.component';
 import { GlobeRoutingModule } from './globe.routes';
-import { NgxCesiumModule } from 'ngx-cesium';
+import { ENgxCesiumModule } from 'e-ngx-cesium';
 import { SelectButtonModule } from 'primeng/primeng';
 
 @NgModule({
@@ -12,7 +12,7 @@ import { SelectButtonModule } from 'primeng/primeng';
 		CommonModule,
 		FormsModule,
 		GlobeRoutingModule,
-		NgxCesiumModule,
+		ENgxCesiumModule,
 		SelectButtonModule
 	],
 	declarations: [
