@@ -10,6 +10,7 @@ import CzmlDataSource = Cesium.CzmlDataSource;
 import ModelGraphics = Cesium.ModelGraphics;
 import Cesium3DTileStyle = Cesium.Cesium3DTileStyle;
 import CesiumMath = Cesium.Math;
+import KmlLoadOptions = Cesium.KmlLoadOptions;
 
 @Component({
 	templateUrl: './cesium.component.html',
@@ -142,11 +143,11 @@ export class CesiumComponent implements OnInit {
 	 */
 	loadKMLData() {
 		const viewer: Viewer = this.viewer;
-		const kmlOptions = {
+		const kmlOptions: KmlLoadOptions = {
 			camera: viewer.scene.camera,
 			canvas: viewer.scene.canvas,
 			clampToGround: true
-		};
+		} as KmlLoadOptions;
 		// Load geocache points of interest from a KML file
 		// Data from : http://catalog.opendata.city/dataset/pediacities-nyc-neighborhoods/resource/91778048-3c58-449c-a3f9-365ed203e914
 		const geocachePromise: Promise<KmlDataSource> = Cesium.KmlDataSource.load('./assets/sampleData/sampleGeocacheLocations.kml', kmlOptions);
