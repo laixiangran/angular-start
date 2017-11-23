@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SelectItem } from 'primeng/primeng';
 import Viewer = Cesium.Viewer;
 import KmlDataSource = Cesium.KmlDataSource;
 import Entity = Cesium.Entity;
@@ -8,7 +9,7 @@ import EntityCollection = Cesium.EntityCollection;
 import CzmlDataSource = Cesium.CzmlDataSource;
 import ModelGraphics = Cesium.ModelGraphics;
 import Cesium3DTileStyle = Cesium.Cesium3DTileStyle;
-import { SelectItem } from 'primeng/primeng';
+import CesiumMath = Cesium.Math;
 
 @Component({
 	templateUrl: './cesium.component.html',
@@ -54,15 +55,15 @@ export class CesiumComponent implements OnInit {
 
 		this.loadTerrain();
 
-		this.configuringScene();
+		// this.configuringScene();
 
-		// this.loadKMLData();
+		this.loadKMLData();
 
-		this.loadCZMLAndGLTFData();
+		// this.loadCZMLAndGLTFData();
 
-		this.load3DTileset();
+		// this.load3DTileset();
 
-		this.setTilesetStyle();
+		// this.setTilesetStyle();
 	}
 
 	/**
@@ -170,8 +171,8 @@ export class CesiumComponent implements OnInit {
 				entity.billboard.distanceDisplayCondition = new Cesium.DistanceDisplayCondition(10.0, 20000.0);
 				// Compute latitude and longitude in degrees
 				const cartographicPosition: Cartographic = Cesium.Cartographic.fromCartesian(entity.position.getValue(Cesium.JulianDate.now()));
-				const latitude: number = Cesium.CesiumMath.toDegrees(cartographicPosition.latitude);
-				const longitude: number = Cesium.CesiumMath.toDegrees(cartographicPosition.longitude);
+				const latitude: number = CesiumMath.toDegrees(cartographicPosition.latitude);
+				const longitude: number = CesiumMath.toDegrees(cartographicPosition.longitude);
 				// Modify description
 				let description: string = '<table class="cesium-infoBox-defaultTable cesium-infoBox-defaultTable-lighter"><tbody>';
 				description += '<tr><th>' + 'Latitude' + '</th><td>' + latitude + '</td></tr>';
