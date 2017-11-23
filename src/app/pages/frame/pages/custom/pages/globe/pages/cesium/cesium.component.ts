@@ -55,15 +55,15 @@ export class CesiumComponent implements OnInit {
 
 		this.loadTerrain();
 
-		// this.configuringScene();
+		this.configuringScene();
 
 		this.loadKMLData();
 
-		// this.loadCZMLAndGLTFData();
+		this.loadCZMLAndGLTFData();
 
-		// this.load3DTileset();
+		this.load3DTileset();
 
-		// this.setTilesetStyle();
+		this.setTilesetStyle();
 	}
 
 	/**
