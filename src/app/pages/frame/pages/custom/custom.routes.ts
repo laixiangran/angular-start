@@ -13,6 +13,10 @@ const customRoutes: Routes = [
 				component: HomeComponent
 			},
 			{
+				path: 'map',
+				loadChildren: './pages/map/map.module#MapModule',
+			},
+			{
 				path: 'globe',
 				loadChildren: './pages/globe/globe.module#GlobeModule',
 			},

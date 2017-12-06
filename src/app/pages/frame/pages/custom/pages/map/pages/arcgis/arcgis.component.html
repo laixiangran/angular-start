@@ -1,0 +1,9 @@
+<div class="arcgis-container">
+	<essence-ng2-esrimap
+		[isProxy]="false"
+		[mapUrl]="['vec', 'cva']"
+		[mapType]="'tdt'"
+		[initExtent]="initExtent"
+		(mapReady)="onMapReady($event)">
+	</essence-ng2-esrimap>
+</div>

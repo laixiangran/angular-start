@@ -5,15 +5,13 @@ import { GlobeComponent } from './globe.component';
 import { CesiumComponent } from './pages/cesium/cesium.component';
 import { GlobeRoutingModule } from './globe.routes';
 import { ENgxCesiumModule } from 'e-ngx-cesium';
-import { SelectButtonModule } from 'primeng/primeng';
 
 @NgModule({
 	imports: [
 		CommonModule,
 		FormsModule,
 		GlobeRoutingModule,
-		ENgxCesiumModule,
-		SelectButtonModule
+		ENgxCesiumModule
 	],
 	declarations: [
 		GlobeComponent,

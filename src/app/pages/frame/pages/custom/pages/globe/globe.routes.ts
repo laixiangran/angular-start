@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { GlobeComponent } from './globe.component';
 import { CesiumComponent } from './pages/cesium/cesium.component';
 
-const customRoutes: Routes = [
+const globeRoutes: Routes = [
 	{
 		path: '',
 		component: GlobeComponent,
@@ -23,7 +23,7 @@ const customRoutes: Routes = [
 
 @NgModule({
 	imports: [
-		RouterModule.forChild(customRoutes)
+		RouterModule.forChild(globeRoutes)
 	],
 	exports: [
 		RouterModule

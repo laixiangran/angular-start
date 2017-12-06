@@ -81,6 +81,19 @@ export class AuthGuard implements CanActivate, CanActivateChild, Resolve<any> {
 					children: []
 				},
 				{
+					url: '/frame/custom/map',
+					icon: 'fa fa-map',
+					label: '二维地图',
+					children: [
+						{
+							url: '/frame/custom/map/arcgis',
+							icon: 'fa fa-map',
+							label: 'ArcGIS',
+							children: []
+						}
+					]
+				},
+				{
 					url: '/frame/custom/globe',
 					icon: 'fa fa-globe',
 					label: '三维平台',
