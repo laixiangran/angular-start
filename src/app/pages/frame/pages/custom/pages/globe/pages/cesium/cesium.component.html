@@ -1,9 +1,3 @@
 <div class="cesium-container">
-	<div class="cesium-tools">
-		<h5>3d瓷片样式切换</h5>
-		<p-selectButton [options]="styleTypes" [(ngModel)]="selectedStyleType" (onChange)="setTilesetStyle()"></p-selectButton>
-		<h5>相机模式（相对于无人机）</h5>
-		<p-selectButton [options]="flyTypes" [(ngModel)]="selectedFlyType" (onChange)="setDoneFlyType()"></p-selectButton>
-	</div>
 	<e-ngx-cesium [viewerOptions]="viewerOptions" (viewerReady)="onViewerReady($event)"></e-ngx-cesium>
 </div>
