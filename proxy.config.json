@@ -1,4 +1,8 @@
 {
+	"/projectStart": {
+		"target": "http://192.168.0.8",
+		"secure": false
+	},
 	"/mockjsdata/26879/": {
 		"target": "http://rapapi.org",
 		"secure": false

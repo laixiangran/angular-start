@@ -1,6 +1,7 @@
 <div class="arcgis-container">
 	<essence-ng2-esrimap
-		[isProxy]="false"
+		[isProxy]="true"
+		[proxyUrl]="proxy"
 		[mapUrl]="['vec', 'cva']"
 		[mapType]="'tdt'"
 		[initExtent]="initExtent"

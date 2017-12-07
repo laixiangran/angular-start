@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EssenceNg2EsriMapComponent } from 'essence-ng2-esrimap';
+import { environment } from '../../../../../../../../../environments/environment';
 
 @Component({
 	templateUrl: './arcgis.component.html',
@@ -8,6 +9,7 @@ import { EssenceNg2EsriMapComponent } from 'essence-ng2-esrimap';
 export class ArcGISComponent implements OnInit {
 	esriMap: EssenceNg2EsriMapComponent;
 	initExtent: any;
+	proxy: string = environment.proxy;
 
 	constructor() {
 		this.initExtent = {

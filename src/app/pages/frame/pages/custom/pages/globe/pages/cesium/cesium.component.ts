@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Viewer = Cesium.Viewer;
 import ViewerOptions = Cesium.ViewerOptions;
+import { environment } from '../../../../../../../../../environments/environment';
 
 @Component({
 	templateUrl: './cesium.component.html',
@@ -9,6 +10,7 @@ import ViewerOptions = Cesium.ViewerOptions;
 export class CesiumComponent implements OnInit {
 	viewerOptions: ViewerOptions;
 	viewer: Viewer;
+	proxy: string = environment.proxy;
 
 	constructor() {
 	}
