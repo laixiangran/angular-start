@@ -9,9 +9,11 @@ import { environment } from '../../../../../../../../../environments/environment
 export class ArcGISComponent implements OnInit {
 	esriMap: EssenceNg2EsriMapComponent;
 	initExtent: any;
+	isProxy: boolean = false;
 	proxy: string = environment.proxy;
 
 	constructor() {
+		this.isProxy = !!this.proxy;
 		this.initExtent = {
 			xmax: 172.68611447428455,
 			xmin: 32.06111447428455,
