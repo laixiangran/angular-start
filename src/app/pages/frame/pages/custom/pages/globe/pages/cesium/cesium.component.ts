@@ -20,7 +20,6 @@ export class CesiumComponent implements OnInit {
 
 	onViewerReady($event: Viewer) {
 		this.viewer = $event;
-		console.log(this.viewer);
 	}
 }
 
