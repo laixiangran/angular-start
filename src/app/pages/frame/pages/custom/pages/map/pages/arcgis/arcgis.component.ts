@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EssenceNg2EsriMapComponent } from 'essence-ng2-esrimap';
+import { ENgxEsriMapComponent } from 'e-ngx-esrimap';
 import { environment } from '../../../../../../../../../environments/environment';
 
 @Component({
@@ -7,7 +7,7 @@ import { environment } from '../../../../../../../../../environments/environment
 	styleUrls: ['./arcgis.component.scss']
 })
 export class ArcGISComponent implements OnInit {
-	esriMap: EssenceNg2EsriMapComponent;
+	esriMap: ENgxEsriMapComponent;
 	initExtent: any;
 	isProxy: boolean = false;
 	proxy: string = environment.proxy;
@@ -25,7 +25,7 @@ export class ArcGISComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	onMapReady($event: EssenceNg2EsriMapComponent) {
+	onMapReady($event: ENgxEsriMapComponent) {
 		this.esriMap = $event;
 	}
 }
