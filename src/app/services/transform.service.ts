@@ -198,4 +198,29 @@ export class TransformService {
 		const alpha = Math.acos(s), distance = alpha * this.earthR;
 		return distance;
 	}
+
+	/**
+	 * 将坐标由度分秒表示转为十进制表示
+	 * @param dfm 度分秒表示，如180°0′0″
+	 * @returns {number} 十进制，如180.00
+	 */
+	degree2Decimal(dfm: string): number {
+		const lod = Number(dfm.split('°')[0]),
+			lom = Number(dfm.split('°')[1].split('′')[0]),
+			los = Number(dfm.split('°')[1].split('′')[1].split('″')[0]);
+
+		return lod + lom / 60 + los / 3600;
+	};
+
+	/**
+	 * 将坐标由十进制表示转为度分秒表示
+	 * @param sjz 十进制表示，如180.00
+	 * @returns {string} 度分秒表示，如180°0′0″
+	 */
+	decimal2Degree(sjz: number): string {
+		const d = String(sjz).split('.'),
+			f = String(Number('0.' + d[1]) * 60).split('.');
+
+		return d[0] + '°' + f[0] + '′' + (Number('0.' + f[1]) * 60).toFixed(2) + '″';
+	};
 }
