@@ -14,7 +14,8 @@
 					"glob": "**/*",
 					"input": "../node_modules/cesium/Build/Cesium",
 					"output": "./assets/scripts/cesium"
-				}
+				},
+				"wechat"
 			],
 			"index": "index.html",
 			"main": "main.ts",
