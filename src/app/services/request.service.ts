@@ -4,15 +4,17 @@
  */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 import { ServerData } from '../models/server-data.model';
 import { Observable } from 'rxjs/Observable';
 import { Subscriber } from 'rxjs/Subscriber';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 /**
  * @name RequestService
- * @description 请求服务（post、get）
+ * @description 请求服务（post、get、delete）
  */
 @Injectable()
 export class RequestService {
@@ -70,6 +72,29 @@ export class RequestService {
 	}
 
 	/**
+	 * delete请求
+	 * @param {string} url 请求路径
+	 * @param {boolean} [isMock=false] 是否模拟请求
+	 * @returns {Observable<ServerData>}
+	 */
+	delete(url: string, isMock: boolean = false): Observable<ServerData> {
+		const headers = new HttpHeaders({
+				'Content-Type': 'application/json',
+				'URMS_LOGIN_TOKEN': localStorage.getItem(environment.tokenName) || ''
+			}),
+			options = {headers: headers},
+			requesUrl: string = (isMock ? this.mockDomain : this.domain) + url;
+		return new Observable<ServerData>((subscriber: Subscriber<any>) => {
+			this.http.delete(requesUrl, options).subscribe((serverData: ServerData) => {
+				subscriber.next(serverData);
+				subscriber.complete();
+			}, (error: HttpErrorResponse) => {
+				this.handlerError('delete', error, url, null, isMock, subscriber);
+			});
+		});
+	}
+
+	/**
 	 * 请求出错之后的处理
 	 * @param {string} type 请求类型（post or get）
 	 * @param {HttpErrorResponse} error 错误对象
@@ -84,7 +109,7 @@ export class RequestService {
 			this.router.navigate(['/login']);
 		} else if (error.status === 404) {
 			if (!isMock) { // 只模拟一次
-				if (!environment.production) { // 开发环境
+				if (environment.dev) { // 开发环境
 					isMock = true;
 					if (type === 'post') {
 						this.post(url, obj, isMock).subscribe((data: ServerData) => {
@@ -93,6 +118,11 @@ export class RequestService {
 						});
 					} else if (type === 'get') {
 						this.get(url, isMock).subscribe((data: ServerData) => {
+							subscriber.next(data);
+							subscriber.complete();
+						});
+					} else if (type === 'delete') {
+						this.delete(url, isMock).subscribe((data: ServerData) => {
 							subscriber.next(data);
 							subscriber.complete();
 						});

@@ -1,0 +1,86 @@
+body, html {
+	width: 100%;
+	height: 100%;
+}
+
+#amapContainer {
+	height: 200px;
+}
+
+.problem-info .weui-cells {
+	margin-top: 0;
+	font-size: 14px;
+}
+
+.problem-info .weui-cell__hd {
+	margin-right: 5px;
+}
+
+.problem-info .addr-icon {
+	color: #ff1160;
+}
+
+.problem-info .addr-title {
+	color: #999999;
+}
+
+.problem-info .river-icon {
+	color: #0dda8a;
+}
+
+.problem-info .river-title {
+	color: #999999;
+}
+
+.problem-info .type-icon {
+	color: #e79140;
+}
+
+.problem-info .type-title {
+	color: #999999;
+}
+
+.problem-info .info-icon {
+	color: #0f64da;
+}
+
+.problem-info .advise-icon {
+	color: #9461fc;
+}
+
+.problem-info .image-icon {
+	color: #19b4d0;
+}
+
+.problem-info .tel-icon {
+	color: #392fca;
+}
+
+.problem-info .tel-title {
+	color: #999999;
+}
+
+.problem-info .image-file {
+	position: relative;
+}
+
+.problem-info .image-file img {
+	max-width: 100%
+}
+
+.problem-info .cancel-image {
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	top: 0;
+	right: -11px;
+}
+
+.problem-info .cancel-image i {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.report-problem {
+	margin: 20px 10px;
+}

@@ -1,26 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import Viewer = Cesium.Viewer;
 import ViewerOptions = Cesium.ViewerOptions;
-import { environment } from '../../../../../../../../../environments/environment';
+import { TiandituImageryProvider, TiandituMapsStyle } from 'e-ngx-cesium';
+import ImageryProvider = Cesium.ImageryProvider;
+import Globe = Cesium.Globe;
+import Scene = Cesium.Scene;
 
 @Component({
 	templateUrl: './cesium.component.html',
 	styleUrls: ['./cesium.component.scss']
 })
-export class CesiumComponent implements OnInit {
+export class CesiumComponent {
 	viewerOptions: ViewerOptions;
 	viewer: Viewer;
-	proxy: string = environment.proxy;
+	scene: Scene;
+	globe: Globe;
+	contrastImageryProviders: ImageryProvider[] = [];
+	enableRollerShutters: boolean = true;
 
 	constructor() {
+		this.viewerOptions = {
+			vrButton: true // 启用VR模式
+		};
+		this.contrastImageryProviders = [
+			new TiandituImageryProvider(TiandituMapsStyle.VEC_C),
+			new TiandituImageryProvider(TiandituMapsStyle.TER_C),
+			new TiandituImageryProvider(TiandituMapsStyle.CVA_C),
+			new TiandituImageryProvider(TiandituMapsStyle.CTA_C)
+		];
 	}
 
-	ngOnInit() {
+	onViewerReady(evt: any) {
+		this.viewer = evt.viewer;
+		this.scene = evt.scene;
+		this.globe = evt.globe;
 	}
 
-	onViewerReady($event: Viewer) {
-		this.viewer = $event;
-		console.log(this.viewer);
+	onSliderChange(evt: any) {
+		console.log(evt);
 	}
 }
 

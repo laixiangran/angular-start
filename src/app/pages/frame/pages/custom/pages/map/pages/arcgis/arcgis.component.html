@@ -1,15 +1,10 @@
 <div class="arcgis-container">
-	<!--<div>-->
-		<!--<input type="number" [(ngModel)]="tolerance">-->
-		<!--<input type="checkbox" [(ngModel)]="highQuality" [value]="!highQuality">高质量-->
-		<!--<button (click)="drawLine()">重绘</button>-->
-	<!--</div>-->
-	<essence-ng2-esrimap
+	<e-ngx-esrimap
 		[isProxy]="isProxy"
 		[proxyUrl]="proxy"
 		[mapUrl]="['vec', 'cva']"
 		[mapType]="'tdt'"
 		[initExtent]="initExtent"
 		(mapReady)="onMapReady($event)">
-	</essence-ng2-esrimap>
+	</e-ngx-esrimap>
 </div>
