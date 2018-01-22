@@ -38,7 +38,8 @@
 			"scripts": [
 				"../node_modules/quill/dist/quill.js",
 				"../node_modules/cesium/Build/Cesium/Cesium.js",
-				"../node_modules/e-ngx-cesium/dist/navigation/viewerCesiumNavigationMixin.js"
+				"../node_modules/e-ngx-cesium/dist/navigation/viewerCesiumNavigationMixin.js",
+				"./assets/scripts/simplify-js/simplify.js"
 			],
 			"environmentSource": "environments/environment.ts",
 			"environments": {
