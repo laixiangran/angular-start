@@ -109,7 +109,7 @@ export class RequestService {
 			this.router.navigate(['/login']);
 		} else if (error.status === 404) {
 			if (!isMock) { // 只模拟一次
-				if (environment.dev) { // 开发环境
+				if (!environment.production) { // 开发环境
 					isMock = true;
 					if (type === 'post') {
 						this.post(url, obj, isMock).subscribe((data: ServerData) => {
