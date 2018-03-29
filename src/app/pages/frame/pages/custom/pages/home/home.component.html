@@ -1,35 +1,4 @@
 <div class="fullView home-content">
 	<h1 class="welcome">{{welcomeMessage}}</h1>
-	<h3>坐标互转</h3>
-	<form>
-		<label>
-			待转坐标：
-			<input type="text" name="inCoord" [(ngModel)]="inCoord">
-			<select name="inCoordType" [(ngModel)]="inCoordType">
-				<option value="0">大地坐标</option>
-				<option value="1">高德坐标</option>
-				<option value="2">百度坐标</option>
-			</select>
-			<select name="inCoordUnit" [(ngModel)]="inCoordUnit">
-				<option value="0">十进制</option>
-				<option value="1">度分秒</option>
-			</select>
-		</label>
-		<br>
-		<label>
-			结果坐标：
-			<input type="text" name="outCoord" [(ngModel)]="outCoord">
-			<select name="outCoordType" [(ngModel)]="outCoordType">
-				<option value="0">大地坐标</option>
-				<option value="1">高德坐标</option>
-				<option value="2">百度坐标</option>
-			</select>
-			<select name="outCoordUnit" [(ngModel)]="outCoordUnit">
-				<option value="0">十进制</option>
-				<option value="1">度分秒</option>
-			</select>
-		</label>
-		<br>
-		<button (click)="doConvert()">转换</button>
-	</form>
+	<ng-container></ng-container>
 </div>
