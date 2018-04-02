@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HomeService } from './home.service';
 
 @Component({
@@ -6,12 +6,10 @@ import { HomeService } from './home.service';
 	styleUrls: ['./home.component.scss'],
 	providers: [HomeService]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
+
 	welcomeMessage: string = 'Welcome to Angular World!';
 
 	constructor() {
-	}
-
-	ngOnInit() {
 	}
 }
