@@ -1,0 +1,29 @@
+.demo {
+	padding: 10px;
+	border: 2px solid red;
+
+	h2 {
+		margin: 0;
+		color: #262626;
+	}
+
+	.content {
+		padding: 10px;
+		margin-top: 10px;
+		line-height: 20px;
+		color: #FFFFFF;
+		background-color: #de7d28;
+
+		&.blue {
+			background-color: blue;
+		}
+
+		&.red {
+			background-color: red;
+		}
+
+		&.green {
+			background-color: green;
+		}
+	}
+}

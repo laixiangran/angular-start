@@ -5,6 +5,7 @@ import { CustomRoutingModule } from './custom.routes';
 import { CustomComponent } from './custom.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TransformService } from '../../../../services/transform.service';
+import { DemoComponent } from './pages/home/components/demo/demo.component';
 
 @NgModule({
 	imports: [
@@ -14,7 +15,8 @@ import { TransformService } from '../../../../services/transform.service';
 	],
 	declarations: [
 		CustomComponent,
-		HomeComponent
+		HomeComponent,
+		DemoComponent
 	],
 	providers: [TransformService]
 })
