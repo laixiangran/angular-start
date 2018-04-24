@@ -1,11 +1,11 @@
 {
 	"name": "angular-start",
-	"version": "3.0.0",
+	"version": "5.0.0",
 	"license": "MIT",
+	"private": true,
+	"description": "angular start project.",
 	"keywords": [
 		"angular",
-		"universal",
-		"ssr",
 		"laixiangran"
 	],
 	"homepage": "https://github.com/laixiangran/angular-start#readme",
@@ -42,11 +42,10 @@
 		"@angular/router": "^5.0.0",
 		"bootstrap": "^3.3.7",
 		"cesium": "^1.39.0",
-		"cesium-typings": "^1.40.9",
 		"classlist.js": "^1.1.20150312",
 		"core-js": "^2.4.1",
-		"e-ngx-cesium": "^1.7.1",
-		"e-ngx-esrimap": "^1.2.0",
+		"e-ngx-cesium": "^5.0.0",
+		"e-ngx-esrimap": "^5.0.0",
 		"font-awesome": "^4.7.0",
 		"intl": "^1.2.5",
 		"primeng": "^5.0.0",
