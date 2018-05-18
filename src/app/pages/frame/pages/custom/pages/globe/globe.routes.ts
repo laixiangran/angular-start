@@ -10,7 +10,10 @@ const globeRoutes: Routes = [
 		children: [
 			{
 				path: 'cesium',
-				component: CesiumComponent
+				component: CesiumComponent,
+				data: {
+					title: '三维开发'
+				}
 			},
 			{
 				path: '',

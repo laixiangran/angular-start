@@ -10,7 +10,10 @@ const customRoutes: Routes = [
 		children: [
 			{
 				path: 'home',
-				component: HomeComponent
+				component: HomeComponent,
+				data: {
+					title: '系统主页'
+				}
 			},
 			{
 				path: 'map',

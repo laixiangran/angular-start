@@ -10,7 +10,10 @@ const mapRoutes: Routes = [
 		children: [
 			{
 				path: 'arcgis',
-				component: ArcGISComponent
+				component: ArcGISComponent,
+				data: {
+					title: '地图开发'
+				}
 			},
 			{
 				path: '',

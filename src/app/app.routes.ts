@@ -10,7 +10,10 @@ const appRoutes: Routes = [
 	{
 		path: 'login',
 		canActivate: [AuthGuard],
-		component: LoginComponent
+		component: LoginComponent,
+		data: {
+			title: '系统登录'
+		}
 	},
 	{
 		path: 'frame',
@@ -23,7 +26,10 @@ const appRoutes: Routes = [
 	},
 	{
 		path: '**',
-		component: PageNotFoundComponent
+		component: PageNotFoundComponent,
+		data: {
+			title: '未找到页面'
+		}
 	}
 ];
 
