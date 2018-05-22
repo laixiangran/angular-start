@@ -17,6 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
 				public route: ActivatedRoute,
 				public title: Title,
 				public renderer: Renderer2) {
+
 		// 根据路由变化设置标题
 		this.router.events
 			.filter(event => event instanceof NavigationEnd)
