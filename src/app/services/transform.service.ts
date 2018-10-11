@@ -8,8 +8,8 @@ import { Injectable } from '@angular/core';
  * 坐标对象接口
  */
 interface Location {
-	lat: number,
-	lng: number
+	lat: number;
+	lng: number;
 }
 
 /**
@@ -52,7 +52,7 @@ export class TransformService {
 		lat += -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * xy + 0.2 * absX;
 		lng += 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * xy + 0.1 * absX;
 
-		return {lat: lat, lng: lng}
+		return {lat: lat, lng: lng};
 	}
 
 	private delta(lat: number, lng: number): Location {
@@ -210,7 +210,7 @@ export class TransformService {
 			los = Number(dfm.split('°')[1].split('′')[1].split('″')[0]);
 
 		return lod + lom / 60 + los / 3600;
-	};
+	}
 
 	/**
 	 * 将坐标由十进制表示转为度分秒表示
@@ -222,5 +222,5 @@ export class TransformService {
 			f = String(Number('0.' + d[1]) * 60).split('.');
 
 		return d[0] + '°' + f[0] + '′' + (Number('0.' + f[1]) * 60).toFixed(2) + '″';
-	};
+	}
 }

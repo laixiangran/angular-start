@@ -1,138 +1,160 @@
-body, label {
-    padding: 0;
-    margin: 0;
+body,
+label {
+	padding: 0;
+	margin: 0;
 }
 
 input {
-    outline: none;
+	outline: none;
 }
 
 .mg5 {
-    margin: 5px 0;
+	margin: 5px 0;
 }
 
 .loginPlat {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("../../../assets/images/login/login-bg.jpg");
-    .container {
-        padding: 0;
-        position: absolute;
-        width: 648px;
-        height: 530px;
-        top: 18%;
-        left: 50%;
-        transform: translateX(-50%);
-        .formBox {
-            width: 490px;
-            height: 449px;
-            background: #FFFFFF;
-            margin: 26px auto 0 auto;
-            box-shadow: 5px 5px 18px rgba(0, 0, 0, 0.4);
-            .loginForm {
-                width: 378px;
-                margin: 0 auto;
-                padding-top: 66px;
-                .username, .password {
-                    position: relative;
-                    input {
-                        padding-left: 70px;
-                        width: 100%;
-                        height: 56px;
-                        border: 1px solid #D4E3F2;
-                        font-size: 16px;
-                        color: #0B75FF;
-                        background: #ECF5FE;
-                    }
-                    div {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        i {
-                            display: block;
-                            width: 56px;
-                            height: 56px;
-                            line-height: 56px;
-                            text-align: center;
-                            color: #0B75FF;
-                            font-size: 30px;
-                        }
-                        i:after {
-                            position: absolute;
-                            top: 7px;
-                            left: 56px;
-                            width: 1px;
-                            height: 38px;
-                            content: "";
-                            background: #FFFFFF;
-                        }
-                    }
-                    input:focus {
-                        border: 1px solid #FFD92B;
-                    }
-                    span {
-                        position: absolute;
-                    }
-                }
-                .clearfix {
-                    height: 23px;
-                    line-height: 23px;
-                    color: #F66495;
-                    p {
-                        text-align: left;
-                        margin: 0;
-                        padding: 0;
-                    }
-                }
-                .affirmbox {
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: 42px;
-                    label {
-                        height: 20px;
-                        color: #666666;
-                        font-size: 16px;
-                        cursor: pointer;
-                    }
-                    div {
-                        margin-right: 10px;
-                        width: 19px;
-                        height: 18px;
-                        background: #FFFFFF;
-                        border: 1px solid #CCCCCC;
-                        cursor: pointer;
-                    }
-                    .activeg {
-                        background: url("../../../assets/images/login/select.jpg") no-repeat;
-                        border: none;
-                    }
-                }
-                .loginBtn {
-                    width: 100%;
-                    height: 56px;
-                    font-size: 22px;
-                    color: #FFFFFF;
-                    background: #016FFF;
-                    text-align: center;
-                    border-radius: 0;
-                }
-                p {
-                    margin-top: 22px;
-                    text-align: right;
-                }
-                a {
-                    font-size: 16px;
-                    color: #666666;
-                    text-decoration: underline;
-                }
-                a:hover {
-                    color: #333333;
-                    text-decoration: none;
-                }
-            }
-        }
-    }
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url("../../../assets/images/login/login-bg.jpg");
+
+	.container {
+		padding: 0;
+		position: absolute;
+		width: 648px;
+		height: 530px;
+		top: 18%;
+		left: 50%;
+		transform: translateX(-50%);
+
+		.formBox {
+			width: 490px;
+			height: 449px;
+			background: #FFFFFF;
+			margin: 26px auto 0 auto;
+			box-shadow: 5px 5px 18px rgba(0, 0, 0, 0.4);
+
+			.loginForm {
+				width: 378px;
+				margin: 0 auto;
+				padding-top: 66px;
+
+				.username,
+				.password {
+					position: relative;
+
+					input {
+						padding-left: 70px;
+						width: 100%;
+						height: 56px;
+						border: 1px solid #D4E3F2;
+						font-size: 16px;
+						color: #0B75FF;
+						background: #ECF5FE;
+					}
+
+					div {
+						position: absolute;
+						top: 0;
+						left: 0;
+
+						i {
+							display: block;
+							width: 56px;
+							height: 56px;
+							line-height: 56px;
+							text-align: center;
+							color: #0B75FF;
+							font-size: 30px;
+						}
+
+						i::after {
+							position: absolute;
+							top: 7px;
+							left: 56px;
+							width: 1px;
+							height: 38px;
+							content: "";
+							background: #FFFFFF;
+						}
+					}
+
+					input:focus {
+						border: 1px solid #FFD92B;
+					}
+
+					span {
+						position: absolute;
+					}
+				}
+
+				.clearfix {
+					height: 23px;
+					line-height: 23px;
+					color: #F66495;
+
+					p {
+						text-align: left;
+						margin: 0;
+						padding: 0;
+					}
+				}
+
+				.affirmbox {
+					display: flex;
+					align-items: center;
+					margin-bottom: 42px;
+
+					label {
+						height: 20px;
+						color: #666666;
+						font-size: 16px;
+						cursor: pointer;
+					}
+
+					div {
+						margin-right: 10px;
+						width: 19px;
+						height: 18px;
+						background: #FFFFFF;
+						border: 1px solid #CCCCCC;
+						cursor: pointer;
+					}
+
+					.activeg {
+						background: url("../../../assets/images/login/select.jpg") no-repeat;
+						border: none;
+					}
+				}
+
+				.loginBtn {
+					width: 100%;
+					height: 56px;
+					font-size: 22px;
+					color: #FFFFFF;
+					background: #016FFF;
+					text-align: center;
+					border-radius: 0;
+				}
+
+				p {
+					margin-top: 22px;
+					text-align: right;
+				}
+
+				a {
+					font-size: 16px;
+					color: #666666;
+					text-decoration: underline;
+				}
+
+				a:hover {
+					color: #333333;
+					text-decoration: none;
+				}
+			}
+		}
+	}
 }
